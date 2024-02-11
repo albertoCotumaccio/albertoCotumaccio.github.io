@@ -110,7 +110,7 @@
     }
 
     h2 {
-    color: #630808;
+    color: black;
     margin-bottom: 20px;
     }
 
@@ -157,3 +157,14 @@
     .navigation a:hover, .navigation a:focus {
         color: #FFA500; /* Arancione quando si passa sopra con il mouse */
     }
+
+.centered-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Aggiungi un margine se necessario */
+}
+
+.centered-image img {
+    max-width: 30%; /* Ridimensiona l'immagine al 50% della larghezza del contenitore */
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+}
