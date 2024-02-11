@@ -1,44 +1,91 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        header, footer { text-align: center; }
-        .intro { margin-bottom: 20px; }
-        .projects { margin-bottom: 20px; }
-        .project { margin-bottom: 10px; }
-        footer { font-size: 0.9em; }
-    </style>
+    <title>👋 Ciao :) I am Alberto Cotumaccio!</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link al file CSS esterno -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Benvenuto nel Mio Portfolio</h1>
-        <p>Un breve sguardo ai miei lavori e progetti.</p>
-    </header>
+    <div class="wrapper">
+        <div class="sidebar">
+            <header>
+                <img class="img-circle" src="https://avatars.githubusercontent.com/u/114003731?s=400&u=637dd61e74f4fe857da20bf3867f52d81e2acfc7&v=4" alt="Profile Picture">
+                <h1>Alberto Cotumaccio</h1>
+                <p>Software Engineer</p>
+                <p><i class="fas fa-map-marker-alt"></i> Based in Rome, Italy</p>
 
-    <section class="intro">
-        <h2>Chi Sono</h2>
-        <p>Mi chiamo [Il Tuo Nome], un appassionato di sviluppo web con un interesse particolare per [la tua specializzazione]. Questo portfolio mostra alcuni dei miei progetti preferiti su cui ho lavorato.</p>
-    </section>
-
-    <section class="projects">
-        <h2>Progetti</h2>
-        <div class="project">
-            <h3>Nome Progetto 1</h3>
-            <p>Descrizione breve del progetto, le tecnologie usate, e qualsiasi altra informazione rilevante.</p>
+            </header>
+            <div class="contacts">
+                <!-- Aggiungi qui i link ai tuoi profili social con icone -->
+                <a href="https://github.com/albertoCotumaccio"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://twitter.com/Albecotu"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </div>
-        <div class="project">
-            <h3>Nome Progetto 2</h3>
-            <p>Descrizione breve del progetto, le tecnologie usate, e qualsiasi altra informazione rilevante.</p>
-        </div>
-        <!-- Aggiungi altri progetti qui -->
-    </section>
+        <section>
+                <nav class="navigation">
+                    <a href="index.html">Home</a>
+                    <a href="hobbies.html">Hobbies</a>
+                </nav>
 
-    <footer>
-        <p>Contattami all'indirizzo email@example.com | Seguimi su [Social Media]</p>
-    </footer>
+            <p style="font-size: 25px;">👋 Ciao :) I am currently completing my Master's degree in Computer Science at La Sapienza University. During these years of study, I have been lucky to meet many inspiring people and to develop interesting projects that have allowed me to range in various areas of computer science. I get very excited about working in a team and I am always looking for new technology adventures and opportunities.</p>
+
+            
+
+            <h2>Thesis Projects</h2>
+            <div class="thesis-projects">
+                <div class="project">
+                    <h3>Bachelor's Thesis: Restaurant Business Management Web Platform</h3>
+                    <p>For my Bachelor's thesis, I developed a complete web-based management platform for Pedevilla restaurant's business activities across Italy, using Django for backend management.</p>
+                    <p><strong>Skills & Technologies:</strong> Django, Python, Web Development, Project Management</p>
+                </div>
+                <div class="project">
+                    <h3>Master's Thesis: Bridging Software Engineering, Cloud Computing, and AI</h3>
+                    <p>My Master's thesis project focuses on integrating software engineering, cloud computing, and artificial intelligence to automate the cloud infrastructure requirements elicitation phase.</p>
+                    <p><strong>Skills & Technologies:</strong> Cloud Computing, AI, Software Engineering</p>
+                </div>
+            </div>
+
+            <h2>My Portfolio</h2>
+            <div class="projects">
+                <div class="project" style="text-align: center;">
+                    <h3>Web Application for Real-time Physical Activity Tracking</h3>
+                    <p>I developed a computer vision web application using Python and Flask, leveraging artificial intelligence to track and monitor users' physical activity in real-time.</p>
+                    <p><strong>Skills & Technologies:</strong> Python, Flask, Computer Vision, AI</p>
+                     <a class="more-info" href="https://github.com/albertoCotumaccio/AI-Gym-Tracker">More Info</a>
+                </div>
+                <div class="project" style="text-align: center;">
+                    <h3>Decentralized Web Application for Sustainable Community Management</h3>
+                    <p>I created a decentralized web application based on a Solidity smart contract, interacting with the Blockchain to enable players to manage their eco-sustainable communities against environmental challenges.</p>
+                    <p><strong>Skills & Technologies:</strong> Solidity, Blockchain, Smart Contracts, Web3</p>
+                    <a class="more-info" href="https://github.com/albertoCotumaccio/EcoCity">More Info</a>
+                </div>
+                <div class="project" style="text-align: center;">
+                    <h3>Anime Recommender System</h3>
+                    <p>I built an Anime Recommender System employing various techniques to assist users in discovering new anime titles.</p>
+                    <p><strong>Skills & Technologies:</strong> Machine Learning, Data Analysis, Python</p>
+                    <a class="more-info" href="https://github.com/albertoCotumaccio/anime-recommender-system">More Info</a>
+                </div>
+                <div class="project" style="text-align: center;">
+                    <h3>Mobile Contact Exchange Application</h3>
+                    <p>I developed a mobile application for exchanging contact information between phones using NFC technology.</p>
+                    <p><strong>Skills & Technologies:</strong> Mobile Development, NFC, Cross-platform App Development</p>
+                    <a class="more-info" href="https://github.com/albertoCotumaccio/WeShare---application">More Info</a>
+                </div>
+                <div class="project" style="text-align: center;">
+                    <h3>Food Delivery Web Application</h3>
+                    <p>I designed a food delivery web application utilizing WebRatio's low-code platform for streamlined delivery services.</p>
+                    <p><strong>Skills & Technologies:</strong> Low-code Development, WebRatio, UI/UX Design</p>
+                    <a class="more-info" href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering">More Info</a>
+                </div>
+            </div>
+            
+        
+        </section>
+    </div>
 </body>
 </html>

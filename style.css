@@ -1,0 +1,159 @@
+
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    }
+
+
+.project h3, .project p {
+    color: #333;
+}
+
+/* Nuovi stili per la sezione Projects */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project h3 {
+    margin-top: 0;
+    color: #630808;
+}
+
+.project p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.project strong {
+    color: #350404;
+}
+
+.more-info {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #630808;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.more-info:hover {
+    background-color: #350404;
+}
+
+    .wrapper {
+    display: flex;
+    min-height: 100vh;
+    }
+
+    .sidebar {
+    width: 250px;
+    background-color: #350404;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .sidebar header img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 120px;
+    height: 120px;
+    }
+
+    .sidebar header h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    }
+
+    .sidebar p, .sidebar a {
+    color: #bdc3c7;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    }
+
+    .sidebar p {
+    text-align: center;
+    font-size: 20px;
+    }
+
+    .contacts p {
+    font-size: 12px;
+    margin-bottom: 5px;
+    }
+
+    section {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    }
+
+    h2 {
+    color: #630808;
+    margin-bottom: 20px;
+    }
+
+
+    @media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .sidebar header, .sidebar div {
+        flex: 1;
+    }
+
+    section {
+        padding: 20px;
+    }
+    }
+    .navigation {
+    padding: 10px 20px;
+    text-align: center;
+    }
+
+    .navigation {
+    padding: 10px 20px;
+    text-align: center;
+    }
+
+    .navigation a {
+        color: black; /* Colore dei link */
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 30px;
+        transition: color 0.3s ease;
+    }
+
+    .navigation a:hover, .navigation a:focus {
+        color: #FFA500; /* Arancione quando si passa sopra con il mouse */
+    }
