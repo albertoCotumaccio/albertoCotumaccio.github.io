@@ -161,10 +161,10 @@
 .centered-image {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Aggiungi un margine se necessario */
+    margin-bottom: 20px; 
 }
 
 .centered-image img {
-    max-width: 30%; /* Ridimensiona l'immagine al 50% della larghezza del contenitore */
+    max-width: 30%;
     height: auto; /* Mantiene le proporzioni dell'immagine */
 }
