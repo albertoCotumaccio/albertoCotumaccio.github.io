@@ -6,86 +6,177 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>👋 Ciao :) I am Alberto Cotumaccio!</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link al file CSS esterno -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div class="wrapper">
-        <div class="sidebar">
-            <header>
-                <img class="img-circle" src="https://avatars.githubusercontent.com/u/114003731?s=400&u=637dd61e74f4fe857da20bf3867f52d81e2acfc7&v=4" alt="Profile Picture">
-                <h1>Alberto Cotumaccio</h1>
-                <p>Software Engineer</p>
-                <p><i class="fas fa-map-marker-alt"></i> Based in Rome, Italy</p>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+        }
+      /* Aumenta la dimensione del font dei link nella navbar */
+      .navbar-nav .nav-link {
+        font-size: 30px; /* Adegua questa dimensione a seconda delle tue preferenze */
+      }
 
-            </header>
-            <div class="contacts">
-                <!-- Aggiungi qui i link ai tuoi profili social con icone -->
-                <a href="https://github.com/albertoCotumaccio"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://twitter.com/Albecotu"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      /* Cambia colore e sottolinea al passaggio del mouse */
+      .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+        color: #007bff; /* Colore al passaggio del mouse */
+        text-decoration: underline; /* Sottolineatura al passaggio del mouse */
+      }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color: #f4f4f4;">
+        <div class="row">
+
+            <!-- Sidebar -->
+            <div class="col-md-3 mb-4 p-4" style="background-color: #350404; color: white;">
+                <div class="text-center mb-4">
+                    <img class="rounded-circle" src="https://avatars.githubusercontent.com/u/114003731?s=400&u=637dd61e74f4fe857da20bf3867f52d81e2acfc7&v=4" alt="Profile Picture" width="140" height="140">
+                    <h1 class="my-2"><strong>Alberto Cotumaccio</strong></h1>
+                    <br>
+                    <h3>Software Engineer</h3>
+                    <h4><i class="fas fa-map-marker-alt"></i> Rome, Italy</h4>
+                </div>
+                <br>
+                <div>
+                    <a href="https://github.com/albertoCotumaccio" class="btn btn-dark btn-block"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://twitter.com/Albecotu" class="btn btn-info btn-block"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+                    <a href="https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/" class="btn btn-primary btn-block"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
             </div>
-        </div>
-        <section>
-                <nav class="navigation">
-                    <a href="index.html">Home</a>
-                    <a href="hobbies.html">Hobbies</a>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+
+                <nav class="navbar navbar-expand-lg">
+                  <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="hobbies.html">Hobbies</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </nav>
 
-            <p style="font-size: 25px;">👋 Ciao :) I am currently completing my Master's degree in Computer Science at La Sapienza University. During these years of study, I have been lucky to meet many inspiring people and to develop interesting projects that have allowed me to range in various areas of computer science. I get very excited about working in a team and I am always looking for new technology adventures and opportunities.</p>
+                <p style="font-size: 25px;">👋 Ciao :) I am currently completing my Master's degree in Computer Science at La Sapienza University</p>
+                
+                <h1 style="text-align: center;"><strong>Thesis Projects</strong></h1>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Bachelor's Thesis: iMenuManager - Design and development of a web application for restaurant business management</strong></h5>
+                        <p class="card-text">Web-based management platform for Pedevilla restaurant's business activities across Italy, using Django for backend management.</p>
+                        <p class="card-text"><strong>Skills & Technologies:</strong> Django, Python, Web Development, Project Management</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione_tirocinio_cotumaccio.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
+                            <a href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
 
-            
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Master's Thesis: Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering</strong></h5>
+                        <p class="card-text">Integrating software engineering, cloud computing, and artificial intelligence to automate the cloud requirements specification.</p>
+                        <p class="card-text"><strong>Skills & Technologies:</strong> Cloud Computing, AI, Software Engineering</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-primary btn-sm mr-2">Read</a>
+                            <a href="https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 style="text-align: center; margin-top: 20px;"><strong>My Portfolio</strong></h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                        <h5 class="card-title"><strong>Web Application for Real-time Physical Activity Tracking</strong></h5>
+                        <p class="card-text">Computer vision web application, leveraging artificial intelligence to track and monitor users' physical activity in real-time.</p>
+                        <p class="card-text"><strong>Skills & Technologies:</strong> Python, Flask, Computer Vision, AI</p>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/AI-Gym-Tracker"><i class="fab fa-github"></i> Github</a>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                        <h5 class="card-title"><strong>Decentralized Web Application for Sustainable Community Management</strong></h5>
+                        <p class="card-text">Decentralized web application based on a Solidity smart contract, interacting with the Blockchain to enable players to manage their eco-sustainable communities against environmental challenges.</p>
+                        <p class="card-text"><strong>Skills & Technologies:</strong> Solidity, Blockchain, Smart Contracts, Web3</p>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/EcoCity"><i class="fab fa-github"></i> Github</a>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                        <h5 class="card-title"><strong>Anime Recommender System</strong></h5>
+                        <p class="card-text">Anime Recommender System employing various techniques to assist users in discovering new anime titles.</p>
+                        <p class="card-text"><strong>Skills & Technologies:</strong> Machine Learning, Data Analysis, Python</p>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/anime-recommender-system"><i class="fab fa-github"></i> Github</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                        <h5 class="card-title"><strong>Mobile Contact Exchange Application</strong></h5>
+                        <p class="card-text">Mobile application for exchanging contact information between phones using NFC technology.</p>
+                        <p class="card-text"><strong>Skills & Technologies:</strong> Mobile Development, NFC, Cross-platform App Development</p>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/WeShare---application"><i class="fab fa-github"></i> Github</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <h2>Thesis Projects</h2>
-            <div class="thesis-projects">
-                <div class="project">
-                    <h3>Bachelor's Thesis: iMenuManager - Design and development of a web application for restaurant business management</h3>
-                    <p>Web-based management platform for Pedevilla restaurant's business activities across Italy, using Django for backend management.</p>
-                    <p><strong>Skills & Technologies:</strong> Django, Python, Web Development, Project Management</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                        <h5 class="card-title"><strong>Food Delivery Web Application</strong></h5>
+                        <p class="card-text">Food delivery web application utilizing WebRatio's low-code platform for streamlined delivery services.</p>
+                        <p class="card-text"><strong>Skills & Technologies:</strong> Low-code Development, WebRatio, UI/UX Design</p>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering"><i class="fab fa-github"></i> Github</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
                 </div>
-                <div class="project">
-                    <h3>Master's Thesis: Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering</h3>
-                    <p>Integrating software engineering, cloud computing, and artificial intelligence to automate the cloud requirements specification.</p>
-                    <p><strong>Skills & Technologies:</strong> Cloud Computing, AI, Software Engineering</p>
-                </div>
+
+
             </div>
-
-            <h2>My Portfolio</h2>
-            <div class="projects">
-                <div class="project" style="text-align: center;">
-                    <h3>Web Application for Real-time Physical Activity Tracking</h3>
-                    <p>I developed a computer vision web application using Python and Flask, leveraging artificial intelligence to track and monitor users' physical activity in real-time.</p>
-                    <p><strong>Skills & Technologies:</strong> Python, Flask, Computer Vision, AI</p>
-                     <a class="more-info" href="https://github.com/albertoCotumaccio/AI-Gym-Tracker">More Info</a>
-                </div>
-                <div class="project" style="text-align: center;">
-                    <h3>Decentralized Web Application for Sustainable Community Management</h3>
-                    <p>I created a decentralized web application based on a Solidity smart contract, interacting with the Blockchain to enable players to manage their eco-sustainable communities against environmental challenges.</p>
-                    <p><strong>Skills & Technologies:</strong> Solidity, Blockchain, Smart Contracts, Web3</p>
-                    <a class="more-info" href="https://github.com/albertoCotumaccio/EcoCity">More Info</a>
-                </div>
-                <div class="project" style="text-align: center;">
-                    <h3>Anime Recommender System</h3>
-                    <p>I built an Anime Recommender System employing various techniques to assist users in discovering new anime titles.</p>
-                    <p><strong>Skills & Technologies:</strong> Machine Learning, Data Analysis, Python</p>
-                    <a class="more-info" href="https://github.com/albertoCotumaccio/anime-recommender-system">More Info</a>
-                </div>
-                <div class="project" style="text-align: center;">
-                    <h3>Mobile Contact Exchange Application</h3>
-                    <p>I developed a mobile application for exchanging contact information between phones using NFC technology.</p>
-                    <p><strong>Skills & Technologies:</strong> Mobile Development, NFC, Cross-platform App Development</p>
-                    <a class="more-info" href="https://github.com/albertoCotumaccio/WeShare---application">More Info</a>
-                </div>
-                <div class="project" style="text-align: center;">
-                    <h3>Food Delivery Web Application</h3>
-                    <p>I designed a food delivery web application utilizing WebRatio's low-code platform for streamlined delivery services.</p>
-                    <p><strong>Skills & Technologies:</strong> Low-code Development, WebRatio, UI/UX Design</p>
-                    <a class="more-info" href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering">More Info</a>
-                </div>
-            </div>
-            
-        
-        </section>
+        </div>
     </div>
 </body>
+
 </html>
