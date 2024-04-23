@@ -1,0 +1,22 @@
+/* File: styles.css */
+.card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+/* Aumenta la dimensione del font dei link nella navbar */
+.navbar-nav .nav-link {
+    font-size: 30px; 
+}
+
+/* Cambia colore e sottolinea al passaggio del mouse */
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+    color: #007bff; /* Colore al passaggio del mouse */
+    text-decoration: underline; /* Sottolineatura al passaggio del mouse */
+}
