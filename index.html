@@ -5,159 +5,237 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👋 Alberto Cotumaccio Website</title>
+    <title>Alberto Cotumaccio | Software Engineer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- foglio di stile -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .skill-badge {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 10px;
+        }
+
+        .sapienza-logo {
+            width: 100px;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid" style="background-color: #f4f4f4;">
-        <div class="row">
+    <!-- Header -->
+    <header class="bg-dark text-white text-center p-4">
+        <img src="https://avatars.githubusercontent.com/u/114003731?s=400&u=637dd61e74f4fe857da20bf3867f52d81e2acfc7&v=4" alt="Profile Picture" class="profile-pic">
+        <h1>Alberto Cotumaccio</h1>
+        <p>Software Engineer | AI Enthusiast | Full Stack Developer</p>
+        <div class="d-flex justify-content-center mt-3">
+            <a href="https://github.com/albertoCotumaccio" class="mx-2 text-white"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/" class="mx-2 text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://twitter.com/Albecotu" class="mx-2 text-white"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
+    </header>
 
-            <!-- Sidebar -->
-            <div class="col-md-3 mb-4 p-4" style="background-color: #350404; color: white;">
-                <div class="text-center mb-4">
-                    <img class="rounded-circle" src="https://avatars.githubusercontent.com/u/114003731?s=400&u=637dd61e74f4fe857da20bf3867f52d81e2acfc7&v=4" alt="Profile Picture" width="200" height="200">
-                    <h1 class="my-2"><strong>Alberto Cotumaccio</strong></h1>
-                    <br>
-                    <h3>Software Engineer</h3>
-                    <h4><i class="fas fa-map-marker-alt"></i> Rome, Italy</h4>
+    <!-- About Me -->
+    <section id="about" class="container my-5">
+        <h2 class="text-center">About Me</h2>
+        <p class="text-center" style="color: #6c757d; font-size: 16px;">Hey! I am Alberto and I am currently working as a Software Engineer Consultant at Atlas Reply Rome. My portfolio includes projects ranging from web and mobile applications to decentralized and low-code solutions. I explored full-stack development during my bachelor internship thesis and the use of artificial intelligence in my master's thesis. I am constantly looking to bring innovation and added value.</p>
+    </section>
+
+    <!-- Education and Thesis Projects -->
+    <section id="education-projects" class="container my-5">
+        <h2 class="text-center mb-2">Education</h2>
+
+        <!-- Education -->
+        <div class="text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Stemma_sapienza.png" alt="Sapienza Logo" class="sapienza-logo">
+            <h5>Sapienza University of Rome</h5>
+            <p>Bachelor's and Master's Degree in Computer Science</p>
+            <p>2019 - 2024</p>
+        </div>
+
+        <!-- Thesis Projects -->
+<div class="row">
+    <!-- Bachelor's Thesis -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <p class="text-uppercase font-weight-bold text-muted">Bachelor's Thesis + internship</p>
+                <h5 class="card-title">iMenuManager - Design and Development of a Web Application for Restaurant Business Management</h5>
+                <p class="card-text">Development of a web-based management platform for a restaurant and catering company, which facilitates business operations at multiple locations in Italy.</p>
+                <p><strong>Skills:</strong> Django, Python, Web Development</p>
+                <div class="d-flex justify-content-center">
+                    <a href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree" 
+                       class="btn btn-dark btn-sm mr-2">
+                       <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione_tirocinio_cotumaccio.pdf" 
+                       class="btn btn-primary btn-sm">
+                       <i class="fas fa-book-open"></i> Read
+                    </a>
                 </div>
-                <br>
-                <div>
-                    <a href="https://github.com/albertoCotumaccio" class="btn btn-dark btn-block"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://twitter.com/Albecotu" class="btn btn-info btn-block"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
-                    <a href="https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/" class="btn btn-primary btn-block"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                </div>
-            </div>
-
-            <!-- Main Content -->
-            <div class="col-md-9">
-
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="hobbies.html">About Me</a>
-                        </div>
-                    </div>
-                </nav>
-                
-
-                <p style="font-size: 25px;">👋 Hello! I am Alberto Cotumaccio, with a master's degree in Computer Science at La Sapienza University of Rome</p>
-                <h1 style="text-align: center;"><strong>Thesis Projects</strong></h1>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Bachelor's Thesis: iMenuManager - Design and development of a web application for restaurant business management</strong></h5>
-                        <p class="card-text">Development of a web-based management platform for the restaurant and catering company Pedevilla, which facilitates business operations at multiple locations in Italy. This platform was designed using Django, with responsibilities that included graphic design, functionality development, and database management. My role involved integrating these elements to create a cohesive and efficient system capable of supporting the diverse needs of the various stakeholders within the organization. The thesis is written Italian.</p>
-                        <p class="card-text"><strong>Skills & Technologies:</strong> Django, Python, Web Development, System Design</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione_tirocinio_cotumaccio.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
-                            <a href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Master's Thesis: Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering</strong></h5>
-                        <p class="card-text">This thesis seeks to bridge the fields of requirements engineering, cloud computing and artificial intelligence by introducing an innovative methodology. This approach, designed to be incorporated into a cloud services broker module, leverages advanced analysis of natural language documents. The goal is to accurately derive requirement specifications and identify suitable cloud products from leading service providers. The proposed system represents a significant step toward automating and optimizing the cloud service selection process, ensuring more efficient alignment with users' specific needs and requirements.</p>
-                        <p class="card-text"><strong>Skills & Technologies:</strong> Cloud Computing, Transformers, NLP</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec/blob/master/AI-Driven-Cloud-Spec-Thesis.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
-                            <a href="https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec" class="btn btn-secondary btn-sm"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <h1 style="text-align: center; margin-top: 20px;"><strong>My Portfolio</strong></h1>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                        <h5 class="card-title"><strong>Web Application for Real-time Physical Activity Tracking</strong></h5>
-                        <p class="card-text">Computer vision web application, leveraging artificial intelligence to track and monitor users' physical activity in real-time.</p>
-                        <p class="card-text"><strong>Skills & Technologies:</strong> Python, Flask, Computer Vision, AI</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://github.com/albertoCotumaccio/AI-Gym-Tracker/blob/main/Report_AIGymTracker.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
-                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/AI-Gym-Tracker"><i class="fab fa-github"></i> Github</a>
-                        </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                        <h5 class="card-title"><strong>Decentralized Web Application for Sustainable Community Management</strong></h5>
-                        <p class="card-text">Decentralized web application based on a Solidity smart contract, interacting with the Blockchain to enable players to manage their eco-sustainable communities against environmental challenges.</p>
-                        <p class="card-text"><strong>Skills & Technologies:</strong> Solidity, Smart Contracts, Web3, React</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://github.com/albertoCotumaccio/EcoCity/blob/main/EcoCity_Report.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
-                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/EcoCity"><i class="fab fa-github"></i> Github</a>
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                        <h5 class="card-title"><strong>Anime Recommender System</strong></h5>
-                        <p class="card-text">Anime Recommender System employing various techniques to assist users in discovering new anime titles.</p>
-                        <p class="card-text"><strong>Skills & Technologies:</strong> Machine Learning, Data Analysis, Python</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://github.com/albertoCotumaccio/anime-recommender-system/blob/main/presentation.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
-                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/anime-recommender-system"><i class="fab fa-github"></i> Github</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                        <h5 class="card-title"><strong>Mobile Contact Exchange Application</strong></h5>
-                        <p class="card-text">Mobile application for exchanging contact information between phones using NFC technology.</p>
-                        <p class="card-text"><strong>Skills & Technologies:</strong> Mobile Development, NFC, Cross-platform App Development</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://github.com/albertoCotumaccio/WeShare---application/blob/main/Documents/Project_Report.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
-                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/WeShare---application"><i class="fab fa-github"></i> Github</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                        <h5 class="card-title"><strong>Food Delivery Web Application</strong></h5>
-                        <p class="card-text">Food delivery web application utilizing WebRatio's low-code platform for streamlined delivery services.</p>
-                        <p class="card-text"><strong>Skills & Technologies:</strong> Low-code Development, WebRatio, UI/UX Design</p>
-                        <div class="d-flex justify-content-center">
-                            <a href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering/blob/main/Documentation/Final%20report.pdf" class="btn btn-primary btn-sm mr-2">Read</a>
-                            <a class="btn btn-secondary btn-sm" href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering"><i class="fab fa-github"></i> Github</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                    </div>
-                </div>
-
-
             </div>
         </div>
     </div>
+    <!-- Master's Thesis -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <p class="text-uppercase font-weight-bold text-muted">Master's Thesis</p>
+                <h5 class="card-title">Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering</h5>
+                <p class="card-text">Automating requirements analysis and documentation for the cloud domain by translating user requirements, expressed in natural language, into technical specifications.</p>
+                <p><strong>Skills:</strong> Cloud Computing, AI, NLP</p>
+                <div class="d-flex justify-content-center">
+                    <a href="https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec" 
+                       class="btn btn-dark btn-sm mr-2">
+                       <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec/blob/master/AI-Driven-Cloud-Spec-Thesis.pdf" 
+                       class="btn btn-primary btn-sm">
+                       <i class="fas fa-book-open"></i> Read
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- University Projects -->
+<h3 class="text-center mb-4">Additional Projects</h3>
+<ul class="list-group mb-4">
+    <li class="list-group-item d-flex align-items-center">
+        <i class="fab fa-python fa-2x mr-3 text-primary"></i>
+        <div class="flex-grow-1">
+            <strong>Real-time Physical Activity Tracking:</strong>
+            AI-powered computer vision web application for monitoring physical activity.<br>
+            <em>Technologies:</em> Python, Flask, Computer Vision, AI
+        </div>
+        <a href="https://github.com/albertoCotumaccio/AI-Gym-Tracker" target="_blank" class="ml-3 text-primary">
+            <i class="fas fa-arrow-right fa-2x"></i>
+        </a>
+    </li>
+    <li class="list-group-item d-flex align-items-center">
+        <i class="fab fa-ethereum fa-2x mr-3 text-success"></i>
+        <div class="flex-grow-1">
+            <strong>Decentralized Community Management:</strong>
+            Blockchain-based app with Solidity smart contracts for eco-sustainability challenges.<br>
+            <em>Technologies:</em> Solidity, Smart Contracts, Web3, React
+        </div>
+        <a href="https://github.com/albertoCotumaccio/EcoCity" target="_blank" class="ml-3 text-primary">
+            <i class="fas fa-arrow-right fa-2x"></i>
+        </a>
+    </li>
+    <li class="list-group-item d-flex align-items-center">
+        <i class="fas fa-brain fa-2x mr-3 text-warning"></i>
+        <div class="flex-grow-1">
+            <strong>Anime Recommender System:</strong>
+            ML-powered recommendation system for discovering anime titles.<br>
+            <em>Technologies:</em> Machine Learning, Data Analysis, Python
+        </div>
+        <a href="https://github.com/albertoCotumaccio/anime-recommender-system" target="_blank" class="ml-3 text-primary">
+            <i class="fas fa-arrow-right fa-2x"></i>
+        </a>
+    </li>
+    <li class="list-group-item d-flex align-items-center">
+        <i class="fas fa-mobile-alt fa-2x mr-3 text-info"></i>
+        <div class="flex-grow-1">
+            <strong>Contact Exchange Mobile App:</strong>
+            Cross-platform mobile app using NFC for quick contact exchange.<br>
+            <em>Technologies:</em> Mobile Development, NFC, Cross-platform App Development
+        </div>
+        <a href="https://github.com/albertoCotumaccio/WeShare---application" target="_blank" class="ml-3 text-primary">
+            <i class="fas fa-arrow-right fa-2x"></i>
+        </a>
+    </li>
+    <li class="list-group-item d-flex align-items-center">
+        <i class="fas fa-utensils fa-2x mr-3 text-danger"></i>
+        <div class="flex-grow-1">
+            <strong>Food Delivery Platform:</strong>
+            Low-code web application for streamlined food delivery services.<br>
+            <em>Technologies:</em> Low-code Development, WebRatio, UI/UX Design
+        </div>
+        <a href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering" target="_blank" class="ml-3 text-primary">
+            <i class="fas fa-arrow-right fa-2x"></i>
+        </a>
+    </li>
+</ul>
+
+    </section>
+
+
+    <!-- Research Paper -->
+    <section id="research-paper" class="container my-5">
+        <h2 class="text-center mb-4">Research Paper</h2>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title text-center">AI-CRAS: AI-driven Cloud Service Requirement Analysis and Specification</h5>
+                <p class="card-text text-center text-muted mb-4">
+                    Published in: <strong>2024 IEEE International Conference on Cloud Engineering (IC2E)</strong><br>
+                    Conference Date: <strong>24-27 September 2024</strong><br>
+                    Location: <strong>Paphos, Cyprus</strong><br>
+                    Publisher: <strong>IEEE</strong>
+                </p>
+                <p class="card-text">
+                    This paper introduces AI-CRAS, a methodology designed to simplify cloud migration by automating the analysis and documentation of requirements. AI-CRAS leverages advanced deep learning and NLP techniques to translate user needs, expressed in natural language, into precise and structured technical specifications. It bridges the gap in automated requirement analysis and specification for cloud computing, enhancing efficiency and scalability.
+                </p>
+                <p class="card-text"><strong>Technologies:</strong> Deep Learning, NLP, AI</p>
+                <div class="text-center">
+                    <a href="https://ieeexplore.ieee.org/document/10749735" class="btn btn-primary btn-sm"><i class="fas fa-book-open"></i> Read Paper</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Skills -->
+    <section id="skills" class="container my-5">
+        <h2 class="text-center mb-4">Skills</h2>
+        <div class="skills-container">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Django</span>
+            <span class="skill-badge">AI</span>
+            <span class="skill-badge">Machine Learning</span>
+            <span class="skill-badge">Cloud Computing</span>
+            <span class="skill-badge">NLP</span>
+            <span class="skill-badge">Web Development</span>
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">Solidity</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-4">
+        <p>&copy; 2024 Alberto Cotumaccio. All Rights Reserved.</p>
+    </footer>
 </body>
 
 </html>
