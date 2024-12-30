@@ -1,0 +1,163 @@
+/* --- ROOT VARIABLES --- */
+:root {
+    --bg-color: #fff;
+    --text-color: #000;
+    --secondary-text-color: #6c757d;
+    --header-bg: #343a40;
+    --header-text: #fff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --secondary-text-color: #b0b0b0;
+    --header-bg: #212529;
+    --header-text: #e0e0e0;
+}
+
+/* --- GENERAL STYLES --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- HEADER CONTAINER --- */
+.header-container {
+display: flex;
+align-items: center;         /* Centra verticalmente */
+justify-content: center;    /* Centra orizzontalmente */
+flex-direction: column;     /* Colonna per disporre i contenuti */
+text-align: center;         /* Centra il testo */
+padding: 20px;
+}
+
+/* --- HEADER TEXT --- */
+.header-text h1 {
+font-size: 3rem;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.header-text p {
+font-size: 1.2rem;
+color: var(--secondary-text-color);
+}
+
+/* --- PROFILE PICTURE --- */
+.profile-pic {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+object-fit: cover;
+border: 3px solid var(--text-color);
+margin-top: 20px; /* Spazio sopra la foto */
+}
+
+/* --- LINKS STYLE --- */
+.links a {
+margin: 0 10px;
+color: var(--text-color);
+font-size: 1.5rem;
+transition: color 0.3s;
+}
+
+.links a:hover {
+color: #64b5f6;
+}
+
+/* --- THEME TOGGLE BUTTON --- */
+.btn-theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* --- CARD STYLES --- */
+.card {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card-body p {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- LIST GROUP ITEMS --- */
+.list-group-item {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+[data-theme="dark"] .list-group-item {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.list-group-item a {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .list-group-item a {
+    color: #64b5f6;
+}
+
+/* --- SKILL BADGES --- */
+.skill-badge {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* --- SAPENZA LOGO --- */
+.sapienza-logo {
+width: 120px;
+height: auto;
+margin-bottom: 5px;
+padding: 5px;
+background-color: var(--bg-color); /* Sfondo dinamico per adattarsi al tema */
+border-radius: 50%; /* Bordo arrotondato per eliminare angoli netti */
+}
+
+/* Modalità dark: applica un filtro di inversione */
+[data-theme="dark"] .sapienza-logo {
+border-radius: 50%;
+}
