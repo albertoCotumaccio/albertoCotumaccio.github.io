@@ -1,397 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alberto Cotumaccio</title>
+---
+layout: default
+title: Home
+---
 
-  <!-- SEO -->
-  <meta
-    name="description"
-    content="Alberto Cotumaccio - Full Stack Developer, AI Enthusiast, and Software Engineer Consultant."
-  />
-  <meta
-    name="keywords"
-    content="Alberto Cotumaccio, Software Engineer, AI, Full Stack Developer, Python, JavaScript, Machine Learning, Blockchain"
-  />
-  <meta name="author" content="Alberto Cotumaccio" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- CSS -->
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-  />
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"
-  ></script>
-</head>
-
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <!-- Bottone per aprire il menu a tendina su mobile -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Menu Navbar -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Sezione sinistra -->
-        <ul class="navbar-nav">
-          <!-- Home -->
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <!-- Blog -->
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-          <!-- Map -->
-          <li class="nav-item">
-            <a class="nav-link" href="europe.svg" target="_blank"
-              >Travel Map</a
-            >
-          </li>
-        </ul>
-
-        <!-- Sezione destra -->
-        <div class="ml-auto">
-          <button
-            id="themeToggle"
-            class="btn btn-outline-light btn-sm d-flex align-items-center"
-          >
-            <i id="themeIcon" class="fas fa-sun mr-2"></i>
-            <span id="themeText">Light Theme</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Header -->
-  <div class="header-container">
-    <!-- Testo a sinistra -->
+<!-- Header -->
+<div class="header-container">
+  <div class="header-content">
+    <img src="{{ site.data.about.header.profile_pic }}" alt="Profile Picture" class="profile-pic" />
     <div class="header-text">
-      <img
-        src="https://avatars.githubusercontent.com/u/114003731?s=400&u=637dd61e74f4fe857da20bf3867f52d81e2acfc7&v=4"
-        alt="Profile Picture"
-        class="profile-pic"
-      />
-      <h1>Hi, I'm Alberto <span class="emoji">👋</span></h1>
-      <p>Software Engineer | AI Enthusiast | Full Stack Developer</p>
-      <div class="links mt-3">
-        <a href="https://github.com/albertoCotumaccio" target="_blank"
-          ><i class="fab fa-github fa-2x"></i
-        ></a>
-        <a
-          href="https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/"
-          target="_blank"
-          ><i class="fab fa-linkedin fa-2x"></i
-        ></a>
-        <a href="https://twitter.com/Albecotu" target="_blank"
-          ><i class="fab fa-x-twitter fa-2x"></i
-        ></a>
+      <h1 class="main-title">
+        {{ site.data.about.header.greeting }} <span class="emoji">{{ site.data.about.header.emoji }}</span>
+      </h1>
+      <p class="title">{{ site.data.about.header.title }}</p>
+      <div class="links">
+        <a href="{{ site.social.github }}" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="{{ site.social.linkedin }}" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="{{ site.social.twitter }}" target="_blank">
+          <i class="fab fa-x-twitter"></i>
+        </a>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- About Me -->
-  <section id="about" class="container my-4">
-    <h2 class="text-center"><strong>About Me</strong></h2>
-    <p class="text-center text-muted" style="font-size: 16px;">
-      Hey! I am Alberto and I am currently working as a Software Engineer
-      Consultant at Atlas Reply Rome. My portfolio includes projects ranging from
-      web and mobile applications to decentralized and low-code solutions. I
-      explored full-stack development during my bachelor internship thesis and
-      the use of artificial intelligence in my master's thesis. I am constantly
-      looking to bring innovation and added value.
-    </p>
-    <p class="text-center text-muted" style="font-size: 16px;">
-      My main hobbies are producing music and traveling.
-    </p>
-  </section>
+<!-- About Me -->
+<section id="about" class="container mt-3">
+  <p id="about-description-it" class="about-description text-center" style="font-size: 18px; display: none;">
+    {{ site.data.about.about.description.it }}
+  </p>
+  <p id="about-description-en" class="about-description text-center" style="font-size: 18px; display: none;">
+    {{ site.data.about.about.description.en }}
+  </p>
+</section>
 
-  <!-- Education and Thesis Projects -->
-  <section id="education-projects" class="container my-4">
-    <h2 class="text-center mb-2"><strong>Education</strong></h2>
 
-    <!-- Education -->
-    <div class="text-center">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Stemma_sapienza.png"
-        alt="Sapienza Logo"
-        class="sapienza-logo"
-      />
-      <h5>Sapienza University of Rome</h5>
-      <p>Bachelor's and Master's Degree in Computer Science</p>
-      <p>2019 - 2024</p>
+<br>
+
+<!-- Skills Section -->
+<section id="skills" class="container">
+  <div class="skills-container">
+    {% for category in site.data.skills %}
+      <div class="skill-category">
+        <h3>{{ category[1].title }}</h3>
+        {% for skill in category[1].skills %}
+          <span class="skill-badge">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Research Paper -->
+<section id="research-paper" class="container my-5">
+  <h2 class="text-center mb-4"><strong>Research Paper</strong></h2>
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title text-center">
+        {{ site.data.research.paper.title }}
+      </h5>
+      <p class="card-text text-center text-muted mb-4">
+        Published in:
+        <strong>{{ site.data.research.paper.conference }}</strong><br />
+        Conference Date: <strong>{{ site.data.research.paper.date }}</strong><br />
+        Location: <strong>{{ site.data.research.paper.location }}</strong><br />
+        Publisher: <strong>{{ site.data.research.paper.publisher }}</strong>
+      </p>
+      <p class="card-text">
+        {{ site.data.research.paper.description }}
+      </p>
+      <div class="text-center">
+        <a href="{{ site.data.research.paper.paper_link }}" class="btn btn-primary btn-sm">
+          <i class="fas fa-book-open"></i> Read Paper
+        </a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Thesis Projects -->
-    <div class="row">
-      <!-- Bachelor's Thesis -->
+<!-- Education and Thesis Projects -->
+<section id="education-projects" class="container my-4">
+  <h2 class="text-center mb-2"><strong>Education</strong></h2>
+
+  <!-- Education -->
+  <div class="text-center">
+    <img src="{{ site.data.education.education.university.logo }}" alt="Sapienza Logo" class="sapienza-logo" />
+    <h5>{{ site.data.education.education.university.name }}</h5>
+    <p>{{ site.data.education.education.university.degrees }}</p>
+  </div>
+
+  <!-- Thesis Projects -->
+  <div class="row">
+    {% for thesis in site.data.education.education.theses %}
       <div class="col-md-6 mb-4">
         <div class="card shadow-sm">
           <div class="card-body text-center">
             <p class="text-uppercase font-weight-bold text-muted">
-              Bachelor's Thesis + internship
+              {{ thesis.type }}
             </p>
             <h5 class="card-title">
-              iMenuManager - Design and Development of a Web Application for
-              Restaurant Business Management
+              {{ thesis.title }}
             </h5>
             <p class="card-text">
-              Development of a web-based management platform for a restaurant
-              and catering company, which facilitates business operations at
-              multiple locations in Italy.
+              {{ thesis.description }}
             </p>
-            <p><strong>Skills:</strong> Django, Python, Web Development</p>
+            <p><strong>Skills:</strong> {{ thesis.skills }}</p>
             <div class="d-flex justify-content-center">
-              <a
-                href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree"
-                class="btn btn-dark btn-sm mr-2"
-              >
+              <a href="{{ thesis.github_link }}" class="btn btn-dark btn-sm mr-2">
                 <i class="fab fa-github"></i> GitHub
               </a>
-              <a
-                href="https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione_tirocinio_cotumaccio.pdf"
-                class="btn btn-primary btn-sm"
-              >
+              <a href="{{ thesis.thesis_link }}" class="btn btn-primary btn-sm">
                 <i class="fas fa-book-open"></i> Read
               </a>
             </div>
           </div>
         </div>
       </div>
-      <!-- Master's Thesis -->
-      <div class="col-md-6 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body text-center">
-            <p class="text-uppercase font-weight-bold text-muted">
-              Master's Thesis
-            </p>
-            <h5 class="card-title">
-              Automating Cloud Service Specification: AI-Driven Approach to
-              Requirement Engineering
-            </h5>
-            <p class="card-text">
-              Automating requirements analysis for the cloud domain by
-              translating user requirements, expressed in natural language, into
-              technical specifications.
-            </p>
-            <p><strong>Skills:</strong> Cloud Computing, AI, NLP</p>
-            <div class="d-flex justify-content-center">
-              <a
-                href="https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec"
-                class="btn btn-dark btn-sm mr-2"
-              >
-                <i class="fab fa-github"></i> GitHub
-              </a>
-              <a
-                href="https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec/blob/master/AI-Driven-Cloud-Spec-Thesis.pdf"
-                class="btn btn-primary btn-sm"
-              >
-                <i class="fas fa-book-open"></i> Read
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
+  </div>
 
-    <!-- University Projects -->
-    <h3 class="text-center mb-4">Additional Projects</h3>
-    <ul class="list-group mb-4">
+  <!-- University Projects -->
+  <h3 class="text-center mb-4">Additional Projects</h3>
+  <ul class="list-group mb-4">
+    {% for project in site.data.education.education.projects %}
       <li class="list-group-item d-flex align-items-center">
-        <i class="fab fa-python fa-2x mr-3 text-primary"></i>
+        <i class="{{ project.icon }} fa-2x mr-3 {{ project.color }}"></i>
         <div class="flex-grow-1">
-          <strong>Real-time Physical Activity Tracking:</strong> AI-powered
-          computer vision web application for monitoring physical activity.
+          <strong>{{ project.title }}:</strong> {{ project.description }}
           <br />
-          <em>Technologies:</em> Python, Flask, Computer Vision, AI
+          <em>Technologies:</em> {{ project.technologies }}
         </div>
-        <a
-          href="https://github.com/albertoCotumaccio/AI-Gym-Tracker"
-          target="_blank"
-          class="ml-3 text-primary"
-        >
+        <a href="{{ project.github_link }}" target="_blank" class="ml-3 text-primary">
           <i class="fas fa-arrow-right fa-2x"></i>
         </a>
       </li>
-      <li class="list-group-item d-flex align-items-center">
-        <i class="fab fa-ethereum fa-2x mr-3 text-success"></i>
-        <div class="flex-grow-1">
-          <strong>Decentralized Community Management:</strong> Blockchain-based
-          app with Solidity smart contracts for eco-sustainability challenges.
-          <br />
-          <em>Technologies:</em> Solidity, Smart Contracts, Web3, React
-        </div>
-        <a
-          href="https://github.com/albertoCotumaccio/EcoCity"
-          target="_blank"
-          class="ml-3 text-primary"
-        >
-          <i class="fas fa-arrow-right fa-2x"></i>
-        </a>
-      </li>
-      <li class="list-group-item d-flex align-items-center">
-        <i class="fas fa-brain fa-2x mr-3 text-warning"></i>
-        <div class="flex-grow-1">
-          <strong>Anime Recommender System:</strong> ML-powered recommendation
-          system for discovering anime titles.
-          <br />
-          <em>Technologies:</em> Machine Learning, Data Analysis, Python
-        </div>
-        <a
-          href="https://github.com/albertoCotumaccio/anime-recommender-system"
-          target="_blank"
-          class="ml-3 text-primary"
-        >
-          <i class="fas fa-arrow-right fa-2x"></i>
-        </a>
-      </li>
-      <li class="list-group-item d-flex align-items-center">
-        <i class="fas fa-mobile-alt fa-2x mr-3 text-info"></i>
-        <div class="flex-grow-1">
-          <strong>Contact Exchange Mobile App:</strong> Cross-platform mobile app
-          using NFC for quick contact exchange.
-          <br />
-          <em>Technologies:</em> Mobile Development, NFC, Cross-platform App
-          Development
-        </div>
-        <a
-          href="https://github.com/albertoCotumaccio/WeShare---application"
-          target="_blank"
-          class="ml-3 text-primary"
-        >
-          <i class="fas fa-arrow-right fa-2x"></i>
-        </a>
-      </li>
-      <li class="list-group-item d-flex align-items-center">
-        <i class="fas fa-utensils fa-2x mr-3 text-danger"></i>
-        <div class="flex-grow-1">
-          <strong>Food Delivery Platform:</strong> Low-code web application for
-          streamlined food delivery services.
-          <br />
-          <em>Technologies:</em> Low-code Development, WebRatio, UI/UX Design
-        </div>
-        <a
-          href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering"
-          target="_blank"
-          class="ml-3 text-primary"
-        >
-          <i class="fas fa-arrow-right fa-2x"></i>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Research Paper -->
-  <section id="research-paper" class="container my-5">
-    <h2 class="text-center mb-4"><strong>Research Paper</strong></h2>
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title text-center">
-          AI-CRAS: AI-driven Cloud Service Requirement Analysis and
-          Specification
-        </h5>
-        <p class="card-text text-center text-muted mb-4">
-          Published in:
-          <strong>2024 IEEE International Conference on Cloud Engineering (IC2E)</strong
-          ><br />
-          Conference Date: <strong>24-27 September 2024</strong><br />
-          Location: <strong>Paphos, Cyprus</strong><br />
-          Publisher: <strong>IEEE</strong>
-        </p>
-        <p class="card-text">
-          Methodology designed to simplify cloud migration by automating the
-          analysis and documentation of requirements. AI-CRAS leverages advanced
-          deep learning and NLP techniques to translate user needs, expressed in
-          natural language, into precise and structured technical
-          specifications. It bridges the gap in automated requirement analysis
-          and specification for cloud computing, enhancing efficiency and
-          scalability.
-        </p>
-        <p class="card-text">
-          <strong>Technologies:</strong> Deep Learning, NLP, AI
-        </p>
-        <div class="text-center">
-          <a
-            href="https://ieeexplore.ieee.org/document/10749735"
-            class="btn btn-primary btn-sm"
-            ><i class="fas fa-book-open"></i> Read Paper</a
-          >
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="container my-5">
-    <h2 class="text-center mb-4"><strong>Skills</strong></h2>
-    <div class="skills-container">
-      <span class="skill-badge">Full Stack Development</span>
-      <span class="skill-badge">Python</span>
-      <span class="skill-badge">Machine Learning</span>
-      <span class="skill-badge">Java</span>
-      <span class="skill-badge">Javascript</span>
-      <span class="skill-badge">Solidity</span>
-      <span class="skill-badge">UI/UX design</span>
-      <span class="skill-badge">LaTeX</span>
-      <span class="skill-badge">SQL</span>
-    </div>
-  </section>
-
-
-  <!-- Script per il Tema (con icona) -->
-  <script>
-    const themeToggleButton = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
-    const themeText = document.getElementById("themeText");
-
-    // Recupera il tema attuale o imposta 'light' di default
-    const currentTheme = localStorage.getItem("theme") || "light";
-    document.body.setAttribute("data-theme", currentTheme);
-    updateThemeButton(currentTheme);
-
-    // Al click, alterna il tema
-    themeToggleButton.addEventListener("click", () => {
-      const newTheme =
-        document.body.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      document.body.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateThemeButton(newTheme);
-    });
-
-    // Aggiorna icona e testo del bottone
-    function updateThemeButton(theme) {
-      if (theme === "dark") {
-        themeIcon.classList.replace("fa-sun", "fa-moon");
-        themeText.textContent = "Dark Theme";
-      } else {
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-        themeText.textContent = "Light Theme";
-      }
-    }
-  </script>
-</body>
-</html>
+    {% endfor %}
+  </ul>
+</section>

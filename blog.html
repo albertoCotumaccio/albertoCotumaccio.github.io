@@ -1,121 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Blog
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Alberto Cotumaccio</title>
-    <!-- SEO -->
-    <meta name="description" content="Blog - Alberto Cotumaccio | Insights on Software Engineering, AI, and Development.">
-    <meta name="keywords" content="Blog, Software Engineering, AI, Development, Blockchain, Full Stack">
-    <meta name="author" content="Alberto Cotumaccio">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
+<h1 class="text-center"><strong>Blog</strong></h1>
+<p class="text-center text-muted">Here you can find my latest posts about tech, AI, and software development.</p>
 
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-          <!-- Bottone per aprire il menu a tendina su mobile -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <!-- Menu Navbar -->
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Sezione sinistra -->
-            <ul class="navbar-nav">
-              <!-- Home -->
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <!-- Blog -->
-              <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog</a>
-              </li>
-              <!-- Map -->
-              <li class="nav-item">
-                <a class="nav-link" href="europe.svg" target="_blank"
-                  >Travel Map</a
-                >
-              </li>
-            </ul>
-    
-            <!-- Sezione destra -->
-            <div class="ml-auto">
-              <button
-                id="themeToggle"
-                class="btn btn-outline-light btn-sm d-flex align-items-center"
-              >
-                <i id="themeIcon" class="fas fa-sun mr-2"></i>
-                <span id="themeText">Light Theme</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-    <!-- Header -->
-    <header class="text-center py-5">
-        <h1>Blog</h1>
-        <p class="lead">Stay tuned for insights on AI, Software Engineering, and Development!</p>
-    </header>
-
-    <!-- Coming Soon Section -->
-    <section class="container text-center my-5">
-        <h2 class="display-4">Coming Soon!</h2>
-        <p class="text-muted mb-4">Exciting content is on the way. Check back soon for updates.</p>
-        <i class="fas fa-hourglass-half fa-5x text-secondary mb-4"></i>
-    </section>
-
-
-    <!-- Tema Dinamico -->
-    <script>
-        const themeToggleButton = document.getElementById("themeToggle");
-        const themeIcon = document.getElementById("themeIcon");
-        const themeText = document.getElementById("themeText");
-    
-        // Recupera il tema attuale o imposta 'light' di default
-        const currentTheme = localStorage.getItem("theme") || "light";
-        document.body.setAttribute("data-theme", currentTheme);
-        updateThemeButton(currentTheme);
-    
-        // Al click, alterna il tema
-        themeToggleButton.addEventListener("click", () => {
-          const newTheme =
-            document.body.getAttribute("data-theme") === "dark" ? "light" : "dark";
-          document.body.setAttribute("data-theme", newTheme);
-          localStorage.setItem("theme", newTheme);
-          updateThemeButton(newTheme);
-        });
-    
-        // Aggiorna icona e testo del bottone
-        function updateThemeButton(theme) {
-          if (theme === "dark") {
-            themeIcon.classList.replace("fa-sun", "fa-moon");
-            themeText.textContent = "Dark Theme";
-          } else {
-            themeIcon.classList.replace("fa-moon", "fa-sun");
-            themeText.textContent = "Light Theme";
-          }
-        }
-      </script>
-</body>
-
-</html>
+<div class="blog-container">
+  {% for post in site.posts %}
+    <div class="blog-post border rounded p-4 mb-4">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
+      <p>{{ post.excerpt }}</p>
+      <a href="{{ post.url | relative_url }}" class="btn btn-dark btn-sm">Read more</a>
+    </div>
+  {% endfor %}
+</div>

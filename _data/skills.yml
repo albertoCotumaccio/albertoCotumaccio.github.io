@@ -1,0 +1,40 @@
+software_infrastructure:
+  title: "Software & Infrastructure"
+  skills:
+    - Full-Stack
+    - React
+    - Django
+    - Spring Boot
+    - Node.js
+    - REST APIs
+    - Microservices
+    - Flutter
+    - Low-Code
+    - CI/CD
+    - Grafana
+    - Jenkins
+    - OpenShift
+    - Docker
+    - Kubernetes
+    - SQL
+    - JUnit
+    - Mockito
+    - Jest
+
+data_ai_others:
+  title: "Data, AI & Others"
+  skills:
+    - Machine Learning
+    - Data Analysis
+    - Python
+    - Pandas
+    - Scikit-learn
+    - Blockchain
+    - Solidity
+    - Smart Contracts
+    - UI/UX
+    - Figma
+    - Canva
+    - Documentation
+    - LaTeX
+    - Markdown

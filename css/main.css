@@ -1,0 +1,560 @@
+/* ====================================================
+     RESPONSIVE DESIGN (Mobile)
+     ==================================================== */
+     @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+      }
+    
+      .header-text {
+        text-align: center;
+      }
+    
+      .main-title {
+        font-size: 2.2rem; /* Ridimensiona per mobile */
+      }
+    
+      .title {
+        font-size: 1.3rem;
+      }
+    
+      .links a {
+        font-size: 2rem; /* Ridimensiona le icone per mobile */
+      }
+    }
+
+
+/* ====================================================
+   GLOBAL VARIABLES & THEMING
+   ==================================================== */
+/* Variabili condivise per gestire facilmente i colori in entrambi i temi */
+:root {
+  --bg-color: #fafafa;              /* Sfondo chiaro */
+  --text-color: #202124;             /* Testo scuro */
+  --secondary-text-color: #5f6368;   /* Testo secondario */
+  --header-bg: #1a73e8;              /* Sfondo header */
+  --header-text: #ffffff;            /* Testo header */
+
+  --about-text-color: #000; /* Nero per il tema chiaro */
+  
+  --link-color: #0057b7;             /* Colore dei link */
+  
+  --card-bg: #ffffff;               /* Sfondo dei card */
+  --card-border: rgba(0, 0, 0, 0.125);/* Bordo dei card */
+  
+  --badge-gradient-start: #6a11cb;   /* Inizio gradiente badge */
+  --badge-gradient-end: #2575fc;     /* Fine gradiente badge */
+}
+
+/* Override per tema scuro */
+[data-theme="dark"] {
+  --bg-color: #202124;
+  --text-color: #e8eaed;
+  --secondary-text-color: #9aa0a6;
+  --header-bg: #303134;
+  --header-text: #e8eaed;
+  --about-text-color: #fff; /* Bianco per il tema scuro */
+  
+  --link-color: #64b5f6;
+  
+  --card-bg: #1e1e1e;
+  --card-border: rgba(255, 255, 255, 0.2);
+  
+  /* Gradient badge leggermente modificato per il contrasto sul fondo scuro */
+  --badge-gradient-start: #8a2be2;
+  --badge-gradient-end: #5f3dc4;
+}
+
+/* ====================================================
+   GENERAL STYLES
+   ==================================================== */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* ====================================================
+   HEADER STYLES
+   ==================================================== */
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+}
+
+.header-text {
+  text-align: center;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.title {
+  margin: 5px 0;
+  font-size: 1.4rem;
+  color: var(--secondary-text-color); /* Usa variabile per un colore consistente */
+}
+
+.about-description {
+  color: var(--about-text-color) !important;
+}
+
+/* ====================================================
+   LINKS (Social Icons)
+   ==================================================== */
+   .links {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 15px; /* Distanza tra le icone */
+    margin-top: 10px; /* Spazio sopra */
+  }
+  
+
+.links a {
+  margin-right: 15px;
+  font-size: 2.5rem;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: #ff9900;
+  transform: scale(1.2);
+}
+
+/* ====================================================
+   CARD COMPONENTS
+   ==================================================== */
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
+}
+
+.card-body p {
+  color: var(--text-color);
+}
+
+/* ====================================================
+   LIST GROUP ITEMS
+   ==================================================== */
+.list-group-item {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
+}
+
+.list-group-item a {
+  color: var(--text-color);
+}
+
+/* ====================================================
+   SKILL BADGES
+   ==================================================== */
+.skill-badge {
+  display: inline-block;
+  margin: 3px;
+  padding: 6px 10px;
+  background: linear-gradient(135deg, var(--badge-gradient-start) 0%, var(--badge-gradient-end) 100%);
+  color: #fff;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+  
+  /* ====================================================
+     SKILLS CONTAINER
+     ==================================================== */
+  .skills-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* ====================================================
+     SKILL CATEGORY STYLES
+     ==================================================== */
+  .skill-category {
+    text-align: center;
+    flex: 1 1 100px;
+    min-width: 250px;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.2rem;
+    color: #6a11cb;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* ====================================================
+     RESPONSIVE DESIGN
+     ==================================================== */
+  @media (max-width: 768px) {
+    .skills-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .skill-category {
+      width: 100%;
+    }
+  }
+  
+/* ====================================================
+   SAPENZA LOGO STYLES
+   ==================================================== */
+.sapienza-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: var(--bg-color); /* Sfondo che si adatta al tema */
+  border-radius: 50%; /* Forma rotonda */
+}
+
+/* Per il tema scuro (mantiene la forma rotonda) */
+[data-theme="dark"] .sapienza-logo {
+  border-radius: 50%;
+}
+
+/* ====================================================
+   PAGE CONTENT STYLES
+   ==================================================== */
+.page-content {
+  padding: 30px 0;
+  background-color: #fff;
+}
+
+/* ----------------------------------------------------
+   HOME PAGE STYLES
+------------------------------------------------------ */
+.home h1 {
+  margin-bottom: 25px;
+}
+
+.posts {
+  list-style-type: none;
+}
+
+.posts li {
+  margin-bottom: 30px;
+}
+
+.posts .post-link {
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.posts .post-date {
+  display: block;
+  font-size: 15px;
+  color: #818181;
+}
+
+/* ----------------------------------------------------
+   BLOG POST STYLES
+------------------------------------------------------ */
+/* Header del post (titolo e metadati) */
+.post-header {
+  margin: 10px 0 30px;
+}
+
+.post-header h1 {
+  font-size: 36px;
+  letter-spacing: -1.75px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.post-header .meta {
+  font-size: 15px;
+  color: #818181;
+  margin-top: 5px;
+}
+
+/* Contenuto del post */
+.post-content {
+  margin: 0 0 30px;
+}
+
+/* Spaziatura generale per gli elementi del post */
+.post-content > * {
+  margin: 20px 0;
+}
+
+/* Headings nel contenuto del post */
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  line-height: 1;
+  font-weight: 300;
+  margin: 40px 0 20px;
+}
+
+.post-content h2 {
+  font-size: 32px;
+  letter-spacing: -1.25px;
+}
+
+.post-content h3 {
+  font-size: 26px;
+  letter-spacing: -1px;
+}
+
+.post-content h4 {
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+
+/* Blockquote nel post */
+.post-content blockquote {
+  border-left: 4px solid #e8e8e8;
+  padding-left: 20px;
+  font-size: 18px;
+  opacity: 0.6;
+  letter-spacing: -1px;
+  font-style: italic;
+  margin: 30px 0;
+}
+
+/* Liste nel post */
+.post-content ul,
+.post-content ol {
+  padding-left: 20px;
+}
+
+/* ----------------------------------------------------
+   CODE & TERMINAL BLOCKS
+------------------------------------------------------ */
+.post pre,
+.post code {
+  border: 1px solid #d5d5e9;
+  background-color: #eef;
+  padding: 8px 12px;
+  border-radius: 3px;
+  font-size: 15px;
+  overflow: auto;
+}
+
+.post code {
+  padding: 1px 5px;
+}
+
+.post ul,
+.post ol {
+  margin-left: 1.35em;
+}
+
+.post pre code {
+  border: 0;
+  padding: 0;
+}
+
+/* Blocchi di codice in stile terminale */
+.post pre.terminal {
+  border: 1px solid #000;
+  background-color: #333;
+  color: #FFF;
+  border-radius: 3px;
+}
+
+.post pre.terminal code {
+  background-color: #333;
+}
+
+/* ====================================================
+   CUSTOM IMAGE & SVG STYLES
+   ==================================================== */
+.imgright {
+  float: right;
+  margin-left: 10px;
+}
+
+.imgcap img {
+  border: 1px solid #999;
+  max-width: 100%;
+}
+
+.imgcap {
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+}
+
+.svgdiv {
+  width: 100%;
+  text-align: center;
+}
+
+/* ====================================================
+   SYNTAX HIGHLIGHTING
+   ==================================================== */
+.highlight {
+  background: #ffffff;
+}
+
+.highlight .c   { color: #999988; font-style: italic; }           /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2; }       /* Error */
+.highlight .k,
+.highlight .o { font-weight: bold; }                              /* Keyword & Operator */
+.highlight .cm  { color: #999988; font-style: italic; }             /* Comment.Multiline */
+.highlight .cp  { color: #999999; font-weight: bold; }              /* Comment.Preproc */
+.highlight .c1  { color: #999988; font-style: italic; }             /* Comment.Single */
+.highlight .cs  { color: #999999; font-weight: bold; font-style: italic; } /* Comment.Special */
+.highlight .gd  { color: #000000; background-color: #ffdddd; }       /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa; }      /* Generic.Deleted.Specific */
+.highlight .ge  { font-style: italic; }                              /* Generic.Emph */
+.highlight .gr  { color: #aa0000; }                                   /* Generic.Error */
+.highlight .gh  { color: #999999; }                                   /* Generic.Heading */
+.highlight .gi  { color: #000000; background-color: #ddffdd; }        /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa; }       /* Generic.Inserted.Specific */
+.highlight .go  { color: #888888; }                                   /* Generic.Output */
+.highlight .gp  { color: #555555; }                                   /* Generic.Prompt */
+.highlight .gs  { font-weight: bold; }                               /* Generic.Strong */
+.highlight .gu  { color: #aaaaaa; }                                   /* Generic.Subheading */
+.highlight .gt  { color: #aa0000; }                                   /* Generic.Traceback */
+.highlight .kc  { font-weight: bold; }                               /* Keyword.Constant */
+.highlight .kd  { font-weight: bold; }                               /* Keyword.Declaration */
+.highlight .kp  { font-weight: bold; }                               /* Keyword.Pseudo */
+.highlight .kr  { font-weight: bold; }                               /* Keyword.Reserved */
+.highlight .kt  { color: #445588; font-weight: bold; }                /* Keyword.Type */
+.highlight .m   { color: #009999; }                                  /* Literal.Number */
+.highlight .s   { color: #d14; }                                      /* Literal.String */
+.highlight .na  { color: #008080; }                                  /* Name.Attribute */
+.highlight .nb  { color: #0086B3; }                                  /* Name.Builtin */
+.highlight .nc  { color: #445588; font-weight: bold; }                /* Name.Class */
+.highlight .no  { color: #008080; }                                  /* Name.Constant */
+.highlight .ni  { color: #800080; }                                  /* Name.Entity */
+.highlight .ne  { color: #990000; font-weight: bold; }                /* Name.Exception */
+.highlight .nf  { color: #990000; font-weight: bold; }                /* Name.Function */
+.highlight .nn  { color: #555555; }                                  /* Name.Namespace */
+.highlight .nt  { color: #000080; }                                  /* Name.Tag */
+.highlight .nv  { color: #008080; }                                  /* Name.Variable */
+.highlight .ow  { font-weight: bold; }                               /* Operator.Word */
+.highlight .w   { color: #bbbbbb; }                                  /* Whitespace */
+.highlight .mf  { color: #009999; }                                  /* Literal.Number.Float */
+.highlight .mh  { color: #009999; }                                  /* Literal.Number.Hex */
+.highlight .mi  { color: #009999; }                                  /* Literal.Number.Integer */
+.highlight .mo  { color: #009999; }                                  /* Literal.Number.Oct */
+.highlight .sb  { color: #d14; }                                      /* Literal.String.Backtick */
+.highlight .sc  { color: #d14; }                                      /* Literal.String.Char */
+.highlight .sd  { color: #d14; }                                      /* Literal.String.Doc */
+.highlight .s2  { color: #d14; }                                      /* Literal.String.Double */
+.highlight .se  { color: #d14; }                                      /* Literal.String.Escape */
+.highlight .sh  { color: #d14; }                                      /* Literal.String.Heredoc */
+.highlight .si  { color: #d14; }                                      /* Literal.String.Interpol */
+.highlight .sx  { color: #d14; }                                      /* Literal.String.Other */
+.highlight .sr  { color: #009926; }                                  /* Literal.String.Regex */
+.highlight .s1  { color: #d14; }                                      /* Literal.String.Single */
+.highlight .ss  { color: #990073; }                                  /* Literal.String.Symbol */
+.highlight .bp  { color: #999999; }                                  /* Builtin Pseudo */
+.highlight .vc  { color: #008080; }                                  /* Name.Variable.Class */
+.highlight .vg  { color: #008080; }                                  /* Name.Variable.Global */
+.highlight .vi  { color: #008080; }                                  /* Name.Variable.Instance */
+.highlight .il  { color: #009999; }                                  /* Literal.Number.Integer.Long */
+
+/* ====================================================
+   MEDIA QUERIES
+   ==================================================== */
+@media screen and (max-width: 750px) {
+  .footer-col-1 {
+    width: 50%;
+  }
+  .footer-col-2 {
+    /* Calcola la larghezza come metà disponibile meno 10px */
+    width: calc(50% - 10px);
+    margin-right: 0;
+  }
+  .site-footer .column.footer-col-3 {
+    width: auto;
+    float: none;
+    clear: both;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrap {
+    padding: 0 12px;
+  }
+  .site-nav {
+    position: fixed;
+    z-index: 10;
+    top: 14px;
+    right: 8px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+  }
+  .site-nav .menu-icon {
+    display: block;
+    font-size: 24px;
+    color: #505050;
+    float: right;
+    width: 36px;
+    text-align: center;
+    line-height: 36px;
+  }
+  .site-nav .menu-icon svg {
+    width: 18px;
+    height: 16px;
+  }
+  .site-nav .trigger {
+    clear: both;
+    margin-bottom: 5px;
+    display: none;
+  }
+  .site-nav:hover .trigger {
+    display: block;
+  }
+  .site-nav .page-link {
+    display: block;
+    text-align: right;
+    line-height: 1.25;
+    padding: 5px 10px;
+    margin: 0;
+  }
+  /* Ridimensiona i titoli e il blocco quote per schermi piccoli */
+  .post-header h1 { font-size: 36px; }
+  .post-content h2 { font-size: 28px; }
+  .post-content h3 { font-size: 22px; }
+  .post-content h4 { font-size: 18px; }
+  .post-content blockquote { padding-left: 10px; }
+  .post-content ul,
+  .post-content ol { padding-left: 10px; }
+}
+

@@ -1,0 +1,11 @@
+about:
+  description:
+    it: "Sono un ingegnere del software con una laurea magistrale in Informatica dalla Università La Sapienza di Roma, dove mi sono laureato con lode. Attualmente, sono un Software Engineer Consultant presso Atlas Reply Rome, e possiedo un set diversificato di competenze che includono lo sviluppo full-stack e il machine learning. Il mio lavoro accademico ha incluso una tesi sull'automazione delle specifiche dei servizi cloud, pubblicata alla IEEE International Conference on Cloud Engineering. Parlo fluentemente italiano e inglese."
+    en: "I am a passionate and driven software engineer with a Master's degree in Computer Science from Università La Sapienza di Roma, where I graduated with honors. Currently, I am a Software Engineer Consultant at Atlas Reply Rome, and I possess a diverse skill set that includes full-stack development and machine learning. My academic work included a thesis on automating cloud service specifications, which was published at the IEEE International Conference on Cloud Engineering. I am fluent in both Italian and English."
+
+header:
+  profile_pic: "https://avatars.githubusercontent.com/u/114003731?s=400&u=637dd61e74f4fe857da20bf3867f52d81e2acfc7&v=4"
+  name: "Alberto"
+  greeting: "Ciao! I'm Alberto"
+  emoji: "👋 🇮🇹"
+  title: "Software Engineer | AI Enthusiast | Full Stack Developer"
