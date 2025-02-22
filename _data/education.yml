@@ -1,0 +1,56 @@
+education:
+  university:
+    name: "Sapienza University of Rome"
+    degrees: "Bachelor's and Master's Degree in Computer Science"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Stemma_sapienza.png"
+
+  theses:
+    - title: "iMenuManager - Design and Development of a Web Application for Restaurant Business Management"
+      type: "Bachelor's Thesis + Internship"
+      description: "Development of a web-based management platform for a restaurant and catering company, which facilitates business operations at multiple locations in Italy."
+      skills: "Django, Python, Web Development"
+      github_link: "https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree"
+      thesis_link: "https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione_tirocinio_cotumaccio.pdf"
+
+    - title: "Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering"
+      type: "Master's Thesis"
+      description: "Automating requirements analysis for the cloud domain by translating user requirements, expressed in natural language, into technical specifications."
+      skills: "Cloud Computing, AI, NLP"
+      github_link: "https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec"
+      thesis_link: "https://github.com/albertoCotumaccio/AI-Driven-Cloud-Spec/blob/master/AI-Driven-Cloud-Spec-Thesis.pdf"
+
+  projects:
+    - title: "Real-time Physical Activity Tracking"
+      description: "AI-powered computer vision web application for monitoring physical activity."
+      technologies: "Python, Flask, Computer Vision, AI"
+      github_link: "https://github.com/albertoCotumaccio/AI-Gym-Tracker"
+      icon: "fab fa-python"
+      color: "text-primary"
+
+    - title: "Decentralized Community Management"
+      description: "Blockchain-based app with Solidity smart contracts for eco-sustainability challenges."
+      technologies: "Solidity, Smart Contracts, Web3, React"
+      github_link: "https://github.com/albertoCotumaccio/EcoCity"
+      icon: "fab fa-ethereum"
+      color: "text-success"
+
+    - title: "Anime Recommender System"
+      description: "ML-powered recommendation system for discovering anime titles."
+      technologies: "Machine Learning, Data Analysis, Python"
+      github_link: "https://github.com/albertoCotumaccio/anime-recommender-system"
+      icon: "fas fa-brain"
+      color: "text-warning"
+
+    - title: "Contact Exchange Mobile App"
+      description: "Cross-platform mobile app using NFC for quick contact exchange."
+      technologies: "Mobile Development, NFC, Cross-platform App Development"
+      github_link: "https://github.com/albertoCotumaccio/WeShare---application"
+      icon: "fas fa-mobile-alt"
+      color: "text-info"
+
+    - title: "Food Delivery Platform"
+      description: "Low-code web application for streamlined food delivery services."
+      technologies: "Low-code Development, WebRatio, UI/UX Design"
+      github_link: "https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering"
+      icon: "fas fa-utensils"
+      color: "text-danger"

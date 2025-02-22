@@ -1,0 +1,50 @@
+# 🌐 General settings
+title: "Alberto Cotumaccio's Website"  # Titolo del sito
+description: "Alberto Cotumaccio's website"  # Descrizione breve per SEO
+author: "Alberto Cotumaccio"  # Nome autore
+email: ""
+language: en  # Impostazione della lingua
+
+# 📂 Base settings
+baseurl: ""  # Lasciare vuoto se usi GitHub Pages con username.github.io
+url: "https://albertocotumaccio.github.io"  # URL completo del sito
+
+# 📄 File and directory settings
+exclude:
+  - "README.md"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "node_modules"
+  - ".jekyll-metadata"  # Escludo file temporanei
+
+# 🔗 Social media links
+social:
+  github: "https://github.com/albertoCotumaccio"
+  linkedin: "https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/"
+  twitter: "https://twitter.com/Albecotu"
+
+# 📜 Blog settings
+permalink: /:year/:month/:day/:title/
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# 🎨 Theme e plugins
+theme: minima
+plugins:
+  - jekyll-feed         # Genera un feed RSS
+  - jekyll-seo-tag      # Aggiunge meta tag per SEO
+  - jekyll-paginate     # Gestisce la paginazione del blog
+  - jekyll-sitemap      # Genera sitemap.xml
+  - jekyll-archives     # Crea archivi per categorie/anni
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+highlighter: rouge
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+
+# 🔄 Build settings
+future: false  # Mostra solo post con date passate o presenti
