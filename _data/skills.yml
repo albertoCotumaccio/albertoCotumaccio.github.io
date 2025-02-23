@@ -4,7 +4,7 @@ software_infrastructure:
     - Full-Stack
     - React
     - Django
-    - Spring Boot
+    - Java (Spring)
     - Node.js
     - REST APIs
     - Microservices
@@ -14,7 +14,7 @@ software_infrastructure:
     - Grafana
     - Jenkins
     - OpenShift
-    - Docker
+    - Git
     - Kubernetes
     - SQL
     - JUnit

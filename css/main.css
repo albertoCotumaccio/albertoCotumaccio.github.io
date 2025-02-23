@@ -186,12 +186,16 @@ body {
   font-size: 11px;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .skill-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #ff9900 0%, #ffcc00 100%);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
+
   
   /* ====================================================
      SKILLS CONTAINER

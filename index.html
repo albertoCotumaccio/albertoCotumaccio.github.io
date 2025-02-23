@@ -44,7 +44,7 @@ title: Home
 <section id="skills" class="container">
   <div class="skills-container">
     {% for category in site.data.skills %}
-      <div class="skill-category">
+      <div class="skill-category mb-3">
         <h3>{{ category[1].title }}</h3>
         {% for skill in category[1].skills %}
           <span class="skill-badge">{{ skill }}</span>
@@ -53,6 +53,7 @@ title: Home
     {% endfor %}
   </div>
 </section>
+
 
 <!-- Research Paper -->
 <section id="research-paper" class="container my-5">

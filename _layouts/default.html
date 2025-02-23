@@ -40,7 +40,7 @@
       langText.textContent = lang.toUpperCase();
     }
 
-    // Imposta la lingua iniziale (default da _config.yml oppure "it")
+    // Imposta la lingua iniziale
     const currentLanguage = localStorage.getItem("language") || "{{ site.language }}";
     setLanguage(currentLanguage);
 
@@ -53,35 +53,27 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="{{ '/' | relative_url }}">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ '/blog' | relative_url }}">Blog</a></li>
-        </ul>
-
-        <div class="ml-auto d-flex align-items-center">
-          <!-- Theme Toggle -->
-          <button id="themeToggle" class="btn btn-outline-light btn-sm d-flex align-items-center">
-            <i id="themeIcon" class="fas fa-sun mr-2"></i>
-            <span id="themeText">Light Theme</span>
-          </button>
-          <!-- Language Toggle -->
-          <button id="langToggle" class="btn btn-outline-light btn-sm ml-2 d-flex align-items-center">
-            <i class="fas fa-globe mr-2"></i>
-            <span id="langText">EN</span>
-          </button>
-        </div>
-        
-      </div>
+  <nav class="navbar navbar-dark bg-dark sticky-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Sezione sinistra con i link -->
+    <div class="navbar-nav flex-row">
+      <a class="nav-item nav-link" href="{{ '/' | relative_url }}">Home</a>
+      <a class="nav-item nav-link ml-3" href="{{ '/blog' | relative_url }}">Blog</a>
     </div>
-  </nav>
+    <!-- Sezione destra con i pulsanti per tema e lingua -->
+    <div class="d-flex align-items-center">
+      <button id="themeToggle" class="btn btn-outline-light btn-sm d-flex align-items-center">
+        <i id="themeIcon" class="fas fa-sun mr-2"></i>
+        <span id="themeText">Light Theme</span>
+      </button>
+      <button id="langToggle" class="btn btn-outline-light btn-sm ml-2 d-flex align-items-center">
+        <i class="fas fa-globe mr-2"></i>
+        <span id="langText">EN</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
 
   <!-- Main content -->
   <main class="container my-4">
@@ -113,10 +105,10 @@
     function updateThemeButton(theme) {
       if (theme === "dark") {
         themeIcon.classList.replace("fa-sun", "fa-moon");
-        themeText.textContent = "Dark Theme";
+        themeText.textContent = "Dark";
       } else {
         themeIcon.classList.replace("fa-moon", "fa-sun");
-        themeText.textContent = "Light Theme";
+        themeText.textContent = "Light";
       }
     }
   </script>

@@ -7,8 +7,8 @@ education:
   theses:
     - title: "iMenuManager - Design and Development of a Web Application for Restaurant Business Management"
       type: "Bachelor's Thesis + Internship"
-      description: "Development of a web-based management platform for a restaurant and catering company, which facilitates business operations at multiple locations in Italy."
-      skills: "Django, Python, Web Development"
+      description: "Web-based management platform for a restaurant and catering company, which facilitates business operations at multiple locations in Italy."
+      skills: "Django, Python, Full Stack Development"
       github_link: "https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree"
       thesis_link: "https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione_tirocinio_cotumaccio.pdf"
 

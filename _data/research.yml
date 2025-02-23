@@ -1,7 +1,7 @@
 paper:
   title: "AI-CRAS: AI-driven Cloud Service Requirement Analysis and Specification"
-  conference: "2024 IEEE International Conference on Cloud Engineering (IC2E)"
-  date: "24-27 September 2024"
+  conference: "International Conference on Cloud Engineering (IC2E)"
+  date: "24-27 Sept 2024"
   location: "Paphos, Cyprus 	&#x1f1e8;&#x1f1fe;"
   publisher: "IEEE"
   description: "AI methodology designed to simplify cloud migration by automating the analysis of requirements. AI-CRAS leverages advanced deep learning and NLP techniques to translate user needs, expressed in natural language, into precise and structured technical specifications. It bridges the gap in automated requirement analysis and specification for cloud computing, enhancing efficiency and scalability."
