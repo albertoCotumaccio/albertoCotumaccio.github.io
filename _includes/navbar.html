@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark bg-dark sticky-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="navbar-nav flex-row">
+      <a class="nav-item nav-link" href="{{ '/' | relative_url }}">Home</a>
+      <a class="nav-item nav-link ml-3" href="{{ '/blog' | relative_url }}">Blog</a>
+    </div>
+    <div class="d-flex align-items-center">
+      <button id="themeToggle" class="btn btn-outline-light btn-sm d-flex align-items-center">
+        <i id="themeIcon" class="fas fa-sun mr-2"></i>
+        <span id="themeText">Light Theme</span>
+      </button>
+      <button id="langToggle" class="btn btn-outline-light btn-sm ml-2 d-flex align-items-center">
+        <i class="fas fa-globe mr-2"></i>
+        <span id="langText">EN</span>
+      </button>
+    </div>
+  </div>
+</nav>

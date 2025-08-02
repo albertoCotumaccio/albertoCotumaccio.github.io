@@ -1,0 +1,97 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const langToggleButton = document.getElementById("langToggle");
+    const langText = document.getElementById("langText");
+
+    function setLanguage(lang) {
+      localStorage.setItem("language", lang);
+      if (langText) {
+        langText.textContent = lang === "en" ? "🇬🇧 EN" : "🇮🇹 IT";
+      }
+      const itDesc = document.getElementById("about-description-it");
+      const enDesc = document.getElementById("about-description-en");
+      if (itDesc) itDesc.style.display = lang === "it" ? "block" : "none";
+      if (enDesc) enDesc.style.display = lang === "en" ? "block" : "none";
+    }
+
+    const currentLanguage = localStorage.getItem("language") || "{{ site.language }}";
+    setLanguage(currentLanguage);
+
+    langToggleButton.addEventListener("click", () => {
+      const currentLang = localStorage.getItem("language") || "{{ site.language }}";
+      const newLang = currentLang === "en" ? "it" : "en";
+      localStorage.setItem("language", newLang);
+
+      const translationUrl = "{{ page.translation }}";
+
+      if (translationUrl) {
+        window.location.href = translationUrl;
+      } else {
+        setLanguage(newLang);
+        location.reload();
+      }
+    });
+  });
+
+  const themeToggleButton = document.getElementById("themeToggle");
+  const themeIcon = document.getElementById("themeIcon");
+  const themeText = document.getElementById("themeText");
+  const currentTheme = localStorage.getItem("theme") || "light";
+
+  document.body.setAttribute("data-theme", currentTheme);
+  updateThemeButton(currentTheme);
+
+  themeToggleButton.addEventListener("click", () => {
+    const newTheme = document.body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.body.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateThemeButton(newTheme);
+
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow.postMessage({
+        giscus: { setConfig: { theme: newTheme } }
+      }, 'https://giscus.app');
+    }
+  });
+
+  function updateThemeButton(theme) {
+    if (theme === "dark") {
+      themeIcon.classList.replace("fa-sun", "fa-moon");
+      themeText.textContent = "Dark";
+    } else {
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+      themeText.textContent = "Light";
+    }
+  }
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // script per la sezione blog (per la lingua)
+
+    const lang = localStorage.getItem("language") || "en";
+
+    // Raggruppa i post per data-name
+    const posts = document.querySelectorAll('.blog-post');
+    const seenNames = new Set();
+
+    posts.forEach(post => {
+      const name = post.getAttribute('data-name');
+      const postLang = post.classList.contains('lang-' + lang);
+
+      if (!seenNames.has(name) && postLang) {
+        post.style.display = 'block';
+        seenNames.add(name);
+      }
+    });
+
+    // Aggiorna il bottone lingua
+    const langText = document.getElementById("langText");
+    if (langText) {
+      langText.textContent = lang === "en" ? "🇬🇧 EN" : "🇮🇹 IT";
+    }
+  });
+</script>
+

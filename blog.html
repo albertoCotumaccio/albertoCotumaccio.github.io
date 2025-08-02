@@ -4,15 +4,33 @@ title: Blog
 ---
 
 <h1 class="text-center"><strong>Blog</strong></h1>
-<p class="text-center text-muted">Here you can find my latest posts</p>
+<p id="blog-subtitle"
+   class="text-center text-muted"
+   data-en="{{ site.subtitle_blog.en | escape }}"
+   data-it="{{ site.subtitle_blog.it | escape }}">
+</p>
+
+
+{% assign posts_by_name = site.posts | group_by: "name" %}
 
 <div class="blog-container">
-  {% for post in site.posts %}
-    <div class="blog-post border rounded p-4 mb-4">
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      <p><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
-      <p>{{ post.excerpt }}</p>
-      <a href="{{ post.url | relative_url }}" class="btn btn-dark btn-sm">Read more</a>
-    </div>
+  {% assign posts_by_name = site.posts | group_by: "name" %}
+  {% for group in posts_by_name %}
+    {% assign posts = group.items %}
+    {% for post in posts %}
+      {% include blog-post-card.html post=post %}
+    {% endfor %}
   {% endfor %}
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const lang = localStorage.getItem("language") || "en";
+    const subtitle = document.getElementById("blog-subtitle");
+    if (subtitle) {
+      const fallback = subtitle.dataset.en;
+      const localizedText = subtitle.dataset[lang] || fallback;
+      subtitle.textContent = localizedText;
+    }
+  });
+</script>

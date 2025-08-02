@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Title"
+excerpt: Short description"
+date: 2024-03-14
+author: "Alberto Cotumaccio"
+tags: ["blog", "static site", "markdown", "SEO"]
+thumbnail: "/assets/images/1.jpg"
+mathjax: false
+comments: true
+giscus_id: "1"
+lang: en
+name: "mio-articolo"
+permalink: /blog/en/mio-articolo/
+translation: /blog/it/mio-articolo/
+---
+
+hello
+

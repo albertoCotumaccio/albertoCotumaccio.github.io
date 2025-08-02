@@ -23,10 +23,6 @@ social:
   linkedin: "https://www.linkedin.com/in/alberto-cotumaccio-8b8443229/"
   twitter: "https://twitter.com/Albecotu"
 
-# 📜 Blog settings
-permalink: /blog/:year/:month/:day/
-paginate: 5
-paginate_path: "/blog/page:num/"
 
 # 🎨 Theme e plugins
 theme: minima
@@ -47,3 +43,22 @@ kramdown:
 
 # 🔄 Build settings
 future: false
+
+
+collections:  # non strettamente necessario se usi solo _posts/it e _posts/en
+  posts_it:
+    output: true
+  posts_en:
+    output: true
+
+
+defaults:
+  - scope:
+      path: "" 
+      type: "posts"
+    values:
+      layout: post
+
+subtitle_blog:
+  en: "Fresh thoughts, served weekly (more or less)."
+  it: "Pensieri freschi, serviti ogni settimana (più o meno)."

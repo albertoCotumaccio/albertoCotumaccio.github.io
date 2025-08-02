@@ -562,3 +562,36 @@ body {
   .post-content ol { padding-left: 10px; }
 }
 
+/* ============================
+   BLOG POST CARD STYLES
+   ============================ */
+.blog-post {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.blog-post:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .blog-post > div {
+    flex-direction: column !important;
+  }
+
+  .blog-post img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+
+
+
