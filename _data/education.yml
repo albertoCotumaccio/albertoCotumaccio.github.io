@@ -10,7 +10,7 @@ education:
       description: "Web-based management platform for a restaurant and catering company, which facilitates business operations at multiple locations in Italy."
       skills: "Django, Python, Full Stack Development"
       github_link: "https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree"
-      thesis_link: "https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione_tirocinio_cotumaccio.pdf"
+      thesis_link: "https://github.com/albertoCotumaccio/Internship-of-the-bachelor-degree/blob/main/relazione.pdf"
 
     - title: "Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering"
       type: "Master's Thesis"

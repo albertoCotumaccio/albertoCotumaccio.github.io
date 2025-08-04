@@ -10,14 +10,11 @@ title: Blog
    data-it="{{ site.subtitle_blog.it | escape }}">
 </p>
 
-
 {% assign posts_by_name = site.posts | group_by: "name" %}
 
 <div class="blog-container">
-  {% assign posts_by_name = site.posts | group_by: "name" %}
   {% for group in posts_by_name %}
-    {% assign posts = group.items %}
-    {% for post in posts %}
+    {% for post in group.items %}
       {% include blog-post-card.html post=post %}
     {% endfor %}
   {% endfor %}
@@ -29,8 +26,7 @@ title: Blog
     const subtitle = document.getElementById("blog-subtitle");
     if (subtitle) {
       const fallback = subtitle.dataset.en;
-      const localizedText = subtitle.dataset[lang] || fallback;
-      subtitle.textContent = localizedText;
+      subtitle.textContent = subtitle.dataset[lang] || fallback;
     }
   });
 </script>

@@ -7,12 +7,12 @@
     giscus.setAttribute('data-repo', 'albertoCotumaccio/albertoCotumaccio');
     giscus.setAttribute('data-category', 'General');
     giscus.setAttribute('data-mapping', 'specific');
-    giscus.setAttribute('data-term', '{{ page.giscus_id }}');
+    giscus.setAttribute('data-term', '{{ include.giscus_id }}');
     giscus.setAttribute('data-reactions-enabled', '1');
     giscus.setAttribute('data-emit-metadata', '0');
     giscus.setAttribute('data-input-position', 'bottom');
     giscus.setAttribute('data-theme', theme);
-    giscus.setAttribute('data-lang', '{{ page.lang }}');
+    giscus.setAttribute('data-lang', '{{ include.lang }}');
     giscus.setAttribute('crossorigin', 'anonymous');
     giscus.async = true;
     document.getElementById('giscus_container').appendChild(giscus);

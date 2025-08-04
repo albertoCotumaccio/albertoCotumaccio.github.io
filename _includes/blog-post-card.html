@@ -1,22 +1,32 @@
 <div class="blog-post border rounded p-4 mb-4 lang-{{ post.lang }}" data-name="{{ post.name }}" style="display: none;">
+  {% assign meta = site.data.posts[post.name] %}
   <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; flex-direction: row;">
-    {% if post.thumbnail %}
-    <div style="flex: 0 0 320px; max-width: 320px;">
-      <img src="{{ post.thumbnail | relative_url }}"
-           alt="Thumbnail"
-           style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px;">
-    </div>
+    {% if meta.thumbnail %}
+      <div style="flex: 0 0 320px; max-width: 320px;">
+        <img src="{{ meta.thumbnail | relative_url }}"
+             alt="Thumbnail"
+             style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px;">
+      </div>
     {% endif %}
 
     <div style="flex: 1 1 0; display: flex; flex-direction: column; justify-content: space-between;">
       <div>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p class="text-muted"><small>{{ post.date | date: "%B %d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}</small></p>
-        <p>{{ post.excerpt }}</p>
+        <h3>
+          <a href="{{ post.url | relative_url }}">
+            {{ meta.title[post.lang] }}
+          </a>
+        </h3>
+        <p class="text-muted">
+          <small>
+            {{ meta.date | date: "%B %d, %Y" }}
+            {% if meta.author %} • {{ meta.author }}{% endif %}
+          </small>
+        </p>
+        <p>{{ meta.excerpt[post.lang] }}</p>
 
-        {% if post.tags %}
-          <p class="mb-2"><strong>Tags:</strong> 
-            {% for tag in post.tags %}
+        {% if meta.tags %}
+          <p class="mb-2"><strong>Tags:</strong>
+            {% for tag in meta.tags %}
               <span class="badge skill-badge">{{ tag }}</span>
             {% endfor %}
           </p>

@@ -1,0 +1,14 @@
+mindfulness:
+  date: 2024-03-14
+  author: "Alberto Cotumaccio"
+  tags: ["blog", "static site", "markdown", "SEO"]
+  thumbnail: "/assets/images/1.jpg"
+  mathjax: false
+  comments: true
+  giscus_id: "1"
+  title:
+    it: "Titolo del post"
+    en: "Title"
+  excerpt:
+    it: "Breve descrizione usata nei listati e nei social."
+    en: "Short description"

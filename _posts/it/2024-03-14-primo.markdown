@@ -1,21 +1,9 @@
 ---
 layout: post
-title: "Titolo del post"
-excerpt: "Breve descrizione usata nei listati e nei social."
-date: 2024-03-14
-author: "Alberto Cotumaccio"
-tags: ["blog", "static site", "markdown", "SEO"]
-thumbnail: "/assets/images/1.jpg"
-mathjax: false
-comments: true
-giscus_id: "1"
+name: mindfulness
 lang: it
-name: "mio-articolo"
-permalink: /blog/it/mio-articolo/
-translation: /blog/en/mio-articolo/
+permalink: /blog/it/mindfulness/
+translation: /blog/en/mindfulness/
 ---
 
-ciao 
-
-
-
+ciao
