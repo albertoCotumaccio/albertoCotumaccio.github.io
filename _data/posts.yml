@@ -1,0 +1,14 @@
+mindfulness:
+  date: 2025-08-23
+  author: "Alberto Cotumaccio"
+  tags: ["mindfulness", "MBSR", "stress management", "software development"]
+  thumbnail: "/assets/images/1.jpg"
+  mathjax: false
+  comments: true
+  giscus_id: "1"
+  title:
+    it: "Mindfulness nello sviluppo software"
+    en: "Mindfulness in software development"
+  excerpt:
+    it: "Mindfulness applicata al problem solving e al debugging"
+    en: "Mindfulness applied to problem solving and debugging"

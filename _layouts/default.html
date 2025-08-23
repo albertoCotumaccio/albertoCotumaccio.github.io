@@ -1,116 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }}</title>
-
-  <!-- SEO -->
-  <meta name="description" content="{{ site.description }}" />
-  <meta name="author" content="{{ site.author }}" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}" />
-
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  {% include head.html %}
 </head>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Language toggle script
-    const langToggleButton = document.getElementById("langToggle");
-    const langText = document.getElementById("langText");
-
-    function setLanguage(lang) {
-      localStorage.setItem("language", lang);
-      // Nascondi entrambe le versioni...
-      document.getElementById("about-description-it").style.display = "none";
-      document.getElementById("about-description-en").style.display = "none";
-      // Mostra quella selezionata
-      if(lang === "it") {
-        document.getElementById("about-description-it").style.display = "block";
-      } else {
-        document.getElementById("about-description-en").style.display = "block";
-      }
-      langText.textContent = lang.toUpperCase();
-    }
-
-    // Imposta la lingua iniziale
-    const currentLanguage = localStorage.getItem("language") || "{{ site.language }}";
-    setLanguage(currentLanguage);
-
-    langToggleButton.addEventListener("click", () => {
-      let newLang = (localStorage.getItem("language") === "en") ? "it" : "en";
-      setLanguage(newLang);
-    });
-  });
-</script>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-dark sticky-top">
-  <div class="container d-flex justify-content-between align-items-center">
-    <!-- Sezione sinistra con i link -->
-    <div class="navbar-nav flex-row">
-      <a class="nav-item nav-link" href="{{ '/' | relative_url }}">Home</a>
-      <a class="nav-item nav-link ml-3" href="{{ '/blog' | relative_url }}">Blog</a>
-    </div>
-    <!-- Sezione destra con i pulsanti per tema e lingua -->
-    <div class="d-flex align-items-center">
-      <button id="themeToggle" class="btn btn-outline-light btn-sm d-flex align-items-center">
-        <i id="themeIcon" class="fas fa-sun mr-2"></i>
-        <span id="themeText">Light Theme</span>
-      </button>
-      <button id="langToggle" class="btn btn-outline-light btn-sm ml-2 d-flex align-items-center">
-        <i class="fas fa-globe mr-2"></i>
-        <span id="langText">EN</span>
-      </button>
-    </div>
-  </div>
-</nav>
-
+  {% include navbar.html %}
 
   <!-- Main content -->
   <main class="container my-4">
-    <!-- About Me -->
-    <section id="about" class="container mt-3">
-      <p id="about-description" class="about-description text-center" style="font-size: 18px;"></p>
-    </section>
-
     {{ content }}
   </main>
 
-  
-  <script>
-    const themeToggleButton = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
-    const themeText = document.getElementById("themeText");
-    const currentTheme = localStorage.getItem("theme") || "light";
-  
-    document.body.setAttribute("data-theme", currentTheme);
-    updateThemeButton(currentTheme);
-  
-    themeToggleButton.addEventListener("click", () => {
-      const newTheme = document.body.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      document.body.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateThemeButton(newTheme);
-    });
-  
-    function updateThemeButton(theme) {
-      if (theme === "dark") {
-        themeIcon.classList.replace("fa-sun", "fa-moon");
-        themeText.textContent = "Dark";
-      } else {
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-        themeText.textContent = "Light";
-      }
-    }
-  </script>
+  {% include scripts.html %}
 </body>
 </html>
