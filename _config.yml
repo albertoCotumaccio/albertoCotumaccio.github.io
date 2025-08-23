@@ -60,8 +60,8 @@ defaults:
       layout: post
 
 subtitle_blog:
-  en: "Fresh thoughts, served weekly (more or less)."
-  it: "Pensieri freschi, serviti ogni settimana (più o meno)."
+  en: ""
+  it: ""
 
 
 # ignore warnings
