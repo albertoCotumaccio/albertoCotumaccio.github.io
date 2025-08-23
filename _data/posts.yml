@@ -1,14 +1,14 @@
 mindfulness:
-  date: 2024-03-14
+  date: 2025-08-23
   author: "Alberto Cotumaccio"
-  tags: ["blog", "static site", "markdown", "SEO"]
+  tags: ["mindfulness", "MBSR", "stress management", "software development"]
   thumbnail: "/assets/images/1.jpg"
   mathjax: false
   comments: true
   giscus_id: "1"
   title:
-    it: "Titolo del post"
-    en: "Title"
+    it: "Mindfulness nello sviluppo software"
+    en: "Mindfulness in software development"
   excerpt:
-    it: "Breve descrizione usata nei listati e nei social."
-    en: "Short description"
+    it: "Mindfulness applicata al problem solving e al debugging"
+    en: "Mindfulness applied to problem solving and debugging"

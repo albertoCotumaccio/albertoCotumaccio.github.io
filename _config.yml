@@ -62,3 +62,12 @@ defaults:
 subtitle_blog:
   en: "Fresh thoughts, served weekly (more or less)."
   it: "Pensieri freschi, serviti ogni settimana (più o meno)."
+
+
+# ignore warnings
+sass:
+  quiet_deps: true
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions

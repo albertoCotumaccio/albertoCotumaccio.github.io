@@ -5,10 +5,10 @@ layout: default
 <div class="post">
   <header class="post-header">
     <h1>{{ meta.title[page.lang] }}</h1>
-    <p class="meta">
-      {{ meta.date | date: "%b %-d, %Y" }}
+    <p class="meta">{{ meta.date | date: "%b %-d, %Y" }}
       {% if meta.author %} • {{ meta.author }}{% endif %}
     </p>
+  </header>
 
     {% if meta.tags %}
       <p><strong>Tags:</strong>

@@ -1,9 +1,0 @@
----
-layout: post
-name: mindfulness
-lang: it
-permalink: /blog/it/mindfulness/
-translation: /blog/en/mindfulness/
----
-
-ciao
