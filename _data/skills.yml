@@ -1,40 +1,78 @@
-software_infrastructure:
-  title: "Software & Infrastructure"
+frontend:
+  title: "Frontend Development"
   skills:
-    - Full-Stack
     - React
-    - Django
+    - Flutter
+    - UI/UX
+    - Figma
+    - HTML/CSS
+    - JavaScript
+
+backend:
+  title: "Backend Development"
+  skills:
+    - Python (Django, Flask)
     - Java (Spring)
     - Node.js
     - REST APIs
     - Microservices
-    - Flutter
-    - Low-Code
-    - CI/CD
-    - Grafana
-    - Jenkins
-    - OpenShift
-    - Git
-    - Kubernetes
-    - SQL
-    - JUnit
-    - Mockito
-    - Jest
 
-data_ai_others:
-  title: "Data, AI & Others"
+cloud_devops:
+  title: "Cloud & DevOps"
+  skills:
+    - Kubernetes
+    - OpenShift
+    - CI/CD
+    - Jenkins
+    - Grafana
+    - Prometheus
+    - Git
+    - Docker
+
+data_ai:
+  title: "Data & AI"
   skills:
     - Machine Learning
     - Data Analysis
     - Python
     - Pandas
     - Scikit-learn
+    - TensorFlow
+
+blockchain:
+  title: "Blockchain & Web3"
+  skills:
     - Blockchain
     - Solidity
     - Smart Contracts
-    - UI/UX
-    - Figma
+    - Ethereum
+    - Web3.js
+
+databases:
+  title: "Databases"
+  skills:
+    - SQL
+    - PostgreSQL
+    - MongoDB
+    - Redis
+    - Database Design
+
+testing:
+  title: "Testing & QA"
+  skills:
+    - JUnit
+    - Mockito
+    - Jest
+    - Test Automation
+    - TDD
+    - Postman
+
+tools_productivity:
+  title: "Tools & Productivity"
+  skills:
+    - Low-Code
     - Canva
     - Documentation
     - LaTeX
     - Markdown
+    - Agile

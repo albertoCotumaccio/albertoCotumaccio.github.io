@@ -42,15 +42,27 @@ title: Home
 
 <!-- Skills Section -->
 <section id="skills" class="container">
-  <div class="skills-container">
-    {% for category in site.data.skills %}
-      <div class="skill-category mb-3">
-        <h3>{{ category[1].title }}</h3>
-        {% for skill in category[1].skills %}
-          <span class="skill-badge">{{ skill }}</span>
-        {% endfor %}
-      </div>
-    {% endfor %}
+  <h2 class="text-center mb-4"><strong>Skills & Technologies</strong></h2>
+  <div class="skills-section-wrapper">
+    <div class="skills-container">
+      {% for category in site.data.skills %}
+        <div class="skill-category">
+          <h3>{{ category[1].title }}</h3>
+          {% for skill in category[1].skills %}
+            <span class="skill-badge">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <!-- Duplicate for infinite scroll effect -->
+      {% for category in site.data.skills %}
+        <div class="skill-category">
+          <h3>{{ category[1].title }}</h3>
+          {% for skill in category[1].skills %}
+            <span class="skill-badge">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -148,24 +160,31 @@ title: Home
   <div class="row justify-content-center">
     {% for cert in site.data.certifications.certifications %}
       <div class="col-md-8 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body text-center">
-            <h5 class="card-title">{{ cert.name }}</h5>
-            <p class="text-muted">
-              <strong>{{ cert.issuer }}</strong><br />
-              {{ cert.date }}
+        <div class="card border-0 shadow-lg" style="border-radius: 15px; overflow: hidden;">
+          <div class="card-body text-center p-4">
+            <div class="mb-3">
+              <i class="fas fa-award" style="font-size: 3rem; color: #326CE5;"></i>
+            </div>
+            <h5 class="card-title font-weight-bold mb-3" style="color: #2c3e50;">{{ cert.name }}</h5>
+            <p class="text-muted mb-3">
+              <i class="fas fa-building mr-1"></i><strong>{{ cert.issuer }}</strong><br />
+              <i class="fas fa-calendar-alt mr-1"></i>{{ cert.date }}
             </p>
-            <p class="card-text">{{ cert.description }}</p>
-            <a href="{{ cert.badge_link }}" target="_blank" class="btn btn-primary btn-sm mb-3">
-              <i class="fas fa-certificate"></i> View Certification Badge
+            <p class="card-text mb-4" style="color: #5a6c7d; line-height: 1.6;">{{ cert.description }}</p>
+            <a href="{{ cert.badge_link }}" target="_blank" class="btn btn-lg mb-3" style="background: linear-gradient(135deg, #326CE5 0%, #4A90E2 100%); color: white; border: none; border-radius: 25px; padding: 10px 30px; font-weight: 600; box-shadow: 0 4px 15px rgba(50, 108, 229, 0.3); transition: all 0.3s ease;">
+              <i class="fas fa-certificate mr-2"></i>View Certification Badge
             </a>
             {% if cert.related_course %}
-              <hr class="my-3">
-              <p class="text-muted mb-2"><small><strong>Related Course:</strong></small></p>
-              <p class="mb-2">{{ cert.related_course.name }}</p>
-              <a href="{{ cert.related_course.badge_link }}" target="_blank" class="btn btn-outline-secondary btn-sm">
-                <i class="fas fa-graduation-cap"></i> View Course Badge
-              </a>
+              <div class="mt-4 pt-4" style="border-top: 2px dashed #e0e0e0;">
+                <div class="mb-3">
+                  <i class="fas fa-graduation-cap" style="font-size: 2rem; color: #7B68EE;"></i>
+                </div>
+                <p class="text-muted mb-2" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Related Course</p>
+                <p class="mb-3 font-weight-bold" style="color: #2c3e50;">{{ cert.related_course.name }}</p>
+                <a href="{{ cert.related_course.badge_link }}" target="_blank" class="btn btn-outline-secondary" style="border-radius: 20px; padding: 8px 25px; font-weight: 600; border-width: 2px; transition: all 0.3s ease;">
+                  <i class="fas fa-external-link-alt mr-2"></i>View Course Badge
+                </a>
+              </div>
             {% endif %}
           </div>
         </div>
