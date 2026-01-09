@@ -11,7 +11,8 @@ title: Home
       <h1 class="main-title">
         {{ site.data.about.header.greeting }} <span class="emoji">{{ site.data.about.header.emoji }}</span>
       </h1>
-      <p class="title">{{ site.data.about.header.title }}</p>
+      <p class="title title-it" style="display: none;">{{ site.data.about.header.title.it }}</p>
+      <p class="title title-en" style="display: none;">{{ site.data.about.header.title.en }}</p>
       <div class="links">
         <a href="{{ site.social.github }}" target="_blank">
           <i class="fab fa-github"></i>
@@ -27,18 +28,34 @@ title: Home
   </div>
 </div>
 
-<!-- About Me -->
-<section id="about" class="container mt-3">
-  <p id="about-description-it" class="about-description text-center" style="font-size: 18px; display: none;">
-    {{ site.data.about.about.description.it }}
-  </p>
-  <p id="about-description-en" class="about-description text-center" style="font-size: 18px; display: none;">
-    {{ site.data.about.about.description.en }}
-  </p>
+<!-- Timeline Section - Horizontal Compact -->
+<section id="timeline" class="container mt-2">
+  <div class="timeline-horizontal">
+    {% for item in site.data.timeline %}
+      <div class="timeline-h-item">
+        <div class="timeline-h-marker">
+          <i class="{{ item.icon }}"></i>
+        </div>
+        <div class="timeline-h-content">
+          <span class="timeline-h-year">{{ item.year }}</span>
+          <h4 class="timeline-h-title">{{ item.title }}</h4>
+          <p class="timeline-h-org">{{ item.organization }}</p>
+          {% if item.description %}<p class="timeline-h-desc">{{ item.description }}</p>{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </section>
 
-
-<br>
+<!-- Current Role / About -->
+<section id="about" class="container mt-4 mb-5">
+  <p class="current-role-text current-role-it text-center" style="display: none;">
+    {{ site.data.about.header.current_role.it }}
+  </p>
+  <p class="current-role-text current-role-en text-center" style="display: none;">
+    {{ site.data.about.header.current_role.en }}
+  </p>
+</section>
 
 <!-- Skills Section -->
 <section id="skills" class="container">

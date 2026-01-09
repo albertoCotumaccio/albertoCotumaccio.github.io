@@ -1,0 +1,218 @@
+/* ====================================================
+   CURRENT ROLE TEXT
+   ==================================================== */
+.current-role-text {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ====================================================
+   HORIZONTAL TIMELINE - COMPACT
+   ==================================================== */
+.timeline-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  position: relative;
+  padding: 10px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Horizontal line connecting items */
+.timeline-horizontal::before {
+  content: '';
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 3px;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 50%, #00d4ff 100%);
+  border-radius: 3px;
+  z-index: 0;
+}
+
+/* ====================================================
+   TIMELINE ITEM
+   ==================================================== */
+.timeline-h-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 200px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Marker circle */
+.timeline-h-marker {
+  width: 50px;
+  height: 50px;
+  background: var(--card-bg);
+  border: 3px solid #6a11cb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.2);
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.timeline-h-marker i {
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.timeline-h-item:hover .timeline-h-marker {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(106, 17, 203, 0.3);
+}
+
+/* Content */
+.timeline-h-content {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.timeline-h-year {
+  display: inline-block;
+  padding: 3px 10px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 12px;
+  margin-bottom: 6px;
+}
+
+.timeline-h-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.timeline-h-org {
+  font-size: 0.8rem;
+  color: var(--secondary-text-color);
+  margin: 0;
+}
+
+.timeline-h-desc {
+  font-size: 0.7rem;
+  color: var(--secondary-text-color);
+  margin: 4px 0 0 0;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.timeline-h-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 4px 10px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.timeline-h-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
+  color: #fff;
+}
+
+.timeline-h-link i {
+  font-size: 0.6rem;
+}
+
+/* ====================================================
+   RESPONSIVE DESIGN
+   ==================================================== */
+@media (max-width: 768px) {
+  .timeline-horizontal {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .timeline-horizontal::before {
+    width: 3px;
+    height: 80%;
+    top: 10%;
+    left: 25px;
+    transform: none;
+  }
+
+  .timeline-h-item {
+    flex-direction: row;
+    max-width: 100%;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .timeline-h-marker {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .timeline-h-content {
+    text-align: left;
+    padding: 0;
+  }
+}
+
+/* ====================================================
+   DARK THEME ADJUSTMENTS
+   ==================================================== */
+[data-theme="dark"] {
+  .timeline-h-marker {
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.25);
+  }
+
+  .timeline-h-marker i {
+    background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .timeline-h-item:hover .timeline-h-marker {
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.35);
+  }
+
+  .timeline-h-year {
+    background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+  }
+
+  .timeline-horizontal::before {
+    background: linear-gradient(90deg, #a78bfa 0%, #60a5fa 50%, #38bdf8 100%);
+  }
+
+  .timeline-h-link {
+    background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+  }
+
+  .timeline-h-link:hover {
+    box-shadow: 0 4px 10px rgba(167, 139, 250, 0.4);
+  }
+}
