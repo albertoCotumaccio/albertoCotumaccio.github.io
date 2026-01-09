@@ -11,7 +11,8 @@ title: Home
       <h1 class="main-title">
         {{ site.data.about.header.greeting }} <span class="emoji">{{ site.data.about.header.emoji }}</span>
       </h1>
-      <p class="title">{{ site.data.about.header.title }}</p>
+      <p class="title title-it" style="display: none;">{{ site.data.about.header.title.it }}</p>
+      <p class="title title-en" style="display: none;">{{ site.data.about.header.title.en }}</p>
       <div class="links">
         <a href="{{ site.social.github }}" target="_blank">
           <i class="fab fa-github"></i>
@@ -27,30 +28,68 @@ title: Home
   </div>
 </div>
 
-<!-- About Me -->
-<section id="about" class="container mt-3">
-  <p id="about-description-it" class="about-description text-center" style="font-size: 18px; display: none;">
-    {{ site.data.about.about.description.it }}
+<!-- Timeline Section - Horizontal Compact -->
+<section id="timeline" class="container mt-2">
+  <div class="timeline-horizontal">
+    {% for item in site.data.timeline %}
+      <div class="timeline-h-item">
+        <div class="timeline-h-marker">
+          <i class="{{ item.icon }}"></i>
+        </div>
+        <div class="timeline-h-content">
+          <span class="timeline-h-year">{{ item.year }}</span>
+          <h4 class="timeline-h-title">{{ item.title }}</h4>
+          <p class="timeline-h-org">{{ item.organization }}</p>
+          {% if item.description %}<p class="timeline-h-desc">{{ item.description }}</p>{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Current Role / About -->
+<section id="about" class="container mt-4 mb-5">
+  <p class="current-role-text current-role-it text-center" style="display: none;">
+    {{ site.data.about.header.current_role.it }}
   </p>
-  <p id="about-description-en" class="about-description text-center" style="font-size: 18px; display: none;">
-    {{ site.data.about.about.description.en }}
+  <p class="current-role-text current-role-en text-center" style="display: none;">
+    {{ site.data.about.header.current_role.en }}
   </p>
 </section>
 
-
-<br>
-
 <!-- Skills Section -->
 <section id="skills" class="container">
-  <div class="skills-container">
-    {% for category in site.data.skills %}
-      <div class="skill-category mb-3">
-        <h3>{{ category[1].title }}</h3>
-        {% for skill in category[1].skills %}
-          <span class="skill-badge">{{ skill }}</span>
-        {% endfor %}
-      </div>
-    {% endfor %}
+  <h2 class="text-center mb-4"><strong>Skills & Technologies I've Worked With</strong></h2>
+  <div class="skills-section-wrapper">
+    <div class="skills-container">
+      {% for category in site.data.skills %}
+        <div class="skill-category">
+          <div class="skill-category-icon">
+            <i class="{{ category[1].icon }}"></i>
+          </div>
+          <h3>{{ category[1].title }}</h3>
+          <div class="skill-badges">
+            {% for skill in category[1].skills %}
+              <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer" class="skill-badge">{{ skill.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+      <!-- Duplicate for infinite scroll effect -->
+      {% for category in site.data.skills %}
+        <div class="skill-category">
+          <div class="skill-category-icon">
+            <i class="{{ category[1].icon }}"></i>
+          </div>
+          <h3>{{ category[1].title }}</h3>
+          <div class="skill-badges">
+            {% for skill in category[1].skills %}
+              <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer" class="skill-badge">{{ skill.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -140,4 +179,43 @@ title: Home
       </li>
     {% endfor %}
   </ul>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications" class="container my-5">
+  <h2 class="text-center mb-4"><strong>Certifications</strong></h2>
+  <div class="row justify-content-center">
+    {% for cert in site.data.certifications.certifications %}
+      <div class="col-md-8 mb-4">
+        <div class="card shadow-lg">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="fas fa-award"></i>
+            </div>
+            <h5 class="card-title mb-3">{{ cert.name }}</h5>
+            <p class="text-muted mb-3">
+              <i class="fas fa-building mr-1"></i><strong>{{ cert.issuer }}</strong><br />
+              <i class="fas fa-calendar-alt mr-1"></i>{{ cert.date }}
+            </p>
+            <p class="card-text mb-4">{{ cert.description }}</p>
+            <a href="{{ cert.badge_link }}" target="_blank" class="btn btn-certification btn-lg mb-3">
+              <i class="fas fa-certificate mr-2"></i>View Certification Badge
+            </a>
+            {% if cert.related_course %}
+              <div class="course-divider">
+                <div class="mb-3">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <p class="course-label text-muted mb-2">Related Course</p>
+                <p class="course-name mb-3">{{ cert.related_course.name }}</p>
+                <a href="{{ cert.related_course.badge_link }}" target="_blank" class="btn btn-outline-secondary btn-course">
+                  <i class="fas fa-external-link-alt mr-2"></i>View Course Badge
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </section>

@@ -1,0 +1,65 @@
+/* ====================================================
+   BUTTON STYLES
+   ==================================================== */
+.btn {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1557b0 0%, #3367d6 100%);
+  box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+  color: white;
+}
+
+.btn-dark {
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dark:hover {
+  background: linear-gradient(135deg, #222 0%, #444 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.btn-outline-secondary {
+  border: 2px solid #6c757d;
+  color: #6c757d;
+  background: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+.btn-sm {
+  padding: 6px 16px;
+  font-size: 14px;
+}
+
+.btn-lg {
+  padding: 12px 32px;
+  font-size: 16px;
+}

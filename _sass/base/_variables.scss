@@ -1,0 +1,40 @@
+/* ====================================================
+   GLOBAL VARIABLES & THEMING
+   ==================================================== */
+/* Variabili condivise per gestire facilmente i colori in entrambi i temi */
+:root {
+  --bg-color: #fafafa;              /* Sfondo chiaro */
+  --text-color: #202124;             /* Testo scuro */
+  --secondary-text-color: #5f6368;   /* Testo secondario */
+  --header-bg: #1a73e8;              /* Sfondo header */
+  --header-text: #ffffff;            /* Testo header */
+
+  --about-text-color: #000; /* Nero per il tema chiaro */
+
+  --link-color: #0057b7;             /* Colore dei link */
+
+  --card-bg: #ffffff;               /* Sfondo dei card */
+  --card-border: rgba(0, 0, 0, 0.125);/* Bordo dei card */
+
+  --badge-gradient-start: #6a11cb;   /* Inizio gradiente badge */
+  --badge-gradient-end: #2575fc;     /* Fine gradiente badge */
+}
+
+/* Override per tema scuro */
+[data-theme="dark"] {
+  --bg-color: #202124;
+  --text-color: #e8eaed;
+  --secondary-text-color: #9aa0a6;
+  --header-bg: #303134;
+  --header-text: #e8eaed;
+  --about-text-color: #fff; /* Bianco per il tema scuro */
+
+  --link-color: #64b5f6;
+
+  --card-bg: #1e1e1e;
+  --card-border: rgba(255, 255, 255, 0.2);
+
+  /* Gradient badge leggermente modificato per il contrasto sul fondo scuro */
+  --badge-gradient-start: #8a2be2;
+  --badge-gradient-end: #5f3dc4;
+}

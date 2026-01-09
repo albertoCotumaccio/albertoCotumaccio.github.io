@@ -8,10 +8,20 @@
       if (langText) {
         langText.textContent = lang === "en" ? "🇬🇧 EN" : "🇮🇹 IT";
       }
-      const itDesc = document.getElementById("about-description-it");
-      const enDesc = document.getElementById("about-description-en");
-      if (itDesc) itDesc.style.display = lang === "it" ? "block" : "none";
-      if (enDesc) enDesc.style.display = lang === "en" ? "block" : "none";
+      // Header title (tagline)
+      document.querySelectorAll(".title-it").forEach(el => {
+        el.style.display = lang === "it" ? "block" : "none";
+      });
+      document.querySelectorAll(".title-en").forEach(el => {
+        el.style.display = lang === "en" ? "block" : "none";
+      });
+      // Current role
+      document.querySelectorAll(".current-role-it").forEach(el => {
+        el.style.display = lang === "it" ? "block" : "none";
+      });
+      document.querySelectorAll(".current-role-en").forEach(el => {
+        el.style.display = lang === "en" ? "block" : "none";
+      });
     }
 
     const currentLanguage = localStorage.getItem("language") || "{{ site.language }}";

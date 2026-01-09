@@ -1,40 +1,141 @@
-software_infrastructure:
-  title: "Software & Infrastructure"
+programming_languages:
+  title: "Programming Languages"
+  icon: "fas fa-code"
   skills:
-    - Full-Stack
-    - React
-    - Django
-    - Java (Spring)
-    - Node.js
-    - REST APIs
-    - Microservices
-    - Flutter
-    - Low-Code
-    - CI/CD
-    - Grafana
-    - Jenkins
-    - OpenShift
-    - Git
-    - Kubernetes
-    - SQL
-    - JUnit
-    - Mockito
-    - Jest
+    - name: "Java"
+      url: "https://www.java.com"
+    - name: "JavaScript"
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+    - name: "TypeScript"
+      url: "https://www.typescriptlang.org"
+    - name: "PHP"
+      url: "https://www.php.net"
+    - name: "Python"
+      url: "https://www.python.org"
 
-data_ai_others:
-  title: "Data, AI & Others"
+frontend:
+  title: "Frontend Development"
+  icon: "fas fa-palette"
   skills:
-    - Machine Learning
-    - Data Analysis
-    - Python
-    - Pandas
-    - Scikit-learn
-    - Blockchain
-    - Solidity
-    - Smart Contracts
-    - UI/UX
-    - Figma
-    - Canva
-    - Documentation
-    - LaTeX
-    - Markdown
+    - name: "React"
+      url: "https://react.dev"
+    - name: "HTML5"
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML"
+    - name: "CSS3"
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS"
+    - name: "Sass"
+      url: "https://sass-lang.com"
+    - name: "Bootstrap"
+      url: "https://getbootstrap.com"
+    - name: "Tailwind"
+      url: "https://tailwindcss.com"
+
+backend:
+  title: "Backend Development"
+  icon: "fas fa-server"
+  skills:
+    - name: "Node.js"
+      url: "https://nodejs.org"
+    - name: "Express"
+      url: "https://expressjs.com"
+    - name: "Spring"
+      url: "https://spring.io"
+    - name: "Kafka"
+      url: "https://kafka.apache.org"
+    - name: "RabbitMQ"
+      url: "https://www.rabbitmq.com"
+    - name: "Nginx"
+      url: "https://nginx.org"
+
+mobile:
+  title: "Mobile Development"
+  icon: "fas fa-mobile-alt"
+  skills:
+    - name: "Flutter"
+      url: "https://flutter.dev"
+    - name: "React Native"
+      url: "https://reactnative.dev"
+
+ai_ml:
+  title: "AI & Machine Learning"
+  icon: "fas fa-brain"
+  skills:
+    - name: "TensorFlow"
+      url: "https://www.tensorflow.org"
+    - name: "PyTorch"
+      url: "https://pytorch.org"
+    - name: "Pandas"
+      url: "https://pandas.pydata.org"
+    - name: "Seaborn"
+      url: "https://seaborn.pydata.org"
+    - name: "OpenCV"
+      url: "https://opencv.org"
+    - name: "Scikit-learn"
+      url: "https://scikit-learn.org"
+
+databases:
+  title: "Databases"
+  icon: "fas fa-database"
+  skills:
+    - name: "MySQL"
+      url: "https://www.mysql.com"
+    - name: "PostgreSQL"
+      url: "https://www.postgresql.org"
+    - name: "Oracle"
+      url: "https://www.oracle.com/database"
+    - name: "Elasticsearch"
+      url: "https://www.elastic.co/elasticsearch"
+    - name: "SQLite"
+      url: "https://www.sqlite.org"
+
+data_visualization:
+  title: "Monitoring & Visualization"
+  icon: "fas fa-chart-bar"
+  skills:
+    - name: "Grafana"
+      url: "https://grafana.com"
+    - name: "Prometheus"
+      url: "https://prometheus.io"
+    - name: "Kibana"
+      url: "https://www.elastic.co/kibana"
+
+cloud_devops:
+  title: "Cloud & DevOps"
+  icon: "fas fa-cloud"
+  skills:
+    - name: "AWS"
+      url: "https://aws.amazon.com"
+    - name: "Azure"
+      url: "https://azure.microsoft.com"
+    - name: "Docker"
+      url: "https://www.docker.com"
+    - name: "Kubernetes"
+      url: "https://kubernetes.io"
+    - name: "Jenkins"
+      url: "https://www.jenkins.io"
+
+frameworks:
+  title: "Frameworks"
+  icon: "fas fa-cubes"
+  skills:
+    - name: "Django"
+      url: "https://www.djangoproject.com"
+    - name: "Flask"
+      url: "https://flask.palletsprojects.com"
+    - name: "Symfony"
+      url: "https://symfony.com"
+
+tools:
+  title: "Tools & Software"
+  icon: "fas fa-tools"
+  skills:
+    - name: "Git"
+      url: "https://git-scm.com"
+    - name: "Figma"
+      url: "https://www.figma.com"
+    - name: "Postman"
+      url: "https://www.postman.com"
+    - name: "MATLAB"
+      url: "https://www.mathworks.com/products/matlab.html"
+    - name: "Jekyll"
+      url: "https://jekyllrb.com"

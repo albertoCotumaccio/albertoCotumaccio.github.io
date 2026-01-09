@@ -1,0 +1,76 @@
+/* ====================================================
+   DARK MODE CONTRAST ENHANCEMENTS
+   ==================================================== */
+
+/* Ensure all text has good contrast in dark mode */
+[data-theme="dark"] {
+  /* Card text improvements */
+  .card-text {
+    color: #b8c0cc !important;
+  }
+
+  /* Muted text should still be readable */
+  .text-muted {
+    color: #9aa0a6 !important;
+  }
+
+  /* Strong text in muted sections */
+  .text-muted strong {
+    color: #b8c0cc;
+  }
+
+  /* Research Paper section */
+  #research-paper .card-text {
+    color: #b8c0cc;
+  }
+
+  /* Education section */
+  #education-projects h5 {
+    color: #e8eaed;
+  }
+
+  #education-projects p {
+    color: #b8c0cc;
+  }
+
+  #education-projects .text-uppercase {
+    color: #9aa0a6 !important;
+  }
+
+  /* List group items - improve em and strong contrast */
+  .list-group-item em {
+    color: #9aa0a6;
+  }
+
+  .list-group-item strong {
+    color: #e8eaed;
+  }
+
+  /* About section */
+  .about-description {
+    color: #e8eaed !important;
+  }
+
+  /* Ensure icons have good contrast */
+  .fas, .fab {
+    opacity: 0.9;
+  }
+
+  /* Link colors in dark mode */
+  a:not(.btn) {
+    color: #64b5f6;
+  }
+
+  a:not(.btn):hover {
+    color: #90caf9;
+  }
+
+  /* Text primary in dark mode */
+  .text-primary {
+    color: #64b5f6 !important;
+  }
+
+  .text-primary:hover {
+    color: #90caf9 !important;
+  }
+}

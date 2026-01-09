@@ -1,0 +1,25 @@
+- year: "Jul 2024"
+  icon: "fas fa-briefcase"
+  title: "Software Engineer"
+  organization: "Atlas Reply"
+
+- year: "Sep 2024"
+  icon: "fas fa-award"
+  title: "IEEE Publication"
+  organization: "IC2E Conference"
+  link: "https://ieeexplore.ieee.org/document/10628513"
+
+- year: "Mar 2024"
+  icon: "fas fa-graduation-cap"
+  title: "Master's Degree"
+  organization: "Sapienza University"
+
+- year: "Dec 2021"
+  icon: "fas fa-graduation-cap"
+  title: "Bachelor's Degree"
+  organization: "Sapienza University"
+
+- year: "Apr 1999"
+  icon: "fas fa-baby"
+  title: "Born"
+  organization: "Italy 🇮🇹"

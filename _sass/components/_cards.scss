@@ -1,0 +1,63 @@
+/* ====================================================
+   CARD COMPONENTS
+   ==================================================== */
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-body p {
+  color: var(--text-color);
+}
+
+.card-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* ====================================================
+   LIST GROUP ITEMS
+   ==================================================== */
+.list-group-item {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.list-group-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-color: #6a11cb;
+}
+
+.list-group-item a {
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover a {
+  color: #6a11cb;
+}
+
+.list-group-item i {
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover i {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}

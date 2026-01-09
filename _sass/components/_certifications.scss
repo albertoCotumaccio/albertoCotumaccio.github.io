@@ -1,0 +1,136 @@
+/* ====================================================
+   CERTIFICATIONS SECTION
+   ==================================================== */
+
+/* Certification card specific styles */
+#certifications .card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#certifications .card-body {
+  padding: 2rem;
+}
+
+/* Award icon */
+#certifications .fa-award {
+  font-size: 3rem;
+  color: #326CE5;
+}
+
+/* Dark mode: lighter blue for better visibility */
+[data-theme="dark"] #certifications .fa-award {
+  color: #5E9AFF;
+}
+
+/* Card title - needs good contrast in both themes */
+#certifications .card-title {
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] #certifications .card-title {
+  color: #e8eaed;
+}
+
+/* Description text - needs better contrast */
+#certifications .card-text {
+  color: #5a6c7d;
+  line-height: 1.6;
+}
+
+[data-theme="dark"] #certifications .card-text {
+  color: #b8c0cc;
+}
+
+/* Meta information (issuer, date) */
+#certifications .text-muted {
+  color: #6c757d !important;
+}
+
+[data-theme="dark"] #certifications .text-muted {
+  color: #9aa0a6 !important;
+}
+
+/* Certification button */
+#certifications .btn-certification {
+  background: linear-gradient(135deg, #326CE5 0%, #4A90E2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(50, 108, 229, 0.3);
+  transition: all 0.3s ease;
+}
+
+#certifications .btn-certification:hover {
+  background: linear-gradient(135deg, #2557b0 0%, #3979d6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(50, 108, 229, 0.4);
+}
+
+[data-theme="dark"] #certifications .btn-certification {
+  background: linear-gradient(135deg, #4A90E2 0%, #64B5F6 100%);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+[data-theme="dark"] #certifications .btn-certification:hover {
+  background: linear-gradient(135deg, #3979d6 0%, #5aa8f0 100%);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+}
+
+/* Related course section */
+#certifications .course-divider {
+  border-top: 2px dashed #e0e0e0;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+[data-theme="dark"] #certifications .course-divider {
+  border-top-color: #444;
+}
+
+/* Graduation cap icon */
+#certifications .fa-graduation-cap {
+  font-size: 2rem;
+  color: #7B68EE;
+}
+
+[data-theme="dark"] #certifications .fa-graduation-cap {
+  color: #9B88FF;
+}
+
+/* Related course label */
+#certifications .course-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6c757d;
+}
+
+[data-theme="dark"] #certifications .course-label {
+  color: #9aa0a6;
+}
+
+/* Course name */
+#certifications .course-name {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+[data-theme="dark"] #certifications .course-name {
+  color: #e8eaed;
+}
+
+/* Course button */
+#certifications .btn-course {
+  border-radius: 20px;
+  padding: 8px 25px;
+  font-weight: 600;
+  border-width: 2px;
+  transition: all 0.3s ease;
+}
