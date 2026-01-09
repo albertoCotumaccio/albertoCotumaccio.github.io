@@ -42,24 +42,34 @@ title: Home
 
 <!-- Skills Section -->
 <section id="skills" class="container">
-  <h2 class="text-center mb-4"><strong>Skills & Technologies</strong></h2>
+  <h2 class="text-center mb-4"><strong>Skills & Technologies I've Worked With</strong></h2>
   <div class="skills-section-wrapper">
     <div class="skills-container">
       {% for category in site.data.skills %}
         <div class="skill-category">
+          <div class="skill-category-icon">
+            <i class="{{ category[1].icon }}"></i>
+          </div>
           <h3>{{ category[1].title }}</h3>
-          {% for skill in category[1].skills %}
-            <span class="skill-badge">{{ skill }}</span>
-          {% endfor %}
+          <div class="skill-badges">
+            {% for skill in category[1].skills %}
+              <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer" class="skill-badge">{{ skill.name }}</a>
+            {% endfor %}
+          </div>
         </div>
       {% endfor %}
       <!-- Duplicate for infinite scroll effect -->
       {% for category in site.data.skills %}
         <div class="skill-category">
+          <div class="skill-category-icon">
+            <i class="{{ category[1].icon }}"></i>
+          </div>
           <h3>{{ category[1].title }}</h3>
-          {% for skill in category[1].skills %}
-            <span class="skill-badge">{{ skill }}</span>
-          {% endfor %}
+          <div class="skill-badges">
+            {% for skill in category[1].skills %}
+              <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer" class="skill-badge">{{ skill.name }}</a>
+            {% endfor %}
+          </div>
         </div>
       {% endfor %}
     </div>
