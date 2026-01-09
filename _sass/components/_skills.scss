@@ -1,0 +1,130 @@
+/* ====================================================
+   SKILL BADGES
+   ==================================================== */
+.skill-badge {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--badge-gradient-start) 0%, var(--badge-gradient-end) 100%);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.3px;
+}
+
+.skill-badge:hover {
+  background: linear-gradient(135deg, #ff9900 0%, #ffcc00 100%);
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(255, 153, 0, 0.35);
+  color: #fff;
+}
+
+/* ====================================================
+   SKILLS CONTAINER
+   ==================================================== */
+.skills-section-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+.skills-section-wrapper::before,
+.skills-section-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.skills-section-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.skills-section-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+.skills-container {
+  display: flex;
+  gap: 20px;
+  animation: scroll 40s linear infinite;
+  width: fit-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ====================================================
+   SKILL CATEGORY STYLES
+   ==================================================== */
+.skill-category {
+  text-align: center;
+  flex: 0 0 auto;
+  width: 280px;
+  padding: 24px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.skill-category:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+  margin-top: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ====================================================
+   RESPONSIVE DESIGN
+   ==================================================== */
+@media (max-width: 768px) {
+  .skills-container {
+    animation: scroll 30s linear infinite;
+  }
+
+  .skill-category {
+    width: 240px;
+  }
+
+  .skills-section-wrapper::before,
+  .skills-section-wrapper::after {
+    width: 50px;
+  }
+}

@@ -1,0 +1,30 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+/* ====================================================
+   MAIN CSS - MODULAR ARCHITECTURE
+   ==================================================== */
+
+/* Base Styles */
+@import "base/variables";
+@import "base/reset";
+@import "base/utilities";
+@import "base/syntax-highlighting";
+@import "base/responsive";
+@import "base/dark-mode-enhancements";
+
+/* Layout */
+@import "layout/navbar";
+@import "layout/header";
+
+/* Components */
+@import "components/links";
+@import "components/cards";
+@import "components/buttons";
+@import "components/skills";
+@import "components/education";
+@import "components/certifications";
+
+/* Pages */
+@import "pages/blog";

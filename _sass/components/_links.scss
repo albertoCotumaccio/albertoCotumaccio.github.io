@@ -1,0 +1,25 @@
+/* ====================================================
+   LINKS (Social Icons)
+   ==================================================== */
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.links a {
+  margin-right: 15px;
+  font-size: 2.5rem;
+  color: var(--link-color);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.links a:hover {
+  color: #ff9900;
+  transform: translateY(-3px) scale(1.15);
+  filter: drop-shadow(0 4px 8px rgba(255, 153, 0, 0.3));
+}
