@@ -6,3 +6,5 @@ paper:
   publisher: "IEEE"
   description: "AI methodology designed to simplify cloud migration by automating the analysis of requirements. AI-CRAS leverages advanced deep learning and NLP techniques to translate user needs, expressed in natural language, into precise and structured technical specifications. It bridges the gap in automated requirement analysis and specification for cloud computing, enhancing efficiency and scalability."
   paper_link: "https://ieeexplore.ieee.org/document/10749735"
+  doi: "10.1109/ic2e61754.2024.00009"
+  citations_fallback: 2

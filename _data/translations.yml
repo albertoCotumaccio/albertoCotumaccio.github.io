@@ -236,6 +236,9 @@ research:
   description:
     en: "AI methodology designed to simplify cloud migration by automating the analysis of requirements. AI-CRAS leverages advanced deep learning and NLP techniques to translate user needs, expressed in natural language, into precise and structured technical specifications. It bridges the gap in automated requirement analysis and specification for cloud computing, enhancing efficiency and scalability."
     it: "Metodologia AI progettata per semplificare la migrazione al cloud automatizzando l'analisi dei requisiti. AI-CRAS sfrutta tecniche avanzate di deep learning e NLP per tradurre le esigenze degli utenti, espresse in linguaggio naturale, in specifiche tecniche precise e strutturate. Colma il divario nell'analisi e specifica automatizzata dei requisiti per il cloud computing, migliorando efficienza e scalabilità."
+  citations:
+    en: "Citations"
+    it: "Citazioni"
 
 # -----------------------------------------------------------------------------
 # CERTIFICATIONS

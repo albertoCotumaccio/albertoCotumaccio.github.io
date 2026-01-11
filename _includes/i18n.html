@@ -102,7 +102,8 @@
     }
   },
   "research": {
-    "description": { "en": "{{ t.research.description.en }}", "it": "{{ t.research.description.it }}" }
+    "description": { "en": "{{ t.research.description.en }}", "it": "{{ t.research.description.it }}" },
+    "citations": { "en": "{{ t.research.citations.en }}", "it": "{{ t.research.citations.it }}" }
   },
   "certifications": {
     "kcna": {
@@ -285,5 +286,101 @@
     setLanguage: setLanguage,
     applyTranslations: applyTranslations
   };
+})();
+</script>
+
+<!-- Citations Counter Script -->
+<script>
+(function() {
+  // Funzione per animare il conteggio
+  function animateCount(element, targetNumber) {
+    element.classList.add('animate');
+
+    const duration = 1000;
+    const steps = 20;
+    const stepDuration = duration / steps;
+    const increment = targetNumber / steps;
+    let current = 0;
+    let step = 0;
+
+    const counter = setInterval(() => {
+      step++;
+      current = Math.min(Math.round(increment * step), targetNumber);
+      element.textContent = current;
+
+      if (step >= steps) {
+        clearInterval(counter);
+        element.textContent = targetNumber;
+      }
+    }, stepDuration);
+  }
+
+  // Funzione per recuperare citazioni da Semantic Scholar
+  async function fetchCitationsFromSemanticScholar(doi) {
+    try {
+      const response = await fetch(`https://api.semanticscholar.org/graph/v1/paper/DOI:${doi}?fields=citationCount`);
+      if (!response.ok) throw new Error('API error');
+      const data = await response.json();
+      return data.citationCount || null;
+    } catch (error) {
+      console.log('Semantic Scholar API not available, using fallback');
+      return null;
+    }
+  }
+
+  // Funzione per recuperare citazioni da OpenCitations
+  async function fetchCitationsFromOpenCitations(doi) {
+    try {
+      const response = await fetch(`https://opencitations.net/index/coci/api/v1/citation-count/${doi}`);
+      if (!response.ok) throw new Error('API error');
+      const data = await response.json();
+      return data[0]?.count || null;
+    } catch (error) {
+      console.log('OpenCitations API not available, using fallback');
+      return null;
+    }
+  }
+
+  // Inizializzazione al caricamento DOM
+  document.addEventListener('DOMContentLoaded', async function() {
+    const badge = document.getElementById('citations-badge');
+    const countElement = document.getElementById('citations-count');
+
+    if (!badge || !countElement) return;
+
+    const doi = badge.getAttribute('data-doi');
+    const fallback = parseInt(badge.getAttribute('data-fallback')) || 0;
+
+    // Mostra stato di caricamento
+    badge.classList.add('loading');
+    countElement.textContent = '...';
+
+    let citationCount = null;
+
+    // Prova prima Semantic Scholar
+    if (doi) {
+      citationCount = await fetchCitationsFromSemanticScholar(doi);
+
+      // Se Semantic Scholar fallisce, prova OpenCitations
+      if (citationCount === null) {
+        citationCount = await fetchCitationsFromOpenCitations(doi);
+      }
+    }
+
+    // Usa il fallback se le API non rispondono
+    const finalCount = citationCount !== null ? citationCount : fallback;
+
+    // Rimuovi stato di caricamento e anima il numero
+    badge.classList.remove('loading');
+    animateCount(countElement, finalCount);
+
+    // Salva in localStorage per cache (valido 24 ore)
+    if (citationCount !== null) {
+      localStorage.setItem('paper_citations', JSON.stringify({
+        count: citationCount,
+        timestamp: Date.now()
+      }));
+    }
+  });
 })();
 </script>
