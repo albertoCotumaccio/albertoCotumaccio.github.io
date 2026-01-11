@@ -1,0 +1,289 @@
+<!--
+  SISTEMA DI TRADUZIONE i18n
+
+  Come usare:
+  1. Aggiungi data-i18n="chiave.sottochiave" a qualsiasi elemento HTML
+  2. Il contenuto verrà sostituito con la traduzione nella lingua corrente
+  3. Per placeholder: data-i18n-placeholder="chiave"
+  4. Per attributi: data-i18n-attr="title:chiave"
+-->
+
+<script id="translations-data" type="application/json">
+{% assign t = site.data.translations %}
+{
+  "navbar": {
+    "home": { "en": "{{ t.navbar.home.en }}", "it": "{{ t.navbar.home.it }}" },
+    "blog": { "en": "{{ t.navbar.blog.en }}", "it": "{{ t.navbar.blog.it }}" }
+  },
+  "sections": {
+    "skills": { "en": "{{ t.sections.skills.en }}", "it": "{{ t.sections.skills.it }}" },
+    "research_paper": { "en": "{{ t.sections.research_paper.en }}", "it": "{{ t.sections.research_paper.it }}" },
+    "education": { "en": "{{ t.sections.education.en }}", "it": "{{ t.sections.education.it }}" },
+    "additional_projects": { "en": "{{ t.sections.additional_projects.en }}", "it": "{{ t.sections.additional_projects.it }}" },
+    "certifications": { "en": "{{ t.sections.certifications.en }}", "it": "{{ t.sections.certifications.it }}" },
+    "blog": { "en": "{{ t.sections.blog.en }}", "it": "{{ t.sections.blog.it }}" }
+  },
+  "buttons": {
+    "read_paper": { "en": "{{ t.buttons.read_paper.en }}", "it": "{{ t.buttons.read_paper.it }}" },
+    "github": { "en": "{{ t.buttons.github.en }}", "it": "{{ t.buttons.github.it }}" },
+    "read": { "en": "{{ t.buttons.read.en }}", "it": "{{ t.buttons.read.it }}" },
+    "explore": { "en": "{{ t.buttons.explore.en }}", "it": "{{ t.buttons.explore.it }}" },
+    "view_certification": { "en": "{{ t.buttons.view_certification.en }}", "it": "{{ t.buttons.view_certification.it }}" },
+    "view_course": { "en": "{{ t.buttons.view_course.en }}", "it": "{{ t.buttons.view_course.it }}" }
+  },
+  "labels": {
+    "published_in": { "en": "{{ t.labels.published_in.en }}", "it": "{{ t.labels.published_in.it }}" },
+    "conference_date": { "en": "{{ t.labels.conference_date.en }}", "it": "{{ t.labels.conference_date.it }}" },
+    "location": { "en": "{{ t.labels.location.en }}", "it": "{{ t.labels.location.it }}" },
+    "publisher": { "en": "{{ t.labels.publisher.en }}", "it": "{{ t.labels.publisher.it }}" },
+    "skills": { "en": "{{ t.labels.skills.en }}", "it": "{{ t.labels.skills.it }}" },
+    "technologies": { "en": "{{ t.labels.technologies.en }}", "it": "{{ t.labels.technologies.it }}" },
+    "related_course": { "en": "{{ t.labels.related_course.en }}", "it": "{{ t.labels.related_course.it }}" },
+    "tags": { "en": "{{ t.labels.tags.en }}", "it": "{{ t.labels.tags.it }}" },
+    "light_theme": { "en": "{{ t.labels.light_theme.en }}", "it": "{{ t.labels.light_theme.it }}" },
+    "dark_theme": { "en": "{{ t.labels.dark_theme.en }}", "it": "{{ t.labels.dark_theme.it }}" }
+  },
+  "skills": {
+    "programming_languages": { "en": "{{ t.skills.programming_languages.en }}", "it": "{{ t.skills.programming_languages.it }}" },
+    "frontend": { "en": "{{ t.skills.frontend.en }}", "it": "{{ t.skills.frontend.it }}" },
+    "backend": { "en": "{{ t.skills.backend.en }}", "it": "{{ t.skills.backend.it }}" },
+    "mobile": { "en": "{{ t.skills.mobile.en }}", "it": "{{ t.skills.mobile.it }}" },
+    "ai_ml": { "en": "{{ t.skills.ai_ml.en }}", "it": "{{ t.skills.ai_ml.it }}" },
+    "databases": { "en": "{{ t.skills.databases.en }}", "it": "{{ t.skills.databases.it }}" },
+    "data_visualization": { "en": "{{ t.skills.data_visualization.en }}", "it": "{{ t.skills.data_visualization.it }}" },
+    "cloud_devops": { "en": "{{ t.skills.cloud_devops.en }}", "it": "{{ t.skills.cloud_devops.it }}" },
+    "frameworks": { "en": "{{ t.skills.frameworks.en }}", "it": "{{ t.skills.frameworks.it }}" },
+    "tools": { "en": "{{ t.skills.tools.en }}", "it": "{{ t.skills.tools.it }}" }
+  },
+  "timeline": {
+    "software_engineer": { "en": "{{ t.timeline.software_engineer.en }}", "it": "{{ t.timeline.software_engineer.it }}" },
+    "ieee_publication": { "en": "{{ t.timeline.ieee_publication.en }}", "it": "{{ t.timeline.ieee_publication.it }}" },
+    "masters_degree": { "en": "{{ t.timeline.masters_degree.en }}", "it": "{{ t.timeline.masters_degree.it }}" },
+    "bachelors_degree": { "en": "{{ t.timeline.bachelors_degree.en }}", "it": "{{ t.timeline.bachelors_degree.it }}" },
+    "born": { "en": "{{ t.timeline.born.en }}", "it": "{{ t.timeline.born.it }}" }
+  },
+  "education": {
+    "university": {
+      "degrees": { "en": "{{ t.education.university.degrees.en }}", "it": "{{ t.education.university.degrees.it }}" }
+    },
+    "theses": {
+      "bachelor": {
+        "type": { "en": "{{ t.education.theses.bachelor.type.en }}", "it": "{{ t.education.theses.bachelor.type.it }}" },
+        "title": { "en": "{{ t.education.theses.bachelor.title.en }}", "it": "{{ t.education.theses.bachelor.title.it }}" },
+        "description": { "en": "{{ t.education.theses.bachelor.description.en }}", "it": "{{ t.education.theses.bachelor.description.it }}" }
+      },
+      "master": {
+        "type": { "en": "{{ t.education.theses.master.type.en }}", "it": "{{ t.education.theses.master.type.it }}" },
+        "title": { "en": "{{ t.education.theses.master.title.en }}", "it": "{{ t.education.theses.master.title.it }}" },
+        "description": { "en": "{{ t.education.theses.master.description.en }}", "it": "{{ t.education.theses.master.description.it }}" }
+      }
+    },
+    "projects": {
+      "gym_tracker": {
+        "title": { "en": "{{ t.education.projects.gym_tracker.title.en }}", "it": "{{ t.education.projects.gym_tracker.title.it }}" },
+        "description": { "en": "{{ t.education.projects.gym_tracker.description.en }}", "it": "{{ t.education.projects.gym_tracker.description.it }}" }
+      },
+      "ecocity": {
+        "title": { "en": "{{ t.education.projects.ecocity.title.en }}", "it": "{{ t.education.projects.ecocity.title.it }}" },
+        "description": { "en": "{{ t.education.projects.ecocity.description.en }}", "it": "{{ t.education.projects.ecocity.description.it }}" }
+      },
+      "anime": {
+        "title": { "en": "{{ t.education.projects.anime.title.en }}", "it": "{{ t.education.projects.anime.title.it }}" },
+        "description": { "en": "{{ t.education.projects.anime.description.en }}", "it": "{{ t.education.projects.anime.description.it }}" }
+      },
+      "weshare": {
+        "title": { "en": "{{ t.education.projects.weshare.title.en }}", "it": "{{ t.education.projects.weshare.title.it }}" },
+        "description": { "en": "{{ t.education.projects.weshare.description.en }}", "it": "{{ t.education.projects.weshare.description.it }}" }
+      },
+      "food_delivery": {
+        "title": { "en": "{{ t.education.projects.food_delivery.title.en }}", "it": "{{ t.education.projects.food_delivery.title.it }}" },
+        "description": { "en": "{{ t.education.projects.food_delivery.description.en }}", "it": "{{ t.education.projects.food_delivery.description.it }}" }
+      }
+    }
+  },
+  "research": {
+    "description": { "en": "{{ t.research.description.en }}", "it": "{{ t.research.description.it }}" }
+  },
+  "certifications": {
+    "kcna": {
+      "description": { "en": "{{ t.certifications.kcna.description.en }}", "it": "{{ t.certifications.kcna.description.it }}" }
+    }
+  },
+  "blog": {
+    "subtitle": { "en": "{{ t.blog.subtitle.en }}", "it": "{{ t.blog.subtitle.it }}" }
+  }
+}
+</script>
+
+<script>
+(function() {
+  // Carica le traduzioni dal JSON embedded
+  const translationsData = JSON.parse(document.getElementById('translations-data').textContent);
+
+  // Funzione per ottenere una traduzione da una chiave tipo "sections.skills"
+  function getTranslation(key, lang) {
+    const keys = key.split('.');
+    let value = translationsData;
+    for (const k of keys) {
+      if (value && value[k]) {
+        value = value[k];
+      } else {
+        return null;
+      }
+    }
+    return value && value[lang] ? value[lang] : null;
+  }
+
+  // Applica le traduzioni a tutti gli elementi con data-i18n
+  function applyTranslations(lang) {
+    // Traduci contenuto testuale
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const translation = getTranslation(key, lang);
+      if (translation) {
+        el.textContent = translation;
+      }
+    });
+
+    // Traduci placeholder
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const translation = getTranslation(key, lang);
+      if (translation) {
+        el.setAttribute('placeholder', translation);
+      }
+    });
+
+    // Traduci attributi custom (formato: "attr:key,attr2:key2")
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      const attrs = el.getAttribute('data-i18n-attr').split(',');
+      attrs.forEach(pair => {
+        const [attr, key] = pair.split(':');
+        const translation = getTranslation(key.trim(), lang);
+        if (translation) {
+          el.setAttribute(attr.trim(), translation);
+        }
+      });
+    });
+  }
+
+  // Gestione lingua con localStorage
+  function getCurrentLanguage() {
+    return localStorage.getItem('language') || '{{ site.language }}';
+  }
+
+  function setLanguage(lang) {
+    localStorage.setItem('language', lang);
+    applyTranslations(lang);
+
+    // Aggiorna bottone lingua
+    const langText = document.getElementById('langText');
+    if (langText) {
+      langText.textContent = lang === 'en' ? '🇬🇧 EN' : '🇮🇹 IT';
+    }
+
+    // Gestione elementi con classi lang-specific (legacy support per about)
+    document.querySelectorAll('.title-it, .current-role-it').forEach(el => {
+      el.style.display = lang === 'it' ? 'block' : 'none';
+    });
+    document.querySelectorAll('.title-en, .current-role-en').forEach(el => {
+      el.style.display = lang === 'en' ? 'block' : 'none';
+    });
+
+    // Gestione post del blog
+    const posts = document.querySelectorAll('.blog-post');
+    const seenNames = new Set();
+    posts.forEach(post => {
+      const name = post.getAttribute('data-name');
+      const postLang = post.classList.contains('lang-' + lang);
+      if (!seenNames.has(name) && postLang) {
+        post.style.display = 'block';
+        seenNames.add(name);
+      } else {
+        post.style.display = 'none';
+      }
+    });
+  }
+
+  // Aggiorna testo del tema
+  function updateThemeText(theme, lang) {
+    const themeText = document.getElementById('themeText');
+    if (themeText) {
+      const key = theme === 'dark' ? 'labels.dark_theme' : 'labels.light_theme';
+      const translation = getTranslation(key, lang);
+      if (translation) {
+        themeText.textContent = translation;
+      }
+    }
+  }
+
+  // Inizializzazione al caricamento DOM
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentLang = getCurrentLanguage();
+    setLanguage(currentLang);
+
+    // Gestione click bottone lingua
+    const langToggleButton = document.getElementById('langToggle');
+    if (langToggleButton) {
+      langToggleButton.addEventListener('click', () => {
+        const currentLang = getCurrentLanguage();
+        const newLang = currentLang === 'en' ? 'it' : 'en';
+
+        // Per i post del blog con versioni separate per lingua
+        const translationUrl = '{{ page.translation }}';
+        if (translationUrl) {
+          localStorage.setItem('language', newLang);
+          window.location.href = translationUrl;
+        } else {
+          setLanguage(newLang);
+        }
+      });
+    }
+
+    // Gestione tema
+    const themeToggleButton = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    document.body.setAttribute('data-theme', currentTheme);
+    updateThemeButton(currentTheme);
+    updateThemeText(currentTheme, currentLang);
+
+    if (themeToggleButton) {
+      themeToggleButton.addEventListener('click', () => {
+        const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeButton(newTheme);
+        updateThemeText(newTheme, getCurrentLanguage());
+
+        // Sincronizza con Giscus
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) {
+          iframe.contentWindow.postMessage({
+            giscus: { setConfig: { theme: newTheme } }
+          }, 'https://giscus.app');
+        }
+      });
+    }
+
+    function updateThemeButton(theme) {
+      if (themeIcon) {
+        if (theme === 'dark') {
+          themeIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+          themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+      }
+    }
+  });
+
+  // Esponi funzioni globali per uso esterno
+  window.i18n = {
+    getTranslation: getTranslation,
+    getCurrentLanguage: getCurrentLanguage,
+    setLanguage: setLanguage,
+    applyTranslations: applyTranslations
+  };
+})();
+</script>

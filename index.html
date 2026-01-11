@@ -38,7 +38,7 @@ title: Home
         </div>
         <div class="timeline-h-content">
           <span class="timeline-h-year">{{ item.year }}</span>
-          <h4 class="timeline-h-title">{{ item.title }}</h4>
+          <h4 class="timeline-h-title" data-i18n="timeline.{{ item.i18n_key }}">{{ item.title }}</h4>
           <p class="timeline-h-org">{{ item.organization }}</p>
           {% if item.description %}<p class="timeline-h-desc">{{ item.description }}</p>{% endif %}
         </div>
@@ -59,7 +59,7 @@ title: Home
 
 <!-- Skills Section -->
 <section id="skills" class="container">
-  <h2 class="text-center mb-4"><strong>Skills & Technologies I've Worked With</strong></h2>
+  <h2 class="text-center mb-4"><strong data-i18n="sections.skills">Skills & Technologies I've Worked With</strong></h2>
   <div class="skills-section-wrapper">
     <div class="skills-container">
       {% for category in site.data.skills %}
@@ -67,7 +67,7 @@ title: Home
           <div class="skill-category-icon">
             <i class="{{ category[1].icon }}"></i>
           </div>
-          <h3>{{ category[1].title }}</h3>
+          <h3 data-i18n="skills.{{ category[0] }}">{{ category[1].title }}</h3>
           <div class="skill-badges">
             {% for skill in category[1].skills %}
               <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer" class="skill-badge">{{ skill.name }}</a>
@@ -81,7 +81,7 @@ title: Home
           <div class="skill-category-icon">
             <i class="{{ category[1].icon }}"></i>
           </div>
-          <h3>{{ category[1].title }}</h3>
+          <h3 data-i18n="skills.{{ category[0] }}">{{ category[1].title }}</h3>
           <div class="skill-badges">
             {% for skill in category[1].skills %}
               <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer" class="skill-badge">{{ skill.name }}</a>
@@ -96,25 +96,25 @@ title: Home
 
 <!-- Research Paper -->
 <section id="research-paper" class="container my-5">
-  <h2 class="text-center mb-4"><strong>Research Paper</strong></h2>
+  <h2 class="text-center mb-4"><strong data-i18n="sections.research_paper">Research Paper</strong></h2>
   <div class="card shadow-sm">
     <div class="card-body">
       <h5 class="card-title text-center">
         {{ site.data.research.paper.title }}
       </h5>
       <p class="card-text text-center text-muted mb-4">
-        Published in:
+        <span data-i18n="labels.published_in">Published in</span>:
         <strong>{{ site.data.research.paper.conference }}</strong><br />
-        Conference Date: <strong>{{ site.data.research.paper.date }}</strong><br />
-        Location: <strong>{{ site.data.research.paper.location }}</strong><br />
-        Publisher: <strong>{{ site.data.research.paper.publisher }}</strong>
+        <span data-i18n="labels.conference_date">Conference Date</span>: <strong>{{ site.data.research.paper.date }}</strong><br />
+        <span data-i18n="labels.location">Location</span>: <strong>{{ site.data.research.paper.location }}</strong><br />
+        <span data-i18n="labels.publisher">Publisher</span>: <strong>{{ site.data.research.paper.publisher }}</strong>
       </p>
-      <p class="card-text">
+      <p class="card-text" data-i18n="research.description">
         {{ site.data.research.paper.description }}
       </p>
       <div class="text-center">
         <a href="{{ site.data.research.paper.paper_link }}" class="btn btn-primary btn-sm">
-          <i class="fas fa-book-open"></i> Read Paper
+          <i class="fas fa-book-open"></i> <span data-i18n="buttons.read_paper">Read Paper</span>
         </a>
       </div>
     </div>
@@ -123,67 +123,148 @@ title: Home
 
 <!-- Education and Thesis Projects -->
 <section id="education-projects" class="container my-4">
-  <h2 class="text-center mb-2"><strong>Education</strong></h2>
+  <h2 class="text-center mb-2"><strong data-i18n="sections.education">Education</strong></h2>
 
   <!-- Education -->
   <div class="text-center">
     <img src="{{ site.data.education.education.university.logo }}" alt="Sapienza Logo" class="sapienza-logo" />
     <h5>{{ site.data.education.education.university.name }}</h5>
-    <p>{{ site.data.education.education.university.degrees }}</p>
+    <p data-i18n="education.university.degrees">{{ site.data.education.education.university.degrees }}</p>
   </div>
 
   <!-- Thesis Projects -->
   <div class="row">
-    {% for thesis in site.data.education.education.theses %}
-      <div class="col-md-6 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body text-center">
-            <p class="text-uppercase font-weight-bold text-muted">
-              {{ thesis.type }}
-            </p>
-            <h5 class="card-title">
-              {{ thesis.title }}
-            </h5>
-            <p class="card-text">
-              {{ thesis.description }}
-            </p>
-            <p><strong>Skills:</strong> {{ thesis.skills }}</p>
-            <div class="d-flex justify-content-center">
-              <a href="{{ thesis.github_link }}" class="btn btn-dark btn-sm mr-2">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-              <a href="{{ thesis.thesis_link }}" class="btn btn-primary btn-sm">
-                <i class="fas fa-book-open"></i> Read
-              </a>
-            </div>
+    <!-- Bachelor Thesis -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <p class="text-uppercase font-weight-bold text-muted" data-i18n="education.theses.bachelor.type">
+            Bachelor's Thesis + Internship
+          </p>
+          <h5 class="card-title" data-i18n="education.theses.bachelor.title">
+            iMenuManager - Design and Development of a Web Application for Restaurant Business Management
+          </h5>
+          <p class="card-text" data-i18n="education.theses.bachelor.description">
+            Web-based management platform for a restaurant and catering company, which facilitates business operations at multiple locations in Italy.
+          </p>
+          <p><strong><span data-i18n="labels.skills">Skills</span>:</strong> Django, Python, Full Stack Development</p>
+          <div class="d-flex justify-content-center">
+            <a href="{{ site.data.education.education.theses[0].github_link }}" class="btn btn-dark btn-sm mr-2">
+              <i class="fab fa-github"></i> <span data-i18n="buttons.github">GitHub</span>
+            </a>
+            <a href="{{ site.data.education.education.theses[0].thesis_link }}" class="btn btn-primary btn-sm">
+              <i class="fas fa-book-open"></i> <span data-i18n="buttons.read">Read</span>
+            </a>
           </div>
         </div>
       </div>
-    {% endfor %}
+    </div>
+
+    <!-- Master Thesis -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <p class="text-uppercase font-weight-bold text-muted" data-i18n="education.theses.master.type">
+            Master's Thesis
+          </p>
+          <h5 class="card-title" data-i18n="education.theses.master.title">
+            Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering
+          </h5>
+          <p class="card-text" data-i18n="education.theses.master.description">
+            Automating requirements analysis for the cloud domain by translating user requirements, expressed in natural language, into technical specifications.
+          </p>
+          <p><strong><span data-i18n="labels.skills">Skills</span>:</strong> Cloud Computing, AI, NLP</p>
+          <div class="d-flex justify-content-center">
+            <a href="{{ site.data.education.education.theses[1].github_link }}" class="btn btn-dark btn-sm mr-2">
+              <i class="fab fa-github"></i> <span data-i18n="buttons.github">GitHub</span>
+            </a>
+            <a href="{{ site.data.education.education.theses[1].thesis_link }}" class="btn btn-primary btn-sm">
+              <i class="fas fa-book-open"></i> <span data-i18n="buttons.read">Read</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- University Projects -->
-  <h3 class="text-center mb-4">Additional Projects</h3>
+  <h3 class="text-center mb-4" data-i18n="sections.additional_projects">Additional Projects</h3>
   <ul class="list-group mb-4">
-    {% for project in site.data.education.education.projects %}
-      <li class="list-group-item d-flex align-items-center">
-        <i class="{{ project.icon }} fa-2x mr-3 {{ project.color }}"></i>
-        <div class="flex-grow-1">
-          <strong>{{ project.title }}:</strong> {{ project.description }}
-          <br />
-          <em>Technologies:</em> {{ project.technologies }}
-        </div>
-        <a href="{{ project.github_link }}" target="_blank" class="ml-3 text-primary">
-          <i class="fas fa-arrow-right fa-2x"></i>
-        </a>
-      </li>
-    {% endfor %}
+    <!-- Project: Gym Tracker -->
+    <li class="list-group-item d-flex align-items-center">
+      <i class="fab fa-python fa-2x mr-3 text-primary"></i>
+      <div class="flex-grow-1">
+        <strong data-i18n="education.projects.gym_tracker.title">Real-time Physical Activity Tracking</strong>:
+        <span data-i18n="education.projects.gym_tracker.description">AI-powered computer vision web application for monitoring physical activity.</span>
+        <br />
+        <em><span data-i18n="labels.technologies">Technologies</span>:</em> Python, Flask, Computer Vision, AI
+      </div>
+      <a href="https://github.com/albertoCotumaccio/AI-Gym-Tracker" target="_blank" class="ml-3 text-primary">
+        <i class="fas fa-arrow-right fa-2x"></i>
+      </a>
+    </li>
+
+    <!-- Project: EcoCity -->
+    <li class="list-group-item d-flex align-items-center">
+      <i class="fab fa-ethereum fa-2x mr-3 text-success"></i>
+      <div class="flex-grow-1">
+        <strong data-i18n="education.projects.ecocity.title">Decentralized Community Management</strong>:
+        <span data-i18n="education.projects.ecocity.description">Blockchain-based app with Solidity smart contracts for eco-sustainability challenges.</span>
+        <br />
+        <em><span data-i18n="labels.technologies">Technologies</span>:</em> Solidity, Smart Contracts, Web3, React
+      </div>
+      <a href="https://github.com/albertoCotumaccio/EcoCity" target="_blank" class="ml-3 text-primary">
+        <i class="fas fa-arrow-right fa-2x"></i>
+      </a>
+    </li>
+
+    <!-- Project: Anime Recommender -->
+    <li class="list-group-item d-flex align-items-center">
+      <i class="fas fa-brain fa-2x mr-3 text-warning"></i>
+      <div class="flex-grow-1">
+        <strong data-i18n="education.projects.anime.title">Anime Recommender System</strong>:
+        <span data-i18n="education.projects.anime.description">ML-powered recommendation system for discovering anime titles.</span>
+        <br />
+        <em><span data-i18n="labels.technologies">Technologies</span>:</em> Machine Learning, Data Analysis, Python
+      </div>
+      <a href="https://github.com/albertoCotumaccio/anime-recommender-system" target="_blank" class="ml-3 text-primary">
+        <i class="fas fa-arrow-right fa-2x"></i>
+      </a>
+    </li>
+
+    <!-- Project: WeShare -->
+    <li class="list-group-item d-flex align-items-center">
+      <i class="fas fa-mobile-alt fa-2x mr-3 text-info"></i>
+      <div class="flex-grow-1">
+        <strong data-i18n="education.projects.weshare.title">Contact Exchange Mobile App</strong>:
+        <span data-i18n="education.projects.weshare.description">Cross-platform mobile app using NFC for quick contact exchange.</span>
+        <br />
+        <em><span data-i18n="labels.technologies">Technologies</span>:</em> Mobile Development, NFC, Cross-platform App Development
+      </div>
+      <a href="https://github.com/albertoCotumaccio/WeShare---application" target="_blank" class="ml-3 text-primary">
+        <i class="fas fa-arrow-right fa-2x"></i>
+      </a>
+    </li>
+
+    <!-- Project: Food Delivery -->
+    <li class="list-group-item d-flex align-items-center">
+      <i class="fas fa-utensils fa-2x mr-3 text-danger"></i>
+      <div class="flex-grow-1">
+        <strong data-i18n="education.projects.food_delivery.title">Food Delivery Platform</strong>:
+        <span data-i18n="education.projects.food_delivery.description">Low-code web application for streamlined food delivery services.</span>
+        <br />
+        <em><span data-i18n="labels.technologies">Technologies</span>:</em> Low-code Development, WebRatio, UI/UX Design
+      </div>
+      <a href="https://github.com/albertoCotumaccio/Food-Delivery-System---AdvancedSoftwareEngineering" target="_blank" class="ml-3 text-primary">
+        <i class="fas fa-arrow-right fa-2x"></i>
+      </a>
+    </li>
   </ul>
 </section>
 
 <!-- Certifications Section -->
 <section id="certifications" class="container my-5">
-  <h2 class="text-center mb-4"><strong>Certifications</strong></h2>
+  <h2 class="text-center mb-4"><strong data-i18n="sections.certifications">Certifications</strong></h2>
   <div class="row justify-content-center">
     {% for cert in site.data.certifications.certifications %}
       <div class="col-md-8 mb-4">
@@ -197,19 +278,19 @@ title: Home
               <i class="fas fa-building mr-1"></i><strong>{{ cert.issuer }}</strong><br />
               <i class="fas fa-calendar-alt mr-1"></i>{{ cert.date }}
             </p>
-            <p class="card-text mb-4">{{ cert.description }}</p>
+            <p class="card-text mb-4" data-i18n="certifications.{{ cert.i18n_key }}.description">{{ cert.description }}</p>
             <a href="{{ cert.badge_link }}" target="_blank" class="btn btn-certification btn-lg mb-3">
-              <i class="fas fa-certificate mr-2"></i>View Certification Badge
+              <i class="fas fa-certificate mr-2"></i><span data-i18n="buttons.view_certification">View Certification Badge</span>
             </a>
             {% if cert.related_course %}
               <div class="course-divider">
                 <div class="mb-3">
                   <i class="fas fa-graduation-cap"></i>
                 </div>
-                <p class="course-label text-muted mb-2">Related Course</p>
+                <p class="course-label text-muted mb-2" data-i18n="labels.related_course">Related Course</p>
                 <p class="course-name mb-3">{{ cert.related_course.name }}</p>
                 <a href="{{ cert.related_course.badge_link }}" target="_blank" class="btn btn-outline-secondary btn-course">
-                  <i class="fas fa-external-link-alt mr-2"></i>View Course Badge
+                  <i class="fas fa-external-link-alt mr-2"></i><span data-i18n="buttons.view_course">View Course Badge</span>
                 </a>
               </div>
             {% endif %}
