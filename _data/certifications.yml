@@ -2,6 +2,7 @@ certifications:
   - name: "KCNA: Kubernetes and Cloud Native Associate"
     issuer: "The Linux Foundation"
     date: "2025"
+    i18n_key: "kcna"
     badge_link: "https://www.credly.com/badges/73fb1405-9059-4f4e-9a58-15a42a3ab760/linked_in_profile"
     description: "Kubernetes and Cloud Native Associate certification demonstrating foundational knowledge of Kubernetes and cloud native technologies"
     related_course:

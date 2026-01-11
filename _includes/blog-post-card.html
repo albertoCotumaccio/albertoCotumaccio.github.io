@@ -25,7 +25,7 @@
         <p>{{ meta.excerpt[post.lang] }}</p>
 
         {% if meta.tags %}
-          <p class="mb-2"><strong>Tags:</strong>
+          <p class="mb-2"><strong><span data-i18n="labels.tags">Tags</span>:</strong>
             {% for tag in meta.tags %}
               <span class="badge skill-badge">{{ tag }}</span>
             {% endfor %}
@@ -35,7 +35,7 @@
 
       <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
         <a href="{{ post.url | relative_url }}" class="btn btn-dark" style="padding: 12px 24px; font-size: 1.3rem; border-radius: 6px;">
-          Explore →
+          <span data-i18n="buttons.explore">Explore</span> →
         </a>
       </div>
     </div>

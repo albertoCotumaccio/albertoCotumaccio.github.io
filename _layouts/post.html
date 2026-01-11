@@ -8,10 +8,8 @@ layout: default
     <p class="meta">{{ meta.date | date: "%b %-d, %Y" }}
       {% if meta.author %} • {{ meta.author }}{% endif %}
     </p>
-  </header>
-
     {% if meta.tags %}
-      <p><strong>Tags:</strong>
+      <p><strong><span data-i18n="labels.tags">Tags</span>:</strong>
         {% for tag in meta.tags %}
           <span class="badge badge-secondary">{{ tag }}</span>
         {% endfor %}

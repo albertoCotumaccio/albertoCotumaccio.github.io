@@ -3,12 +3,8 @@ layout: default
 title: Blog
 ---
 
-<h1 class="text-center"><strong>Blog</strong></h1>
-<p id="blog-subtitle"
-   class="text-center text-muted"
-   data-en="{{ site.subtitle_blog.en | escape }}"
-   data-it="{{ site.subtitle_blog.it | escape }}">
-</p>
+<h1 class="text-center"><strong data-i18n="sections.blog">Blog</strong></h1>
+<p id="blog-subtitle" class="text-center text-muted" data-i18n="blog.subtitle"></p>
 
 {% assign posts_by_name = site.posts | group_by: "name" %}
 
@@ -19,14 +15,3 @@ title: Blog
     {% endfor %}
   {% endfor %}
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const lang = localStorage.getItem("language") || "en";
-    const subtitle = document.getElementById("blog-subtitle");
-    if (subtitle) {
-      const fallback = subtitle.dataset.en;
-      subtitle.textContent = subtitle.dataset[lang] || fallback;
-    }
-  });
-</script>

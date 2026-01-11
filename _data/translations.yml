@@ -1,0 +1,255 @@
+# =============================================================================
+# TRANSLATIONS - Sistema centralizzato di traduzioni IT/EN
+# =============================================================================
+#
+# COME USARE:
+# 1. Aggiungi la chiave qui con entrambe le traduzioni (en/it)
+# 2. Nel template HTML usa: <span data-i18n="chiave.sottochiave"></span>
+# 3. Il JavaScript applicherà automaticamente la traduzione corretta
+#
+# STRUTTURA:
+# - navbar: Link di navigazione
+# - sections: Titoli delle sezioni
+# - buttons: Testi dei pulsanti
+# - labels: Etichette varie
+# - content: Contenuti specifici (about, research, etc.)
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# NAVBAR
+# -----------------------------------------------------------------------------
+navbar:
+  home:
+    en: "Home"
+    it: "Home"
+  blog:
+    en: "Blog"
+    it: "Blog"
+
+# -----------------------------------------------------------------------------
+# TITOLI SEZIONI
+# -----------------------------------------------------------------------------
+sections:
+  skills:
+    en: "Skills & Technologies I've Worked With"
+    it: "Skills & Tecnologie con cui ho lavorato"
+  research_paper:
+    en: "Research Paper"
+    it: "Pubblicazione Scientifica"
+  education:
+    en: "Education"
+    it: "Formazione"
+  additional_projects:
+    en: "Additional Projects"
+    it: "Progetti Aggiuntivi"
+  certifications:
+    en: "Certifications"
+    it: "Certificazioni"
+  blog:
+    en: "Blog"
+    it: "Blog"
+
+# -----------------------------------------------------------------------------
+# BOTTONI E AZIONI
+# -----------------------------------------------------------------------------
+buttons:
+  read_paper:
+    en: "Read Paper"
+    it: "Leggi Paper"
+  github:
+    en: "GitHub"
+    it: "GitHub"
+  read:
+    en: "Read"
+    it: "Leggi"
+  explore:
+    en: "Explore"
+    it: "Esplora"
+  view_certification:
+    en: "View Certification Badge"
+    it: "Vedi Badge Certificazione"
+  view_course:
+    en: "View Course Badge"
+    it: "Vedi Badge Corso"
+
+# -----------------------------------------------------------------------------
+# ETICHETTE
+# -----------------------------------------------------------------------------
+labels:
+  published_in:
+    en: "Published in"
+    it: "Pubblicato in"
+  conference_date:
+    en: "Conference Date"
+    it: "Data Conferenza"
+  location:
+    en: "Location"
+    it: "Luogo"
+  publisher:
+    en: "Publisher"
+    it: "Editore"
+  skills:
+    en: "Skills"
+    it: "Competenze"
+  technologies:
+    en: "Technologies"
+    it: "Tecnologie"
+  related_course:
+    en: "Related Course"
+    it: "Corso Correlato"
+  tags:
+    en: "Tags"
+    it: "Tags"
+  light_theme:
+    en: "Light"
+    it: "Chiaro"
+  dark_theme:
+    en: "Dark"
+    it: "Scuro"
+
+# -----------------------------------------------------------------------------
+# CATEGORIE SKILLS (titoli delle categorie)
+# -----------------------------------------------------------------------------
+skills:
+  programming_languages:
+    en: "Programming Languages"
+    it: "Linguaggi di Programmazione"
+  frontend:
+    en: "Frontend Development"
+    it: "Sviluppo Frontend"
+  backend:
+    en: "Backend Development"
+    it: "Sviluppo Backend"
+  mobile:
+    en: "Mobile Development"
+    it: "Sviluppo Mobile"
+  ai_ml:
+    en: "AI & Machine Learning"
+    it: "AI & Machine Learning"
+  databases:
+    en: "Databases"
+    it: "Database"
+  data_visualization:
+    en: "Monitoring & Visualization"
+    it: "Monitoraggio & Visualizzazione"
+  cloud_devops:
+    en: "Cloud & DevOps"
+    it: "Cloud & DevOps"
+  frameworks:
+    en: "Frameworks"
+    it: "Frameworks"
+  tools:
+    en: "Tools & Software"
+    it: "Strumenti & Software"
+
+# -----------------------------------------------------------------------------
+# TIMELINE
+# -----------------------------------------------------------------------------
+timeline:
+  software_engineer:
+    en: "Software Engineer"
+    it: "Software Engineer"
+  ieee_publication:
+    en: "IEEE Publication"
+    it: "Pubblicazione IEEE"
+  masters_degree:
+    en: "Master's Degree"
+    it: "Laurea Magistrale"
+  bachelors_degree:
+    en: "Bachelor's Degree"
+    it: "Laurea Triennale"
+  born:
+    en: "Born"
+    it: "Nato"
+
+# -----------------------------------------------------------------------------
+# EDUCATION
+# -----------------------------------------------------------------------------
+education:
+  university:
+    degrees:
+      en: "Bachelor's and Master's Degree in Computer Science"
+      it: "Laurea Triennale e Magistrale in Informatica"
+  theses:
+    bachelor:
+      type:
+        en: "Bachelor's Thesis + Internship"
+        it: "Tesi Triennale + Tirocinio"
+      title:
+        en: "iMenuManager - Design and Development of a Web Application for Restaurant Business Management"
+        it: "iMenuManager - Progettazione e Sviluppo di una Web Application per la Gestione di Attività di Ristorazione"
+      description:
+        en: "Web-based management platform for a restaurant and catering company, which facilitates business operations at multiple locations in Italy."
+        it: "Piattaforma web di gestione per un'azienda di ristorazione e catering, che facilita le operazioni aziendali in diverse sedi in Italia."
+    master:
+      type:
+        en: "Master's Thesis"
+        it: "Tesi Magistrale"
+      title:
+        en: "Automating Cloud Service Specification: AI-Driven Approach to Requirement Engineering"
+        it: "Automazione della Specifica dei Servizi Cloud: Approccio AI-Driven all'Ingegneria dei Requisiti"
+      description:
+        en: "Automating requirements analysis for the cloud domain by translating user requirements, expressed in natural language, into technical specifications."
+        it: "Automazione dell'analisi dei requisiti per il dominio cloud, traducendo i requisiti utente, espressi in linguaggio naturale, in specifiche tecniche."
+  projects:
+    gym_tracker:
+      title:
+        en: "Real-time Physical Activity Tracking"
+        it: "Monitoraggio Attività Fisica in Tempo Reale"
+      description:
+        en: "AI-powered computer vision web application for monitoring physical activity."
+        it: "Applicazione web di computer vision basata su AI per il monitoraggio dell'attività fisica."
+    ecocity:
+      title:
+        en: "Decentralized Community Management"
+        it: "Gestione Decentralizzata di Comunità"
+      description:
+        en: "Blockchain-based app with Solidity smart contracts for eco-sustainability challenges."
+        it: "App basata su blockchain con smart contract Solidity per sfide di eco-sostenibilità."
+    anime:
+      title:
+        en: "Anime Recommender System"
+        it: "Sistema di Raccomandazione Anime"
+      description:
+        en: "ML-powered recommendation system for discovering anime titles."
+        it: "Sistema di raccomandazione basato su ML per scoprire titoli anime."
+    weshare:
+      title:
+        en: "Contact Exchange Mobile App"
+        it: "App Mobile per Scambio Contatti"
+      description:
+        en: "Cross-platform mobile app using NFC for quick contact exchange."
+        it: "App mobile cross-platform che usa NFC per lo scambio rapido di contatti."
+    food_delivery:
+      title:
+        en: "Food Delivery Platform"
+        it: "Piattaforma di Food Delivery"
+      description:
+        en: "Low-code web application for streamlined food delivery services."
+        it: "Applicazione web low-code per servizi di food delivery ottimizzati."
+
+# -----------------------------------------------------------------------------
+# RESEARCH PAPER
+# -----------------------------------------------------------------------------
+research:
+  description:
+    en: "AI methodology designed to simplify cloud migration by automating the analysis of requirements. AI-CRAS leverages advanced deep learning and NLP techniques to translate user needs, expressed in natural language, into precise and structured technical specifications. It bridges the gap in automated requirement analysis and specification for cloud computing, enhancing efficiency and scalability."
+    it: "Metodologia AI progettata per semplificare la migrazione al cloud automatizzando l'analisi dei requisiti. AI-CRAS sfrutta tecniche avanzate di deep learning e NLP per tradurre le esigenze degli utenti, espresse in linguaggio naturale, in specifiche tecniche precise e strutturate. Colma il divario nell'analisi e specifica automatizzata dei requisiti per il cloud computing, migliorando efficienza e scalabilità."
+
+# -----------------------------------------------------------------------------
+# CERTIFICATIONS
+# -----------------------------------------------------------------------------
+certifications:
+  kcna:
+    description:
+      en: "Kubernetes and Cloud Native Associate certification demonstrating foundational knowledge of Kubernetes and cloud native technologies"
+      it: "Certificazione Kubernetes and Cloud Native Associate che dimostra conoscenze fondamentali di Kubernetes e tecnologie cloud native"
+
+# -----------------------------------------------------------------------------
+# BLOG
+# -----------------------------------------------------------------------------
+blog:
+  subtitle:
+    en: ""
+    it: ""
