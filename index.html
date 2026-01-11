@@ -97,8 +97,20 @@ title: Home
 <!-- Research Paper -->
 <section id="research-paper" class="container my-5">
   <h2 class="text-center mb-4"><strong data-i18n="sections.research_paper">Research Paper</strong></h2>
-  <div class="card shadow-sm">
+  <div class="card shadow-sm research-paper-card">
     <div class="card-body">
+      <!-- Citations Badge -->
+      <div class="citations-badge-container">
+        <div class="citations-badge" id="citations-badge" data-doi="{{ site.data.research.paper.doi }}" data-fallback="{{ site.data.research.paper.citations_fallback }}">
+          <div class="citations-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+          <div class="citations-content">
+            <span class="citations-number" id="citations-count">-</span>
+            <span class="citations-label" data-i18n="research.citations">Citations</span>
+          </div>
+        </div>
+      </div>
       <h5 class="card-title text-center">
         {{ site.data.research.paper.title }}
       </h5>

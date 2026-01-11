@@ -61,3 +61,127 @@
   transform: scale(1.15);
   filter: brightness(1.2);
 }
+
+/* ====================================================
+   RESEARCH PAPER CARD - CITATIONS BADGE
+   ==================================================== */
+.research-paper-card {
+  position: relative;
+  overflow: visible;
+}
+
+.citations-badge-container {
+  position: absolute;
+  top: -15px;
+  right: 20px;
+  z-index: 10;
+}
+
+.citations-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
+  padding: 10px 18px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.4);
+  color: #ffffff;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.citations-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(20, 184, 166, 0.5);
+}
+
+.citations-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.citations-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.citations-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.citations-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* Animation for number counting */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.citations-number.animate {
+  animation: countUp 0.5s ease-out forwards;
+}
+
+/* Pulse animation for loading state */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.citations-badge.loading .citations-number {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .citations-badge-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .citations-badge {
+    padding: 8px 16px;
+  }
+
+  .citations-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .citations-number {
+    font-size: 1.3rem;
+  }
+
+  .citations-label {
+    font-size: 0.65rem;
+  }
+}
