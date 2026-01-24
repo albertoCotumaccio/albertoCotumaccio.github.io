@@ -23,3 +23,18 @@
   transform: translateY(-3px) scale(1.15);
   filter: drop-shadow(0 4px 8px rgba(255, 153, 0, 0.3));
 }
+
+/* Hobbies music link */
+.hobbies-music-link {
+  color: #1DB954;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    color: #1ed760;
+    border-bottom-color: #1ed760;
+    text-decoration: none;
+  }
+}

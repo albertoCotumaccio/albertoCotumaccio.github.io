@@ -1,0 +1,113 @@
+# =============================================================================
+# MUSIC - Dati per la pagina Music Production
+# =============================================================================
+
+artist:
+  name: "THEGIORDANS"
+  real_name: "Marco Giordani"
+  spotify_id: "2DHZHSXNOk3qCWpwQwiGNn"
+  instagram: "thegiordans"
+  genres:
+    - "pop"
+    - "funk"
+    - "alternative rock"
+    - "reggaeton"
+    - "trap"
+    - "R&B"
+
+tracks:
+  - title: "SAVOIR-FAIRE"
+    spotify_track_id: "7F6KazsSj75tHAaDjrJUlA"
+    year: 2025
+    role: "Producer"
+    featured: true
+
+  - title: "9 AGOSTO"
+    spotify_track_id: "22bF7Q6FDOb82IQQsp4Kgb"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "ARROGANTE / IMBARAZZANTE"
+    spotify_track_id: "6wlhQUXv2K3GvNtqRi6RE0"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "RILASSANTE"
+    spotify_track_id: "6IZCjkkgeKovtgEFKsuSJI"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "NIENTE ANORESSIA"
+    spotify_track_id: "5ju66mOZ42Md0ayFtzWcoK"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "MATTI MATTI"
+    spotify_track_id: "5bAnuf39aYqRRKEEjUzDYj"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "TEQUILA BB"
+    spotify_track_id: "5IIXCx8bdMYeDqX6pX4gXI"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "AMORE LETALE"
+    spotify_track_id: "3CL2Guz2DK9ErWQAFSRxfa"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "PECCATO"
+    spotify_track_id: "0YnKHMpFkv8gmuONXrZwMj"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "PENELOPE"
+    spotify_track_id: "29mF5sswrU8XPZDejggU1l"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "FEDE"
+    spotify_track_id: "1s1bKfw8I51sclTv7JUauX"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "ULTIMO BALLO"
+    spotify_track_id: "12E7N2Ek10f2UWUQiiX977"
+    year: 2025
+    role: "Producer"
+    featured: false
+
+  - title: "TAGADA'"
+    spotify_track_id: "6IU93AJvBV6pMeAyKGY2jl"
+    year: 2023
+    role: "Producer"
+    featured: false
+
+  - title: "L'Amore Non C'e' 2"
+    spotify_track_id: "4kRYkgUBm3K1On4jWEhEw6"
+    year: 2023
+    role: "Producer"
+    featured: false
+
+  - title: "FORTE"
+    spotify_track_id: "5CBp0aOjrjqGUFArP44rxq"
+    year: 2022
+    role: "Producer"
+    featured: false
+
+  - title: "L'Amore Non C'e'"
+    spotify_track_id: "0zV3S5c41OnaqTm5CEAAgU"
+    year: 2022
+    role: "Producer"
+    featured: false

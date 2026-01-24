@@ -13,7 +13,8 @@
 {
   "navbar": {
     "home": { "en": "{{ t.navbar.home.en }}", "it": "{{ t.navbar.home.it }}" },
-    "blog": { "en": "{{ t.navbar.blog.en }}", "it": "{{ t.navbar.blog.it }}" }
+    "blog": { "en": "{{ t.navbar.blog.en }}", "it": "{{ t.navbar.blog.it }}" },
+    "music": { "en": "{{ t.navbar.music.en }}", "it": "{{ t.navbar.music.it }}" }
   },
   "sections": {
     "skills": { "en": "{{ t.sections.skills.en }}", "it": "{{ t.sections.skills.it }}" },
@@ -21,6 +22,7 @@
     "education": { "en": "{{ t.sections.education.en }}", "it": "{{ t.sections.education.it }}" },
     "additional_projects": { "en": "{{ t.sections.additional_projects.en }}", "it": "{{ t.sections.additional_projects.it }}" },
     "certifications": { "en": "{{ t.sections.certifications.en }}", "it": "{{ t.sections.certifications.it }}" },
+    "beyond_work": { "en": "{{ t.sections.beyond_work.en }}", "it": "{{ t.sections.beyond_work.it }}" },
     "blog": { "en": "{{ t.sections.blog.en }}", "it": "{{ t.sections.blog.it }}" }
   },
   "buttons": {
@@ -110,8 +112,21 @@
       "description": { "en": "{{ t.certifications.kcna.description.en }}", "it": "{{ t.certifications.kcna.description.it }}" }
     }
   },
+  "hobbies": {
+    "text": { "en": "{{ t.hobbies.text.en }}", "it": "{{ t.hobbies.text.it }}" }
+  },
   "blog": {
     "subtitle": { "en": "{{ t.blog.subtitle.en }}", "it": "{{ t.blog.subtitle.it }}" }
+  },
+  "music": {
+    "hero_title": { "en": "{{ t.music.hero_title.en }}", "it": "{{ t.music.hero_title.it }}" },
+    "hero_subtitle": { "en": "{{ t.music.hero_subtitle.en }}", "it": "{{ t.music.hero_subtitle.it }}" },
+    "featured_track": { "en": "{{ t.music.featured_track.en }}", "it": "{{ t.music.featured_track.it }}" },
+    "produced_by_me": { "en": "{{ t.music.produced_by_me.en }}", "it": "{{ t.music.produced_by_me.it }}" },
+    "all_tracks": { "en": "{{ t.music.all_tracks.en }}", "it": "{{ t.music.all_tracks.it }}" },
+    "tracks_label": { "en": "{{ t.music.tracks_label.en }}", "it": "{{ t.music.tracks_label.it }}" },
+    "collaboration_title": { "en": "{{ t.music.collaboration_title.en }}", "it": "{{ t.music.collaboration_title.it }}" },
+    "collaboration_text": { "en": "{{ t.music.collaboration_text.en }}", "it": "{{ t.music.collaboration_text.it }}" }
   }
 }
 </script>
@@ -143,6 +158,15 @@
       const translation = getTranslation(key, lang);
       if (translation) {
         el.textContent = translation;
+      }
+    });
+
+    // Traduci contenuto HTML (per testi con link)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      const translation = getTranslation(key, lang);
+      if (translation) {
+        el.innerHTML = translation;
       }
     });
 

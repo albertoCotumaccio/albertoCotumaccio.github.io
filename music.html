@@ -1,0 +1,95 @@
+---
+layout: default
+title: Music Production
+permalink: /music/
+---
+
+<div class="music-page">
+  <!-- Hero Section -->
+  <section class="music-hero">
+    <div class="hero-content">
+      <div class="hero-icon">
+        <i class="fas fa-headphones-alt"></i>
+      </div>
+      <h1 data-i18n="music.hero_title">Music Production</h1>
+      <p class="hero-subtitle" data-i18n="music.hero_subtitle">
+        Beyond code, I craft sounds. As a music producer, I blend creativity with technical precision
+        to create tracks that move people. Here's my journey through beats and melodies.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Tracks Section -->
+  {% assign featured_tracks = site.data.music.tracks | where: "featured", true %}
+  {% if featured_tracks.size > 0 %}
+  <section class="music-featured">
+    <div class="featured-label">
+      <i class="fas fa-star"></i>
+      <span data-i18n="music.featured_track">Featured Tracks</span>
+    </div>
+    {% for track in featured_tracks %}
+    <div class="featured-card" {% unless forloop.first %}style="margin-top: 1.5rem;"{% endunless %}>
+      <div class="featured-info">
+        <h3>{{ track.title }}</h3>
+        <span class="featured-year">{{ track.year }}</span>
+      </div>
+      <span class="featured-badge">
+        <i class="fas fa-circle"></i>
+        <span data-i18n="music.produced_by_me">Produced by me</span>
+      </span>
+      {% include spotify-track-player.html track_id=track.spotify_track_id height=152 %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- All Tracks Grid -->
+  {% assign non_featured_tracks = site.data.music.tracks | where: "featured", false %}
+  <section class="music-tracks">
+    <div class="section-header">
+      <h2 data-i18n="music.all_tracks">All Productions</h2>
+      <span class="track-count">{{ site.data.music.tracks.size }} <span data-i18n="music.tracks_label">tracks</span></span>
+    </div>
+
+    <div class="tracks-grid">
+      {% for track in non_featured_tracks %}
+      <div class="track-card">
+        <div class="track-header">
+          <span class="track-title">{{ track.title }}</span>
+          <span class="track-year">{{ track.year }}</span>
+        </div>
+        <span class="track-badge">
+          <i class="fas fa-circle"></i>
+          <span data-i18n="music.produced_by_me">Produced by me</span>
+        </span>
+        {% if track.album %}
+        <p class="track-album">{{ track.album }}</p>
+        {% endif %}
+        {% include spotify-track-player.html track_id=track.spotify_track_id height=80 %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="music-about">
+    <div class="about-content">
+      <div class="artist-avatar">
+        <i class="fas fa-music"></i>
+      </div>
+      <div class="about-text">
+        <h3 data-i18n="music.collaboration_title">Collaboration with THEGIORDANS</h3>
+        <p data-i18n="music.collaboration_text">
+          I've been working as a music producer with THEGIORDANS (Marco Giordani),
+          an Italian artist who blends multiple genres to create unique sounds. Our collaboration spans across
+          pop, funk, alternative rock, reggaeton, trap, and R&B, pushing creative boundaries with every release.
+        </p>
+        <div class="artist-genres">
+          {% for genre in site.data.music.artist.genres %}
+          <span class="genre-tag">{{ genre }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
