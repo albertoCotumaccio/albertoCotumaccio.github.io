@@ -26,6 +26,9 @@ navbar:
   blog:
     en: "Blog"
     it: "Blog"
+  music:
+    en: "Music"
+    it: "Music"
 
 # -----------------------------------------------------------------------------
 # TITOLI SEZIONI
@@ -46,6 +49,9 @@ sections:
   certifications:
     en: "Certifications"
     it: "Certificazioni"
+  beyond_work:
+    en: "Beyond Work"
+    it: "Oltre il Lavoro"
   blog:
     en: "Blog"
     it: "Blog"
@@ -148,8 +154,8 @@ skills:
 # -----------------------------------------------------------------------------
 timeline:
   software_engineer:
-    en: "Software Engineer"
-    it: "Software Engineer"
+    en: "Software Engineer Consultant"
+    it: "Software Engineer Consultant"
   ieee_publication:
     en: "IEEE Publication"
     it: "Pubblicazione IEEE"
@@ -256,3 +262,34 @@ blog:
   subtitle:
     en: ""
     it: ""
+
+# -----------------------------------------------------------------------------
+# MUSIC PAGE
+# -----------------------------------------------------------------------------
+music:
+  hero_title:
+    en: "Music Production"
+    it: "Produzione Musicale"
+  hero_subtitle:
+    en: "Beyond code, I cook sounds."
+    it: "Oltre al codice, creo suoni."
+  featured_track:
+    en: "Featured Tracks"
+    it: "Tracce in Evidenza"
+  produced_by_me:
+    en: "Produced by me"
+    it: "Prodotta da me"
+  all_tracks:
+    en: "All Productions"
+    it: "Tutte le Produzioni"
+  tracks_label:
+    en: "tracks"
+    it: "tracce"
+
+# -----------------------------------------------------------------------------
+# HOBBIES / BEYOND WORK
+# -----------------------------------------------------------------------------
+hobbies:
+  text:
+    en: "Outside of work, you'll usually find me planning my next trip or getting lost in a new city. Traveling is how I recharge and find inspiration. I also spend a lot of time producing music, what started as a hobby has grown into something I deeply care about. If you're curious, <a href='/music/' class='hobbies-music-link'>check out some of my tracks</a>."
+    it: "Fuori dal lavoro, di solito mi trovi a pianificare il prossimo viaggio o a perdermi in una nuova citta'. Viaggiare e' il mio modo per ricaricarmi e trovare ispirazione. Passo anche molto tempo a produrre musica, quello che e' iniziato come hobby e' diventato qualcosa a cui tengo profondamente. Se sei curioso, <a href='/music/' class='hobbies-music-link'>dai un'occhiata alle mie tracce</a>."
