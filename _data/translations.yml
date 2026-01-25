@@ -154,8 +154,8 @@ skills:
 # -----------------------------------------------------------------------------
 timeline:
   software_engineer:
-    en: "Software Engineer"
-    it: "Software Engineer"
+    en: "Software Engineer Consultant"
+    it: "Software Engineer Consultant"
   ieee_publication:
     en: "IEEE Publication"
     it: "Pubblicazione IEEE"
@@ -285,12 +285,6 @@ music:
   tracks_label:
     en: "tracks"
     it: "tracce"
-  collaboration_title:
-    en: "Collaboration with THEGIORDANS"
-    it: "Collaborazione con THEGIORDANS"
-  collaboration_text:
-    en: "I've been working as a music producer with THEGIORDANS, an Italian artist who blends multiple genres to create unique sounds. Our collaboration spans across pop, funk, alternative rock, reggaeton, trap, and R&B, pushing creative boundaries with every release."
-    it: "Lavoro come producer musicale con THEGIORDANS, un artista italiano che fonde piu' generi per creare suoni unici. La nostra collaborazione spazia tra pop, funk, alternative rock, reggaeton, trap e R&B, spingendo i confini creativi ad ogni release."
 
 # -----------------------------------------------------------------------------
 # HOBBIES / BEYOND WORK
