@@ -216,39 +216,44 @@ title: Producer Battle
     .judge-input:focus { border-color: var(--accent); }
     .judge-input::placeholder { color: var(--border); }
 
-    .criteria-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-
-    .criterion-row {
-      background: var(--surface); padding: 20px 24px;
-      display: grid; grid-template-columns: 1fr 1fr 1fr;
-      align-items: center; gap: 16px;
+    .vote-panel {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
     }
-    @media (max-width: 640px) { .criterion-row { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .vote-panel { grid-template-columns: 1fr; } }
 
-    .criterion-name {
-      font-family: var(--mono); font-size: 12px; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--text); margin-bottom: 4px;
+    .vote-card {
+      background: var(--surface); padding: 32px; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
     }
-    .criterion-desc { font-size: 12px; color: var(--muted); }
-
-    .score-input-wrap { display: flex; flex-direction: column; gap: 6px; }
-    .score-producer { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
-
-    .score-slider-row { display: flex; align-items: center; gap: 10px; }
+    .vote-card-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .vote-card-track {
+      font-family: var(--display); font-size: 42px; letter-spacing: 2px; color: #fff;
+    }
+    .vote-score-display {
+      font-family: var(--mono); font-size: 64px; line-height: 1;
+      transition: color .15s;
+    }
+    .vote-score-display.a { color: var(--accent); }
+    .vote-score-display.b { color: var(--accent2); }
+    .vote-slider-wrap { width: 100%; max-width: 260px; }
     input[type=range] {
-      flex: 1; -webkit-appearance: none; appearance: none;
+      width: 100%; -webkit-appearance: none; appearance: none;
       height: 2px; background: var(--border); outline: none; cursor: pointer;
     }
     input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none; width: 14px; height: 14px;
+      -webkit-appearance: none; width: 18px; height: 18px;
       background: var(--accent); border-radius: 0; cursor: pointer;
     }
     input[type=range].p2::-webkit-slider-thumb { background: var(--accent2); }
-    .score-val {
-      font-family: var(--mono); font-size: 20px; font-weight: bold;
-      color: var(--accent); min-width: 28px; text-align: right;
+    .vote-range-labels {
+      display: flex; justify-content: space-between;
+      font-family: var(--mono); font-size: 9px; color: var(--muted);
+      margin-top: 6px; letter-spacing: 1px;
     }
-    .score-val.p2 { color: var(--accent2); }
 
     .btn-vote-submit {
       width: 100%; padding: 16px;
@@ -281,71 +286,50 @@ title: Producer Battle
       font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
       text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
     }
-    .summary-card-title {
-      font-family: var(--display); font-size: 32px; letter-spacing: 2px; color: #fff; margin-bottom: 4px;
-    }
     .summary-card-score {
-      font-family: var(--mono); font-size: 56px; line-height: 1;
+      font-family: var(--mono); font-size: 64px; line-height: 1;
     }
     .summary-card-score.a { color: var(--accent); }
     .summary-card-score.b { color: var(--accent2); }
     .summary-card-avg {
-      font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 8px;
+      font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 10px;
     }
     .winner-tag {
       font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
       color: #000; background: var(--accent);
-      padding: 4px 12px; display: inline-block; margin-top: 12px;
+      padding: 4px 12px; display: inline-block; margin-top: 14px;
     }
     .tie-tag {
       font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
       color: #000; background: #fff;
-      padding: 4px 12px; display: inline-block; margin-top: 12px;
+      padding: 4px 12px; display: inline-block; margin-top: 14px;
     }
 
-    .bar-chart-section { margin-bottom: 24px; }
-    .bar-chart-title {
-      font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+    /* ── JUDGES LIST ── */
+    .judges-list {
+      display: flex; flex-direction: column; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
     }
-    .bar-row {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+    .judge-row {
+      background: var(--surface); padding: 16px 24px;
+      display: grid; grid-template-columns: 1fr auto auto; gap: 20px;
+      align-items: center;
     }
-    .bar-label {
-      font-family: var(--mono); font-size: 11px; color: var(--muted);
-      min-width: 100px; text-align: right;
+    @media (max-width: 500px) { .judge-row { grid-template-columns: 1fr auto auto; gap: 12px; } }
+    .judge-row-name {
+      font-family: var(--mono); font-size: 14px; color: var(--text);
     }
-    .bar-track { flex: 1; height: 24px; background: var(--surface); position: relative; display: flex; }
-    .bar-fill {
-      height: 100%; transition: width .6s ease-out;
+    .judge-row-score {
+      font-family: var(--mono); font-size: 24px; font-weight: bold;
+      min-width: 50px; text-align: center;
     }
-    .bar-fill.a { background: var(--accent); }
-    .bar-fill.b { background: var(--accent2); }
-    .bar-value {
-      font-family: var(--mono); font-size: 11px; min-width: 60px;
-      display: flex; gap: 4px;
-    }
-    .bar-va { color: var(--accent); }
-    .bar-vb { color: var(--accent2); }
-
-    /* ── JUDGES TABLE ── */
-    .judges-table-wrap {
-      border: 1px solid var(--border); overflow-x: auto;
-    }
-    .judges-table { width: 100%; border-collapse: collapse; min-width: 500px; }
-    .judges-table th {
-      font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+    .judge-row-score.a { color: var(--accent); }
+    .judge-row-score.b { color: var(--accent2); }
+    .judge-row-label {
+      font-family: var(--mono); font-size: 8px; letter-spacing: 2px;
       text-transform: uppercase; color: var(--muted);
-      text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border);
-      background: var(--surface2);
     }
-    .judges-table td {
-      padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border);
-      background: var(--surface);
-    }
-    .judges-table td.mono { font-family: var(--mono); }
-    .judges-table .score-a { color: var(--accent); font-family: var(--mono); font-size: 15px; }
-    .judges-table .score-b { color: var(--accent2); font-family: var(--mono); font-size: 15px; }
+    .judge-score-cell { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 
     /* ── FOOTER ── */
     footer {
@@ -378,7 +362,7 @@ title: Producer Battle
 
   <!-- FIREBASE SETUP NOTICE -->
   <div class="setup-notice" id="setupNotice">
-    ⚠ Firebase non configurato. Modifica le variabili FIREBASE_CONFIG nel codice per attivare la sincronizzazione in tempo reale.
+    ⚠ Firebase non configurato.
   </div>
 
   <!-- TIMER -->
@@ -460,7 +444,7 @@ title: Producer Battle
     <div class="section-label">04 — Vota</div>
 
     <div class="voting-notice">
-      ⚠ Ogni giudice inserisce il suo nickname e vota. I voti sono permanenti e visibili a tutti.
+      ⚠ Ascolta entrambe le tracce, inserisci il tuo nickname e dai un voto da 1 a 10 a ciascuna. I voti sono permanenti e visibili a tutti.
     </div>
 
     <div class="judge-input-row">
@@ -468,7 +452,26 @@ title: Producer Battle
       <input class="judge-input" id="judgeNickname" type="text" placeholder="es. Marco" maxlength="20"/>
     </div>
 
-    <div class="criteria-list" id="criteriaList"></div>
+    <div class="vote-panel">
+      <div class="vote-card">
+        <div class="vote-card-label">Il tuo voto per</div>
+        <div class="vote-card-track">Traccia A</div>
+        <div class="vote-score-display a" id="scoreDisplayA">5</div>
+        <div class="vote-slider-wrap">
+          <input type="range" min="1" max="10" value="5" id="sliderA" oninput="document.getElementById('scoreDisplayA').textContent=this.value"/>
+          <div class="vote-range-labels"><span>1 — meh</span><span>10 — fuoco</span></div>
+        </div>
+      </div>
+      <div class="vote-card">
+        <div class="vote-card-label">Il tuo voto per</div>
+        <div class="vote-card-track">Traccia B</div>
+        <div class="vote-score-display b" id="scoreDisplayB">5</div>
+        <div class="vote-slider-wrap">
+          <input type="range" class="p2" min="1" max="10" value="5" id="sliderB" oninput="document.getElementById('scoreDisplayB').textContent=this.value"/>
+          <div class="vote-range-labels"><span>1 — meh</span><span>10 — fuoco</span></div>
+        </div>
+      </div>
+    </div>
 
     <button class="btn-vote-submit" id="btnSubmitVote" onclick="submitVote()">INVIA VOTO →</button>
   </section>
@@ -491,15 +494,6 @@ title: Producer Battle
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-  /* ═══════════════════════════════════════════════════════
-     🔥 FIREBASE CONFIG — COMPILA CON I TUOI DATI
-     Vai su https://console.firebase.google.com
-     1. Crea un progetto
-     2. Vai su Realtime Database → Crea database
-     3. Imposta le regole: { "rules": { ".read": true, ".write": true } }
-     4. Vai su Impostazioni progetto → App web → Registra app
-     5. Copia i valori qui sotto
-     ═══════════════════════════════════════════════════════ */
   const FIREBASE_CONFIG = {
     apiKey: "AIzaSyA-ND1zzuWtoyXMYtQzHEpDQE7q-O5y4hY",
     authDomain: "producer-battle.firebaseapp.com",
@@ -514,13 +508,9 @@ title: Producer Battle
   let firebaseReady = false;
 
   try {
-    if (FIREBASE_CONFIG.apiKey !== "LA-TUA-API-KEY") {
-      firebase.initializeApp(FIREBASE_CONFIG);
-      db = firebase.database();
-      firebaseReady = true;
-    } else {
-      document.getElementById('setupNotice').style.display = 'block';
-    }
+    firebase.initializeApp(FIREBASE_CONFIG);
+    db = firebase.database();
+    firebaseReady = true;
   } catch(e) {
     console.error('Firebase init error:', e);
     document.getElementById('setupNotice').style.display = 'block';
@@ -560,16 +550,11 @@ title: Producer Battle
     display.classList.toggle('done', done);
     btnStart.disabled = running;
     btnPause.disabled = !running;
-    if (running) {
-      hint.textContent = 'timer in corso — visibile a tutti';
-    } else if (done) {
-      hint.textContent = 'TEMPO SCADUTO!';
-    } else {
-      hint.textContent = 'premi START per cominciare';
-    }
+    if (running) hint.textContent = 'timer in corso — visibile a tutti';
+    else if (done) hint.textContent = 'TEMPO SCADUTO!';
+    else hint.textContent = 'premi START per cominciare';
   }
 
-  // Firebase timer state: { duration, startedAt, running, pausedRemaining }
   function saveTimerState(state) {
     if (!firebaseReady) return;
     db.ref('timer').set(state);
@@ -602,7 +587,6 @@ title: Producer Battle
     }, 250);
   }
 
-  // Start
   btnStart.addEventListener('click', () => {
     const mins = parseInt(minutesInput.value) || 60;
     if (firebaseReady) {
@@ -610,73 +594,38 @@ title: Producer Battle
         const curr = snap.val();
         let state;
         if (curr && !curr.running && curr.pausedRemaining > 0) {
-          // resume from pause
           const alreadyElapsed = curr.duration - curr.pausedRemaining;
-          state = {
-            duration: curr.duration,
-            startedAt: Date.now() - alreadyElapsed * 1000,
-            running: true,
-            pausedRemaining: null
-          };
+          state = { duration: curr.duration, startedAt: Date.now() - alreadyElapsed * 1000, running: true, pausedRemaining: null };
         } else {
-          // fresh start
-          state = {
-            duration: mins * 60,
-            startedAt: Date.now(),
-            running: true,
-            pausedRemaining: null
-          };
+          state = { duration: mins * 60, startedAt: Date.now(), running: true, pausedRemaining: null };
         }
         saveTimerState(state);
       });
-    } else {
-      // local-only fallback
-      localFallbackStart(mins);
-    }
+    } else { localFallbackStart(mins); }
   });
 
-  // Pause
   btnPause.addEventListener('click', () => {
     if (firebaseReady) {
       db.ref('timer').once('value', snap => {
         const curr = snap.val();
         if (!curr || !curr.running) return;
         const { remaining } = calcRemaining(curr);
-        saveTimerState({
-          duration: curr.duration,
-          startedAt: null,
-          running: false,
-          pausedRemaining: remaining
-        });
+        saveTimerState({ duration: curr.duration, startedAt: null, running: false, pausedRemaining: remaining });
       });
-    } else {
-      localFallbackPause();
-    }
+    } else { localFallbackPause(); }
   });
 
-  // Reset
   btnReset.addEventListener('click', () => {
     const mins = parseInt(minutesInput.value) || 60;
     if (firebaseReady) {
-      saveTimerState({
-        duration: mins * 60,
-        startedAt: null,
-        running: false,
-        pausedRemaining: mins * 60
-      });
-    } else {
-      localFallbackReset(mins);
-    }
+      saveTimerState({ duration: mins * 60, startedAt: null, running: false, pausedRemaining: mins * 60 });
+    } else { localFallbackReset(mins); }
   });
 
-  // Listen for real-time timer changes
   if (firebaseReady) {
     db.ref('timer').on('value', snap => {
       const state = snap.val();
-      if (!state) {
-        renderTimer(parseInt(minutesInput.value||60)*60, false, false);
-        return;
-      }
+      if (!state) { renderTimer(parseInt(minutesInput.value||60)*60, false, false); return; }
       const { remaining, running, done } = calcRemaining(state);
       renderTimer(remaining, running, done);
       if (running) startLocalTick(state);
@@ -684,104 +633,44 @@ title: Producer Battle
     });
   }
 
-  /* Local fallback (no Firebase) */
-  let localRemaining = 3600;
-  let localRunning = false;
-
+  /* Local fallback */
+  let localRemaining = 3600, localRunning = false;
   function localFallbackStart(mins) {
     if (localRunning) return;
     if (localRemaining <= 0) localRemaining = mins * 60;
-    localRunning = true;
-    renderTimer(localRemaining, true, false);
+    localRunning = true; renderTimer(localRemaining, true, false);
     clearInterval(localInterval);
     localInterval = setInterval(() => {
       localRemaining--;
-      if (localRemaining <= 0) {
-        localRemaining = 0;
-        localRunning = false;
-        clearInterval(localInterval);
-        renderTimer(0, false, true);
-      } else {
-        renderTimer(localRemaining, true, false);
-      }
+      if (localRemaining <= 0) { localRemaining = 0; localRunning = false; clearInterval(localInterval); renderTimer(0, false, true); }
+      else renderTimer(localRemaining, true, false);
     }, 1000);
   }
-  function localFallbackPause() {
-    if (!localRunning) return;
-    localRunning = false;
-    clearInterval(localInterval);
-    renderTimer(localRemaining, false, false);
-  }
-  function localFallbackReset(mins) {
-    clearInterval(localInterval);
-    localRunning = false;
-    localRemaining = mins * 60;
-    renderTimer(localRemaining, false, false);
-  }
+  function localFallbackPause() { if (!localRunning) return; localRunning = false; clearInterval(localInterval); renderTimer(localRemaining, false, false); }
+  function localFallbackReset(mins) { clearInterval(localInterval); localRunning = false; localRemaining = mins * 60; renderTimer(localRemaining, false, false); }
 
   /* ════════════════════════════════════
-     CRITERIA
-     ════════════════════════════════════ */
-  const CRITERIA = [
-    { id:'groove', name:'Groove / Feel',   desc:'Ti muove qualcosa? Ci senti energia?' },
-    { id:'orig',   name:'Originalità',     desc:'Uso creativo degli elementi, personalità.' },
-    { id:'mix',    name:'Mix',             desc:'Suona bene anche grezzo? Spazio e pulizia.' },
-    { id:'coher',  name:'Coerenza',        desc:'Il pezzo ha senso dall\'inizio alla fine.' },
-  ];
-
-  const criteriaList = document.getElementById('criteriaList');
-  CRITERIA.forEach(c => {
-    criteriaList.innerHTML += `
-    <div class="criterion-row">
-      <div class="criterion-info">
-        <div class="criterion-name">${c.name}</div>
-        <div class="criterion-desc">${c.desc}</div>
-      </div>
-      <div class="score-input-wrap">
-        <div class="score-producer">Traccia A</div>
-        <div class="score-slider-row">
-          <input type="range" min="1" max="10" value="5" id="sa_${c.id}" oninput="document.getElementById('va_${c.id}').textContent=this.value"/>
-          <span class="score-val" id="va_${c.id}">5</span>
-        </div>
-      </div>
-      <div class="score-input-wrap">
-        <div class="score-producer" style="color:var(--accent2)">Traccia B</div>
-        <div class="score-slider-row">
-          <input type="range" class="p2" min="1" max="10" value="5" id="sb_${c.id}" oninput="document.getElementById('vb_${c.id}').textContent=this.value"/>
-          <span class="score-val p2" id="vb_${c.id}">5</span>
-        </div>
-      </div>
-    </div>`;
-  });
-
-  /* ════════════════════════════════════
-     VOTING
+     VOTING — un voto per traccia
      ════════════════════════════════════ */
   function submitVote() {
     const nickname = document.getElementById('judgeNickname').value.trim();
-    if (!nickname) {
-      showToast('Inserisci il tuo nickname!', 'error');
-      return;
-    }
+    if (!nickname) { showToast('Inserisci il tuo nickname!', 'error'); return; }
 
-    const vote = { nickname, timestamp: Date.now(), a: {}, b: {} };
-    CRITERIA.forEach(c => {
-      vote.a[c.id] = parseInt(document.getElementById('sa_'+c.id).value);
-      vote.b[c.id] = parseInt(document.getElementById('sb_'+c.id).value);
-    });
+    const vote = {
+      nickname,
+      timestamp: Date.now(),
+      a: parseInt(document.getElementById('sliderA').value),
+      b: parseInt(document.getElementById('sliderB').value)
+    };
 
     if (firebaseReady) {
-      // Use nickname as key (overwrite if same judge votes again)
       const safeKey = nickname.replace(/[.#$/\[\]]/g, '_');
       db.ref('votes/' + safeKey).set(vote).then(() => {
         showToast('Voto registrato! ✓');
         document.getElementById('btnSubmitVote').disabled = true;
         setTimeout(() => document.getElementById('btnSubmitVote').disabled = false, 3000);
-      }).catch(e => {
-        showToast('Errore: ' + e.message, 'error');
-      });
+      }).catch(e => { showToast('Errore: ' + e.message, 'error'); });
     } else {
-      // Local-only fallback
       if (!window._localVotes) window._localVotes = {};
       window._localVotes[nickname] = vote;
       renderScoreboard(window._localVotes);
@@ -799,137 +688,60 @@ title: Producer Battle
       return;
     }
 
-    const votes = Object.values(votesObj);
-    const numJudges = votes.length;
+    const votes = Object.values(votesObj).sort((a,b) => (a.timestamp||0) - (b.timestamp||0));
+    const n = votes.length;
 
-    // Totals per criterion
-    const critTotals = {};
-    CRITERIA.forEach(c => { critTotals[c.id] = { a: 0, b: 0 }; });
+    let totalA = 0, totalB = 0;
+    votes.forEach(v => { totalA += v.a; totalB += v.b; });
 
-    let grandA = 0, grandB = 0;
+    const avgA = (totalA / n).toFixed(1);
+    const avgB = (totalB / n).toFixed(1);
+
+    let tagA = '', tagB = '';
+    if (totalA > totalB) { tagA = '<div class="winner-tag">WINNER</div>'; }
+    else if (totalB > totalA) { tagB = '<div class="winner-tag" style="background:var(--accent2)">WINNER</div>'; }
+    else { tagA = '<div class="tie-tag">PAREGGIO</div>'; tagB = '<div class="tie-tag">PAREGGIO</div>'; }
+
+    let judgeRows = '';
     votes.forEach(v => {
-      CRITERIA.forEach(c => {
-        const sa = (v.a && v.a[c.id]) || 5;
-        const sb = (v.b && v.b[c.id]) || 5;
-        critTotals[c.id].a += sa;
-        critTotals[c.id].b += sb;
-        grandA += sa;
-        grandB += sb;
-      });
-    });
-
-    const maxPossible = numJudges * CRITERIA.length * 10;
-    const avgA = (grandA / numJudges).toFixed(1);
-    const avgB = (grandB / numJudges).toFixed(1);
-
-    let winnerHTML = '';
-    if (grandA > grandB) {
-      winnerHTML = `<div class="winner-tag">IN TESTA</div>`;
-    } else if (grandB > grandA) {
-      winnerHTML = '';
-    } else {
-      winnerHTML = `<div class="tie-tag">PAREGGIO</div>`;
-    }
-    let winnerHTML_B = '';
-    if (grandB > grandA) {
-      winnerHTML_B = `<div class="winner-tag" style="background:var(--accent2)">IN TESTA</div>`;
-    } else if (grandA === grandB) {
-      winnerHTML_B = `<div class="tie-tag">PAREGGIO</div>`;
-    }
-
-    // Bar chart data
-    let barsHTML = '';
-    CRITERIA.forEach(c => {
-      const ta = critTotals[c.id].a;
-      const tb = critTotals[c.id].b;
-      const maxBar = numJudges * 10;
-      const pctA = (ta / maxBar * 100).toFixed(0);
-      const pctB = (tb / maxBar * 100).toFixed(0);
-      barsHTML += `
-        <div class="bar-row">
-          <div class="bar-label">${c.name}</div>
-          <div class="bar-track">
-            <div class="bar-fill a" style="width:${pctA}%"></div>
+      judgeRows += `
+        <div class="judge-row">
+          <div class="judge-row-name">${v.nickname || '?'}</div>
+          <div class="judge-score-cell">
+            <div class="judge-row-label">Traccia A</div>
+            <div class="judge-row-score a">${v.a}</div>
           </div>
-          <div class="bar-track">
-            <div class="bar-fill b" style="width:${pctB}%"></div>
-          </div>
-          <div class="bar-value">
-            <span class="bar-va">${ta}</span> / <span class="bar-vb">${tb}</span>
+          <div class="judge-score-cell">
+            <div class="judge-row-label">Traccia B</div>
+            <div class="judge-row-score b">${v.b}</div>
           </div>
         </div>`;
     });
 
-    // Judges table
-    let judgeRows = '';
-    votes.sort((a,b) => (a.timestamp||0) - (b.timestamp||0));
-    votes.forEach(v => {
-      let rowA = 0, rowB = 0;
-      CRITERIA.forEach(c => { rowA += (v.a&&v.a[c.id])||5; rowB += (v.b&&v.b[c.id])||5; });
-      let cellsA = '', cellsB = '';
-      CRITERIA.forEach(c => {
-        cellsA += `<td class="score-a">${(v.a&&v.a[c.id])||'—'}</td>`;
-        cellsB += `<td class="score-b">${(v.b&&v.b[c.id])||'—'}</td>`;
-      });
-      judgeRows += `
-        <tr>
-          <td class="mono">${v.nickname||'?'}</td>
-          ${cellsA}
-          <td class="score-a" style="font-size:16px;font-weight:bold">${rowA}</td>
-          ${cellsB}
-          <td class="score-b" style="font-size:16px;font-weight:bold">${rowB}</td>
-        </tr>`;
-    });
-
-    let thCritA = '', thCritB = '';
-    CRITERIA.forEach(c => {
-      thCritA += `<th style="color:var(--accent)">${c.name.split('/')[0].trim().substring(0,6)}</th>`;
-      thCritB += `<th style="color:var(--accent2)">${c.name.split('/')[0].trim().substring(0,6)}</th>`;
-    });
-
     container.innerHTML = `
       <div class="scoreboard-summary">
-        <div class="summary-card ${grandA >= grandB ? 'winner' : ''}">
+        <div class="summary-card ${totalA >= totalB ? 'winner' : ''}">
           <div class="summary-card-label">Traccia A</div>
-          <div class="summary-card-score a">${grandA}</div>
-          <div class="summary-card-avg">media ${avgA} / ${CRITERIA.length * 10} — ${numJudges} giudic${numJudges===1?'e':'i'}</div>
-          ${winnerHTML}
+          <div class="summary-card-score a">${totalA}</div>
+          <div class="summary-card-avg">media ${avgA} / 10 — ${n} vot${n===1?'o':'i'}</div>
+          ${tagA}
         </div>
-        <div class="summary-card ${grandB >= grandA ? 'winner' : ''}">
+        <div class="summary-card ${totalB >= totalA ? 'winner' : ''}">
           <div class="summary-card-label">Traccia B</div>
-          <div class="summary-card-score b">${grandB}</div>
-          <div class="summary-card-avg">media ${avgB} / ${CRITERIA.length * 10} — ${numJudges} giudic${numJudges===1?'e':'i'}</div>
-          ${winnerHTML_B}
+          <div class="summary-card-score b">${totalB}</div>
+          <div class="summary-card-avg">media ${avgB} / 10 — ${n} vot${n===1?'o':'i'}</div>
+          ${tagB}
         </div>
       </div>
 
-      <div class="bar-chart-section">
-        <div class="bar-chart-title">Confronto per criterio (A verde / B arancio)</div>
-        ${barsHTML}
-      </div>
-
-      <div class="judges-table-wrap">
-        <table class="judges-table">
-          <thead>
-            <tr>
-              <th>Giudice</th>
-              ${thCritA}
-              <th style="color:var(--accent)">Tot A</th>
-              ${thCritB}
-              <th style="color:var(--accent2)">Tot B</th>
-            </tr>
-          </thead>
-          <tbody>${judgeRows}</tbody>
-        </table>
+      <div class="judges-list">
+        ${judgeRows}
       </div>
     `;
   }
 
-  // Listen for real-time vote changes
   if (firebaseReady) {
-    db.ref('votes').on('value', snap => {
-      renderScoreboard(snap.val());
-    });
+    db.ref('votes').on('value', snap => { renderScoreboard(snap.val()); });
   }
 </script>
 </body>
