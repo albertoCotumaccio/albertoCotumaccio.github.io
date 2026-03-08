@@ -1,0 +1,936 @@
+---
+layout: none
+title: Producer Battle
+---
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Producer Battle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #161619;
+      --surface: #1c1c20;
+      --surface2: #222228;
+      --border: #2a2a32;
+      --accent: #c8ff00;
+      --accent2: #ff4d00;
+      --text: #e8e8e8;
+      --muted: #666;
+      --mono: 'Share Tech Mono', monospace;
+      --display: 'Bebas Neue', sans-serif;
+      --body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.3;
+    }
+
+    .page { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* ── HEADER ── */
+    header {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 56px;
+    }
+    .badge {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 3px;
+      color: var(--accent); text-transform: uppercase;
+      border: 1px solid var(--accent);
+      padding: 4px 14px; margin-bottom: 20px; display: inline-block;
+    }
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(64px, 12vw, 120px);
+      line-height: 0.9; letter-spacing: 2px; color: #fff;
+    }
+    h1 span { color: var(--accent); }
+    .subtitle {
+      font-family: var(--mono); font-size: 13px;
+      color: var(--muted); margin-top: 16px; letter-spacing: 1px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-label {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── FIREBASE SETUP NOTICE ── */
+    .setup-notice {
+      background: rgba(200,255,0,0.06);
+      border: 1px solid rgba(200,255,0,0.2);
+      padding: 16px 20px; margin-bottom: 40px;
+      font-family: var(--mono); font-size: 12px; color: var(--accent);
+      line-height: 1.6; display: none;
+    }
+
+    /* ── TIMER ── */
+    .timer-section { margin-bottom: 60px; }
+
+    .timer-input-row {
+      display: flex; gap: 8px; margin-bottom: 20px; align-items: center; flex-wrap: wrap;
+    }
+    .timer-input-row label {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+      color: var(--muted); text-transform: uppercase;
+    }
+    .minutes-input {
+      font-family: var(--mono); font-size: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--accent); padding: 8px 14px; width: 80px;
+      outline: none; text-align: center;
+      transition: border-color .2s;
+    }
+    .minutes-input:focus { border-color: var(--accent); }
+    .minutes-input::placeholder { color: var(--border); }
+
+    .timer-display {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 40px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .timer-display::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); opacity: 0; transition: opacity .3s;
+    }
+    .timer-display.running::before { opacity: 1; animation: scanline 2s linear infinite; }
+    @keyframes scanline {
+      0% { top: 0; opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    #timer-digits {
+      font-family: var(--mono);
+      font-size: clamp(72px, 18vw, 140px);
+      line-height: 1; color: var(--accent);
+      letter-spacing: -2px; user-select: none;
+    }
+    .timer-display.done #timer-digits { color: var(--accent2); animation: blink .6s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0.3; } }
+
+    .timer-hint {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+      color: var(--muted); margin-top: 12px;
+    }
+    .timer-display.running .timer-hint { color: var(--accent); opacity: 0.6; }
+
+    .timer-controls {
+      display: flex; gap: 8px; margin-top: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn {
+      font-family: var(--mono); font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 28px; cursor: pointer; border: 1px solid;
+      transition: all .15s; background: none;
+    }
+    .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-primary { border-color: var(--accent); color: var(--accent); }
+    .btn-primary:hover:not(:disabled) { background: var(--accent); color: #000; }
+    .btn-secondary { border-color: var(--border); color: var(--muted); }
+    .btn-secondary:hover:not(:disabled) { border-color: var(--text); color: var(--text); }
+    .btn-danger { border-color: var(--accent2); color: var(--accent2); }
+    .btn-danger:hover:not(:disabled) { background: var(--accent2); color: #000; }
+
+    /* ── RULES ── */
+    .rules-section { margin-bottom: 60px; }
+    .rules-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .rule-card { background: var(--surface); padding: 24px; }
+    .rule-icon { font-size: 22px; margin-bottom: 10px; }
+    .rule-title {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+    }
+    .rule-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ── TRACKS ── */
+    .tracks-section { margin-bottom: 60px; }
+    .tracks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    @media (max-width: 600px) { .tracks-grid { grid-template-columns: 1fr; } }
+
+    .track-card {
+      background: var(--surface); padding: 28px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .track-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .track-title {
+      font-family: var(--display); font-size: 36px; letter-spacing: 2px; color: #fff;
+    }
+    .track-anon {
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      opacity: 0.6; letter-spacing: 1px;
+    }
+    audio {
+      width: 100%; margin-top: 4px;
+      filter: invert(1) hue-rotate(180deg); opacity: 0.8;
+    }
+
+    /* ── VOTING ── */
+    .voting-section { margin-bottom: 60px; }
+
+    .voting-notice {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+      color: var(--muted); border-left: 2px solid var(--accent2);
+      padding: 12px 16px; background: rgba(255,77,0,0.05);
+      margin-bottom: 28px;
+    }
+
+    .judge-input-row {
+      display: flex; gap: 12px; margin-bottom: 24px; align-items: center; flex-wrap: wrap;
+    }
+    .judge-input {
+      font-family: var(--mono); font-size: 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); padding: 10px 16px; width: 220px;
+      outline: none; transition: border-color .2s;
+    }
+    .judge-input:focus { border-color: var(--accent); }
+    .judge-input::placeholder { color: var(--border); }
+
+    .criteria-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+
+    .criterion-row {
+      background: var(--surface); padding: 20px 24px;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      align-items: center; gap: 16px;
+    }
+    @media (max-width: 640px) { .criterion-row { grid-template-columns: 1fr; } }
+
+    .criterion-name {
+      font-family: var(--mono); font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text); margin-bottom: 4px;
+    }
+    .criterion-desc { font-size: 12px; color: var(--muted); }
+
+    .score-input-wrap { display: flex; flex-direction: column; gap: 6px; }
+    .score-producer { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+
+    .score-slider-row { display: flex; align-items: center; gap: 10px; }
+    input[type=range] {
+      flex: 1; -webkit-appearance: none; appearance: none;
+      height: 2px; background: var(--border); outline: none; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 14px; height: 14px;
+      background: var(--accent); border-radius: 0; cursor: pointer;
+    }
+    input[type=range].p2::-webkit-slider-thumb { background: var(--accent2); }
+    .score-val {
+      font-family: var(--mono); font-size: 20px; font-weight: bold;
+      color: var(--accent); min-width: 28px; text-align: right;
+    }
+    .score-val.p2 { color: var(--accent2); }
+
+    .btn-vote-submit {
+      width: 100%; padding: 16px;
+      font-family: var(--display); font-size: 22px; letter-spacing: 3px;
+      background: var(--accent); color: #000; border: none;
+      cursor: pointer; transition: all .2s; margin-top: 24px;
+    }
+    .btn-vote-submit:hover { opacity: 0.85; }
+    .btn-vote-submit:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* ── SCOREBOARD ── */
+    .scoreboard-section { margin-bottom: 60px; }
+
+    .scoreboard-empty {
+      font-family: var(--mono); font-size: 12px; color: var(--muted);
+      text-align: center; padding: 40px; border: 1px dashed var(--border);
+    }
+
+    .scoreboard-summary {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .summary-card {
+      background: var(--surface); padding: 32px; text-align: center;
+      position: relative; transition: all .3s;
+    }
+    .summary-card.winner { background: var(--surface2); }
+    .summary-card-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+    }
+    .summary-card-title {
+      font-family: var(--display); font-size: 32px; letter-spacing: 2px; color: #fff; margin-bottom: 4px;
+    }
+    .summary-card-score {
+      font-family: var(--mono); font-size: 56px; line-height: 1;
+    }
+    .summary-card-score.a { color: var(--accent); }
+    .summary-card-score.b { color: var(--accent2); }
+    .summary-card-avg {
+      font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 8px;
+    }
+    .winner-tag {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+      color: #000; background: var(--accent);
+      padding: 4px 12px; display: inline-block; margin-top: 12px;
+    }
+    .tie-tag {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+      color: #000; background: #fff;
+      padding: 4px 12px; display: inline-block; margin-top: 12px;
+    }
+
+    .bar-chart-section { margin-bottom: 24px; }
+    .bar-chart-title {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+    }
+    .bar-row {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
+    }
+    .bar-label {
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      min-width: 100px; text-align: right;
+    }
+    .bar-track { flex: 1; height: 24px; background: var(--surface); position: relative; display: flex; }
+    .bar-fill {
+      height: 100%; transition: width .6s ease-out;
+    }
+    .bar-fill.a { background: var(--accent); }
+    .bar-fill.b { background: var(--accent2); }
+    .bar-value {
+      font-family: var(--mono); font-size: 11px; min-width: 60px;
+      display: flex; gap: 4px;
+    }
+    .bar-va { color: var(--accent); }
+    .bar-vb { color: var(--accent2); }
+
+    /* ── JUDGES TABLE ── */
+    .judges-table-wrap {
+      border: 1px solid var(--border); overflow-x: auto;
+    }
+    .judges-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+    .judges-table th {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--muted);
+      text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+    }
+    .judges-table td {
+      padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .judges-table td.mono { font-family: var(--mono); }
+    .judges-table .score-a { color: var(--accent); font-family: var(--mono); font-size: 15px; }
+    .judges-table .score-b { color: var(--accent2); font-family: var(--mono); font-size: 15px; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border); padding-top: 32px;
+      text-align: center;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 1px; color: var(--border);
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+      font-family: var(--mono); font-size: 12px; letter-spacing: 1px;
+      padding: 12px 24px; z-index: 999;
+      opacity: 0; transition: opacity .3s; pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+    .toast.success { background: var(--accent); color: #000; }
+    .toast.error { background: var(--accent2); color: #000; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="badge">🎛 Live Producer Challenge</div>
+    <h1>PRODUCER<br/><span>BATTLE</span></h1>
+    <p class="subtitle">// 1vs1 // tracce anonime // giuria esterna //</p>
+  </header>
+
+  <!-- FIREBASE SETUP NOTICE -->
+  <div class="setup-notice" id="setupNotice">
+    ⚠ Firebase non configurato. Modifica le variabili FIREBASE_CONFIG nel codice per attivare la sincronizzazione in tempo reale.
+  </div>
+
+  <!-- TIMER -->
+  <section class="timer-section">
+    <div class="section-label">01 — Timer</div>
+
+    <div class="timer-input-row">
+      <label for="minutesInput">Durata:</label>
+      <input class="minutes-input" id="minutesInput" type="number" min="1" max="999" value="60" placeholder="60"/>
+      <label>minuti</label>
+    </div>
+
+    <div class="timer-display" id="timerDisplay">
+      <div id="timer-digits">60:00</div>
+      <div class="timer-hint" id="timerHint">premi START per cominciare — visibile a tutti in tempo reale</div>
+    </div>
+
+    <div class="timer-controls">
+      <button class="btn btn-primary" id="btnStart">▶ Start</button>
+      <button class="btn btn-secondary" id="btnPause" disabled>⏸ Pausa</button>
+      <button class="btn btn-danger" id="btnReset">↺ Reset</button>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="rules-section">
+    <div class="section-label">02 — Regole</div>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-icon">🎚</div>
+        <div class="rule-title">Genere libero</div>
+        <div class="rule-desc">Ognuno lavora nel suo genere forte. Nessun vincolo di stile.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🎵</div>
+        <div class="rule-title">BPM libero</div>
+        <div class="rule-desc">Scegli il tuo tempo. Il confronto è sulla creatività, non sulla compatibilità.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🔑</div>
+        <div class="rule-title">Tonalità libera</div>
+        <div class="rule-desc">Nessuna key imposta. Produci come vuoi, con i tuoi suoni.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-icon">🎧</div>
+        <div class="rule-title">Ascolto anonimo</div>
+        <div class="rule-desc">Le tracce sono anonime: i giudici non sanno chi ha prodotto cosa.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACKS -->
+  <section class="tracks-section">
+    <div class="section-label">03 — Tracce anonime</div>
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-label">Traccia</div>
+        <div class="track-title">A</div>
+        <div class="track-anon">// identità nascosta</div>
+        <audio controls preload="metadata">
+          <source src="/songs/1.mp3" type="audio/mpeg"/>
+          Il browser non supporta l'audio.
+        </audio>
+      </div>
+      <div class="track-card">
+        <div class="track-label">Traccia</div>
+        <div class="track-title">B</div>
+        <div class="track-anon">// identità nascosta</div>
+        <audio controls preload="metadata">
+          <source src="/songs/2.mp3" type="audio/mpeg"/>
+          Il browser non supporta l'audio.
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOTING -->
+  <section class="voting-section">
+    <div class="section-label">04 — Vota</div>
+
+    <div class="voting-notice">
+      ⚠ Ogni giudice inserisce il suo nickname e vota. I voti sono permanenti e visibili a tutti.
+    </div>
+
+    <div class="judge-input-row">
+      <label style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--muted)">Il tuo nickname:</label>
+      <input class="judge-input" id="judgeNickname" type="text" placeholder="es. Marco" maxlength="20"/>
+    </div>
+
+    <div class="criteria-list" id="criteriaList"></div>
+
+    <button class="btn-vote-submit" id="btnSubmitVote" onclick="submitVote()">INVIA VOTO →</button>
+  </section>
+
+  <!-- SCOREBOARD -->
+  <section class="scoreboard-section">
+    <div class="section-label">05 — Scoreboard</div>
+    <div id="scoreboardContent">
+      <div class="scoreboard-empty">Nessun voto ancora. I risultati appariranno qui in tempo reale.</div>
+    </div>
+  </section>
+
+  <footer>PRODUCER BATTLE — buona fortuna a entrambi</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script>
+  /* ═══════════════════════════════════════════════════════
+     🔥 FIREBASE CONFIG — COMPILA CON I TUOI DATI
+     Vai su https://console.firebase.google.com
+     1. Crea un progetto
+     2. Vai su Realtime Database → Crea database
+     3. Imposta le regole: { "rules": { ".read": true, ".write": true } }
+     4. Vai su Impostazioni progetto → App web → Registra app
+     5. Copia i valori qui sotto
+     ═══════════════════════════════════════════════════════ */
+  const FIREBASE_CONFIG = {
+    apiKey: "AIzaSyA-ND1zzuWtoyXMYtQzHEpDQE7q-O5y4hY",
+    authDomain: "producer-battle.firebaseapp.com",
+    databaseURL: "https://producer-battle-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "producer-battle",
+    storageBucket: "producer-battle.firebasestorage.app",
+    messagingSenderId: "79535502929",
+    appId: "1:79535502929:web:6483d3a996f6b3a4efaa70"
+  };
+
+  let db = null;
+  let firebaseReady = false;
+
+  try {
+    if (FIREBASE_CONFIG.apiKey !== "LA-TUA-API-KEY") {
+      firebase.initializeApp(FIREBASE_CONFIG);
+      db = firebase.database();
+      firebaseReady = true;
+    } else {
+      document.getElementById('setupNotice').style.display = 'block';
+    }
+  } catch(e) {
+    console.error('Firebase init error:', e);
+    document.getElementById('setupNotice').style.display = 'block';
+  }
+
+  /* ────────────── TOAST ────────────── */
+  function showToast(msg, type='success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast ' + type + ' show';
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  /* ════════════════════════════════════
+     TIMER — sincronizzato via Firebase
+     ════════════════════════════════════ */
+  const display = document.getElementById('timerDisplay');
+  const digits  = document.getElementById('timer-digits');
+  const hint    = document.getElementById('timerHint');
+  const btnStart = document.getElementById('btnStart');
+  const btnPause = document.getElementById('btnPause');
+  const btnReset = document.getElementById('btnReset');
+  const minutesInput = document.getElementById('minutesInput');
+
+  let localInterval = null;
+
+  function fmt(s) {
+    if (s < 0) s = 0;
+    const m = Math.floor(s / 60).toString().padStart(2,'0');
+    const sec = (s % 60).toString().padStart(2,'0');
+    return m + ':' + sec;
+  }
+
+  function renderTimer(remaining, running, done) {
+    digits.textContent = fmt(remaining);
+    display.classList.toggle('running', running && !done);
+    display.classList.toggle('done', done);
+    btnStart.disabled = running;
+    btnPause.disabled = !running;
+    if (running) {
+      hint.textContent = 'timer in corso — visibile a tutti';
+    } else if (done) {
+      hint.textContent = 'TEMPO SCADUTO!';
+    } else {
+      hint.textContent = 'premi START per cominciare';
+    }
+  }
+
+  // Firebase timer state: { duration, startedAt, running, pausedRemaining }
+  function saveTimerState(state) {
+    if (!firebaseReady) return;
+    db.ref('timer').set(state);
+  }
+
+  function calcRemaining(state) {
+    if (!state) return { remaining: parseInt(minutesInput.value||60)*60, running: false, done: false };
+    if (state.running && state.startedAt) {
+      const elapsed = Math.floor((Date.now() - state.startedAt) / 1000);
+      const rem = Math.max(0, state.duration - elapsed);
+      return { remaining: rem, running: rem > 0, done: rem <= 0 };
+    }
+    const rem = state.pausedRemaining != null ? state.pausedRemaining : state.duration;
+    return { remaining: rem, running: false, done: rem <= 0 };
+  }
+
+  function startLocalTick(state) {
+    clearInterval(localInterval);
+    localInterval = setInterval(() => {
+      const { remaining, running, done } = calcRemaining(state);
+      renderTimer(remaining, running, done);
+      if (done) {
+        clearInterval(localInterval);
+        if (state.running) {
+          state.running = false;
+          state.pausedRemaining = 0;
+          saveTimerState(state);
+        }
+      }
+    }, 250);
+  }
+
+  // Start
+  btnStart.addEventListener('click', () => {
+    const mins = parseInt(minutesInput.value) || 60;
+    if (firebaseReady) {
+      db.ref('timer').once('value', snap => {
+        const curr = snap.val();
+        let state;
+        if (curr && !curr.running && curr.pausedRemaining > 0) {
+          // resume from pause
+          const alreadyElapsed = curr.duration - curr.pausedRemaining;
+          state = {
+            duration: curr.duration,
+            startedAt: Date.now() - alreadyElapsed * 1000,
+            running: true,
+            pausedRemaining: null
+          };
+        } else {
+          // fresh start
+          state = {
+            duration: mins * 60,
+            startedAt: Date.now(),
+            running: true,
+            pausedRemaining: null
+          };
+        }
+        saveTimerState(state);
+      });
+    } else {
+      // local-only fallback
+      localFallbackStart(mins);
+    }
+  });
+
+  // Pause
+  btnPause.addEventListener('click', () => {
+    if (firebaseReady) {
+      db.ref('timer').once('value', snap => {
+        const curr = snap.val();
+        if (!curr || !curr.running) return;
+        const { remaining } = calcRemaining(curr);
+        saveTimerState({
+          duration: curr.duration,
+          startedAt: null,
+          running: false,
+          pausedRemaining: remaining
+        });
+      });
+    } else {
+      localFallbackPause();
+    }
+  });
+
+  // Reset
+  btnReset.addEventListener('click', () => {
+    const mins = parseInt(minutesInput.value) || 60;
+    if (firebaseReady) {
+      saveTimerState({
+        duration: mins * 60,
+        startedAt: null,
+        running: false,
+        pausedRemaining: mins * 60
+      });
+    } else {
+      localFallbackReset(mins);
+    }
+  });
+
+  // Listen for real-time timer changes
+  if (firebaseReady) {
+    db.ref('timer').on('value', snap => {
+      const state = snap.val();
+      if (!state) {
+        renderTimer(parseInt(minutesInput.value||60)*60, false, false);
+        return;
+      }
+      const { remaining, running, done } = calcRemaining(state);
+      renderTimer(remaining, running, done);
+      if (running) startLocalTick(state);
+      else clearInterval(localInterval);
+    });
+  }
+
+  /* Local fallback (no Firebase) */
+  let localRemaining = 3600;
+  let localRunning = false;
+
+  function localFallbackStart(mins) {
+    if (localRunning) return;
+    if (localRemaining <= 0) localRemaining = mins * 60;
+    localRunning = true;
+    renderTimer(localRemaining, true, false);
+    clearInterval(localInterval);
+    localInterval = setInterval(() => {
+      localRemaining--;
+      if (localRemaining <= 0) {
+        localRemaining = 0;
+        localRunning = false;
+        clearInterval(localInterval);
+        renderTimer(0, false, true);
+      } else {
+        renderTimer(localRemaining, true, false);
+      }
+    }, 1000);
+  }
+  function localFallbackPause() {
+    if (!localRunning) return;
+    localRunning = false;
+    clearInterval(localInterval);
+    renderTimer(localRemaining, false, false);
+  }
+  function localFallbackReset(mins) {
+    clearInterval(localInterval);
+    localRunning = false;
+    localRemaining = mins * 60;
+    renderTimer(localRemaining, false, false);
+  }
+
+  /* ════════════════════════════════════
+     CRITERIA
+     ════════════════════════════════════ */
+  const CRITERIA = [
+    { id:'groove', name:'Groove / Feel',   desc:'Ti muove qualcosa? Ci senti energia?' },
+    { id:'orig',   name:'Originalità',     desc:'Uso creativo degli elementi, personalità.' },
+    { id:'mix',    name:'Mix',             desc:'Suona bene anche grezzo? Spazio e pulizia.' },
+    { id:'coher',  name:'Coerenza',        desc:'Il pezzo ha senso dall\'inizio alla fine.' },
+  ];
+
+  const criteriaList = document.getElementById('criteriaList');
+  CRITERIA.forEach(c => {
+    criteriaList.innerHTML += `
+    <div class="criterion-row">
+      <div class="criterion-info">
+        <div class="criterion-name">${c.name}</div>
+        <div class="criterion-desc">${c.desc}</div>
+      </div>
+      <div class="score-input-wrap">
+        <div class="score-producer">Traccia A</div>
+        <div class="score-slider-row">
+          <input type="range" min="1" max="10" value="5" id="sa_${c.id}" oninput="document.getElementById('va_${c.id}').textContent=this.value"/>
+          <span class="score-val" id="va_${c.id}">5</span>
+        </div>
+      </div>
+      <div class="score-input-wrap">
+        <div class="score-producer" style="color:var(--accent2)">Traccia B</div>
+        <div class="score-slider-row">
+          <input type="range" class="p2" min="1" max="10" value="5" id="sb_${c.id}" oninput="document.getElementById('vb_${c.id}').textContent=this.value"/>
+          <span class="score-val p2" id="vb_${c.id}">5</span>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  /* ════════════════════════════════════
+     VOTING
+     ════════════════════════════════════ */
+  function submitVote() {
+    const nickname = document.getElementById('judgeNickname').value.trim();
+    if (!nickname) {
+      showToast('Inserisci il tuo nickname!', 'error');
+      return;
+    }
+
+    const vote = { nickname, timestamp: Date.now(), a: {}, b: {} };
+    CRITERIA.forEach(c => {
+      vote.a[c.id] = parseInt(document.getElementById('sa_'+c.id).value);
+      vote.b[c.id] = parseInt(document.getElementById('sb_'+c.id).value);
+    });
+
+    if (firebaseReady) {
+      // Use nickname as key (overwrite if same judge votes again)
+      const safeKey = nickname.replace(/[.#$/\[\]]/g, '_');
+      db.ref('votes/' + safeKey).set(vote).then(() => {
+        showToast('Voto registrato! ✓');
+        document.getElementById('btnSubmitVote').disabled = true;
+        setTimeout(() => document.getElementById('btnSubmitVote').disabled = false, 3000);
+      }).catch(e => {
+        showToast('Errore: ' + e.message, 'error');
+      });
+    } else {
+      // Local-only fallback
+      if (!window._localVotes) window._localVotes = {};
+      window._localVotes[nickname] = vote;
+      renderScoreboard(window._localVotes);
+      showToast('Voto registrato (locale)');
+    }
+  }
+
+  /* ════════════════════════════════════
+     SCOREBOARD
+     ════════════════════════════════════ */
+  function renderScoreboard(votesObj) {
+    const container = document.getElementById('scoreboardContent');
+    if (!votesObj || Object.keys(votesObj).length === 0) {
+      container.innerHTML = '<div class="scoreboard-empty">Nessun voto ancora. I risultati appariranno qui in tempo reale.</div>';
+      return;
+    }
+
+    const votes = Object.values(votesObj);
+    const numJudges = votes.length;
+
+    // Totals per criterion
+    const critTotals = {};
+    CRITERIA.forEach(c => { critTotals[c.id] = { a: 0, b: 0 }; });
+
+    let grandA = 0, grandB = 0;
+    votes.forEach(v => {
+      CRITERIA.forEach(c => {
+        const sa = (v.a && v.a[c.id]) || 5;
+        const sb = (v.b && v.b[c.id]) || 5;
+        critTotals[c.id].a += sa;
+        critTotals[c.id].b += sb;
+        grandA += sa;
+        grandB += sb;
+      });
+    });
+
+    const maxPossible = numJudges * CRITERIA.length * 10;
+    const avgA = (grandA / numJudges).toFixed(1);
+    const avgB = (grandB / numJudges).toFixed(1);
+
+    let winnerHTML = '';
+    if (grandA > grandB) {
+      winnerHTML = `<div class="winner-tag">IN TESTA</div>`;
+    } else if (grandB > grandA) {
+      winnerHTML = '';
+    } else {
+      winnerHTML = `<div class="tie-tag">PAREGGIO</div>`;
+    }
+    let winnerHTML_B = '';
+    if (grandB > grandA) {
+      winnerHTML_B = `<div class="winner-tag" style="background:var(--accent2)">IN TESTA</div>`;
+    } else if (grandA === grandB) {
+      winnerHTML_B = `<div class="tie-tag">PAREGGIO</div>`;
+    }
+
+    // Bar chart data
+    let barsHTML = '';
+    CRITERIA.forEach(c => {
+      const ta = critTotals[c.id].a;
+      const tb = critTotals[c.id].b;
+      const maxBar = numJudges * 10;
+      const pctA = (ta / maxBar * 100).toFixed(0);
+      const pctB = (tb / maxBar * 100).toFixed(0);
+      barsHTML += `
+        <div class="bar-row">
+          <div class="bar-label">${c.name}</div>
+          <div class="bar-track">
+            <div class="bar-fill a" style="width:${pctA}%"></div>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill b" style="width:${pctB}%"></div>
+          </div>
+          <div class="bar-value">
+            <span class="bar-va">${ta}</span> / <span class="bar-vb">${tb}</span>
+          </div>
+        </div>`;
+    });
+
+    // Judges table
+    let judgeRows = '';
+    votes.sort((a,b) => (a.timestamp||0) - (b.timestamp||0));
+    votes.forEach(v => {
+      let rowA = 0, rowB = 0;
+      CRITERIA.forEach(c => { rowA += (v.a&&v.a[c.id])||5; rowB += (v.b&&v.b[c.id])||5; });
+      let cellsA = '', cellsB = '';
+      CRITERIA.forEach(c => {
+        cellsA += `<td class="score-a">${(v.a&&v.a[c.id])||'—'}</td>`;
+        cellsB += `<td class="score-b">${(v.b&&v.b[c.id])||'—'}</td>`;
+      });
+      judgeRows += `
+        <tr>
+          <td class="mono">${v.nickname||'?'}</td>
+          ${cellsA}
+          <td class="score-a" style="font-size:16px;font-weight:bold">${rowA}</td>
+          ${cellsB}
+          <td class="score-b" style="font-size:16px;font-weight:bold">${rowB}</td>
+        </tr>`;
+    });
+
+    let thCritA = '', thCritB = '';
+    CRITERIA.forEach(c => {
+      thCritA += `<th style="color:var(--accent)">${c.name.split('/')[0].trim().substring(0,6)}</th>`;
+      thCritB += `<th style="color:var(--accent2)">${c.name.split('/')[0].trim().substring(0,6)}</th>`;
+    });
+
+    container.innerHTML = `
+      <div class="scoreboard-summary">
+        <div class="summary-card ${grandA >= grandB ? 'winner' : ''}">
+          <div class="summary-card-label">Traccia A</div>
+          <div class="summary-card-score a">${grandA}</div>
+          <div class="summary-card-avg">media ${avgA} / ${CRITERIA.length * 10} — ${numJudges} giudic${numJudges===1?'e':'i'}</div>
+          ${winnerHTML}
+        </div>
+        <div class="summary-card ${grandB >= grandA ? 'winner' : ''}">
+          <div class="summary-card-label">Traccia B</div>
+          <div class="summary-card-score b">${grandB}</div>
+          <div class="summary-card-avg">media ${avgB} / ${CRITERIA.length * 10} — ${numJudges} giudic${numJudges===1?'e':'i'}</div>
+          ${winnerHTML_B}
+        </div>
+      </div>
+
+      <div class="bar-chart-section">
+        <div class="bar-chart-title">Confronto per criterio (A verde / B arancio)</div>
+        ${barsHTML}
+      </div>
+
+      <div class="judges-table-wrap">
+        <table class="judges-table">
+          <thead>
+            <tr>
+              <th>Giudice</th>
+              ${thCritA}
+              <th style="color:var(--accent)">Tot A</th>
+              ${thCritB}
+              <th style="color:var(--accent2)">Tot B</th>
+            </tr>
+          </thead>
+          <tbody>${judgeRows}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  // Listen for real-time vote changes
+  if (firebaseReady) {
+    db.ref('votes').on('value', snap => {
+      renderScoreboard(snap.val());
+    });
+  }
+</script>
+</body>
+</html>
